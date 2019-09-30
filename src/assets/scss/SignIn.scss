@@ -1,0 +1,62 @@
+div {
+  
+  .sign-in-set {
+
+    .inp-set {
+      color: #ffffff;
+      padding-top : 120px;
+      h1 {
+        font-size: 28px;
+        font-weight: bold;
+        text-align: center;
+      }
+      form {
+        margin : 10px 0px 10px 20px;
+        align-content: center;
+        input {
+          width: 90%;
+          padding: 10px;
+          color: #ffffff;
+          background-color: #000000;
+          outline: none;
+          border-bottom: solid 2px #ffffff;
+          &::placeholder{
+            color: #999999;
+          }
+        }
+
+        button {
+          border: 1px solid #ffffff;
+          padding: 5px;
+          border-radius: 5px;
+          font-size: 14px;
+          margin-top: 10px;
+          position: relative;
+        }
+      }
+
+      p{
+        font-size: 12px;
+        text-align: center;
+      }
+    }
+  }
+
+  .img-set {
+    margin-top: 50px;
+    margin-bottom: 0;
+    bottom: 0;
+      .text-login {
+          padding: 20px;
+        h1 {
+          font-size : 24px;
+          font-weight: bold;
+        }
+
+        p{
+          font-size: 18px;
+        }
+      }
+    }
+  
+}

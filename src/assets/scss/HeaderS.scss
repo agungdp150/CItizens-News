@@ -5,12 +5,14 @@ div {
       color: white;
       font-weight: 500;
 
+   
+    
         p {
           &:hover {
             color: #1CB5E0;   
            }
         }
-      
+    
         form {
           align-content: center;
           padding : 15px 15px 15px 0px;
@@ -25,7 +27,7 @@ div {
           padding : 3px 10px;
           width: 70%;
         }
-        }
+      }
     }
   }
 }

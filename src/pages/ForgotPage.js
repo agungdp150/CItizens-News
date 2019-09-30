@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import ForgotPass from '../components/ForogotPass.js';
 
-export class ForgotPage extends Component {
+class ForgotPage extends Component {
   render() {
     return (
       <div>
-        <h1>Hello Forgot Password Page</h1>
+        <ForgotPass/>
       </div>
     )
   }
