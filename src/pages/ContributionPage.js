@@ -1,10 +1,15 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import HeaderS from '../components/HeaderS'
+import Contribution from '../components/Contribution';
+import Footer from '../components/Footer';
 
-export class ContributionPage extends Component {
+class ContributionPage extends Component {
   render() {
     return (
       <div>
-        <h1>Hello Contribution Page</h1>
+        <HeaderS/>
+        <Contribution/>
+        <Footer/>
       </div>
     )
   }

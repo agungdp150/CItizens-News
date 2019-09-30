@@ -16,7 +16,7 @@ export class Footer extends Component {
           <Link to="/">
 					<img src={Logo3} alt="Logo" className="fill-current inline" width="170px" />
           </Link>
-			</div>
+			  </div>
             <div className="flex-1 fo-list">
                 <h4 className="uppercase md:mb-6">Company</h4>
                 <ul className="list-reset mb-6 fo-link">

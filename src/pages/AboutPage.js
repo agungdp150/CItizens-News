@@ -1,10 +1,15 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import HeaderS from '../components/HeaderS';
+import About from '../components/About';
+import Footer from '../components/Footer';
 
-export class AboutPage extends Component {
+class AboutPage extends Component {
   render() {
     return (
       <div>
-        <h1>Hello About Page</h1>
+        <HeaderS/>
+        <About/>
+        <Footer/>
       </div>
     )
   }
