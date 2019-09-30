@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import SignUp from '../components/SignUp';
 
-export class SignUpPage extends Component {
+class SignUpPage extends Component {
   render() {
     return (
       <div>
-        <h1>Hello Sign Up</h1>
+        <SignUp/>
       </div>
     )
   }

@@ -1,0 +1,30 @@
+div {
+  .c-grid {
+    margin : 70px 15px 135px 0px;
+
+    .c-grid1 {
+      padding-left : 40px;
+      h1 {
+        font-size: 24px;
+        padding-top : 60px;
+        font-weight: 500;
+      }
+
+      p {
+        line-height: 28px;
+        font-size: 16px;
+      }
+    }
+
+    .player-wrapper {
+       position: relative;
+       /* Player ratio: 100 / (1280 / 720) */
+      }
+
+  }
+  .react-player {
+    position: absolute;
+    top: 0;
+    left: 80px;
+  }
+}

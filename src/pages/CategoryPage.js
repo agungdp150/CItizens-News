@@ -1,10 +1,15 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import HeaderS from '../components/HeaderS';
+import Categories from '../components/Categories';
+import Footer from '../components/Footer';
 
-export class CategoryPage extends Component {
+class CategoryPage extends Component {
   render() {
     return (
       <div>
-        <h1>Hello Category Page</h1>
+        <HeaderS/>
+        <Categories/>
+        <Footer/>
       </div>
     )
   }
