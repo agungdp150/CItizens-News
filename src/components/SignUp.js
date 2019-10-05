@@ -3,7 +3,7 @@ import {Link, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {register} from '../store/actions/registerAction';
 
-import Pict2 from "../assets/img/2824217.jpg"
+import Pict2 from "../assets/img/2824217.svg"
 import Logo2 from '../assets/img/Logo2.png';
 
 import '../assets/scss/SignUp.scss'
@@ -159,6 +159,7 @@ class SignUp extends Component {
                 Sign Up
               </button>
               </div>
+                <p className="text-white text-xs text-center pt-4">Already member <Link to="/signin">sign in here...</Link></p>
             </form>
           </div>
         </div>

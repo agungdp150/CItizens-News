@@ -57,7 +57,10 @@ div {
         text-align: center;
 
         input[type="date"]{
-          color: #999999;
+          color: #000000;
+          &::placeholder {
+            color: #999999;
+          }
         }
 
         input[type="date"]::-webkit-inner-spin-button {
@@ -68,7 +71,7 @@ div {
 
       button {
         border: 1px solid #ffffff;
-        padding: 5px;
+        padding: 5px 10px;
         border-radius: 5px;
         font-size: 14px;
         margin-top: 10px;

@@ -10,12 +10,14 @@ import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import ForgotPage from './pages/ForgotPage';
 import AdminLoginPage from './pages/AdminLoginPage';
-import AdminCheckPage from './pages/AdminCheckPage';
-import AdminControlPage from './pages/AdminControlPage';
+import AdminNewsPage from './pages/AdminNewsPage';
+import AdminUserPage from './pages/AdminUserPage';
 import DetailPage from './pages/DetailPage';
 import UserPage from './pages/UserPage';
+import FileUploadPage from './pages/FileUploadPage';
 import UploadPage from './pages/UploadPage';
 import VerifyPage from './pages/VerifyPage';
+import VerifyForgotPage from './pages/VerifyForgotPage';
 import NotfoundPage from './pages/NotfoundPage';
 
 export class App extends Component {
@@ -31,13 +33,15 @@ export class App extends Component {
         <Route path='/signin' exact component={SignInPage}/>
         <Route path='/signup' exact component={SignUpPage}/>
         <Route path='/forgot' exact component={ForgotPage}/>
-        <Route path='/admin' exact component={AdminLoginPage}/>
-        <Route path='/admin/:id' exact component={AdminCheckPage}/>
-        <Route path='/admin/control' exact component={AdminControlPage}/>
+        <Route path='/adminlogin' exact component={AdminLoginPage}/>
+        <Route path='/admindashboardnews' exact component={AdminNewsPage}/>
+        <Route path='/admindashboardusers' exact component={AdminUserPage}/>
         <Route path='/detail/:id' exact component={DetailPage}/>
         <Route path='/user/:id' exact component={UserPage}/>
+        <Route path='/upload' exact component={FileUploadPage}/>
         <Route path='/upload' exact component={UploadPage}/>
         <Route path='/verify' exact component={VerifyPage}/>
+        <Route path='/verifyforgot'exact component={VerifyForgotPage}/>
         <Route exact component={NotfoundPage}/>
         </Switch>
       </Router>

@@ -8,7 +8,7 @@ export const register = SignUp => async dispatch => {
 
   try {
     const response = await axios.post(
-      `https://app-citizenjournalism.herokuapp.com/user`, SignUp
+      `https://app-citizenjournalism.herokuapp.com/api/v1/user/`, SignUp
     );
     console.log (response.data);
     dispatch ({
