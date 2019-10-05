@@ -47,4 +47,4 @@ class ForogotPass extends Component {
   }
 }
 
-export default ForogotPass
+export default ForogotPass;

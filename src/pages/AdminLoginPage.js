@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-
-export class AdminLoginPage extends Component {
+import AdminLogin from '../components/AdminLogin.js'
+class AdminLoginPage extends Component {
   render() {
     return (
       <div>
-        <h1>Hello Admin Login Page</h1>
+        <AdminLogin/>
       </div>
     )
   }
