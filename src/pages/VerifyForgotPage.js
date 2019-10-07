@@ -5,10 +5,10 @@ class VerifyForgotPage extends Component {
   render() {
     return (
       <div>
-        <VerifyForgotPage/>
+        <VerifyForgot/>
       </div>
     )
   }
 }
 
-export default VerifyForgotPage
+export default VerifyForgotPage;

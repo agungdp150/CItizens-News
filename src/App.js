@@ -1,23 +1,33 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {Provider} from 'react-redux';
+
 import store from './store';
+// Main Page
 import HomePage from './pages/HomePage';
 import CategoryPage from './pages/CategoryPage';
 import ContributionPage from './pages/ContributionPage';
 import AboutPage from './pages/AboutPage';
+
+// User Page
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import ForgotPage from './pages/ForgotPage';
+import EditProfilePage from './pages/EditProfilePage';
+import FileUploadPage from './pages/FileUploadPage';
+import VerifyPage from './pages/VerifyPage';
+import VerifyForgotPage from './pages/VerifyForgotPage';
+import UserPage from './pages/UserPage';
+
+// Admin Control
 import AdminLoginPage from './pages/AdminLoginPage';
 import AdminNewsPage from './pages/AdminNewsPage';
 import AdminUserPage from './pages/AdminUserPage';
+
+// News
 import DetailPage from './pages/DetailPage';
-import UserPage from './pages/UserPage';
-import FileUploadPage from './pages/FileUploadPage';
-import UploadPage from './pages/UploadPage';
-import VerifyPage from './pages/VerifyPage';
-import VerifyForgotPage from './pages/VerifyForgotPage';
+
+// Other
 import NotfoundPage from './pages/NotfoundPage';
 
 export class App extends Component {
@@ -26,22 +36,26 @@ export class App extends Component {
       <Provider store={store}>
       <Router>
         <Switch>
-        <Route path='/' exact component={HomePage}/>
-        <Route path='/category' exact component={CategoryPage}/>
-        <Route path='/contribution' exact component={ContributionPage}/>
-        <Route path='/about' exact component={AboutPage}/>
-        <Route path='/signin' exact component={SignInPage}/>
-        <Route path='/signup' exact component={SignUpPage}/>
-        <Route path='/forgot' exact component={ForgotPage}/>
-        <Route path='/adminlogin' exact component={AdminLoginPage}/>
-        <Route path='/admindashboardnews' exact component={AdminNewsPage}/>
-        <Route path='/admindashboardusers' exact component={AdminUserPage}/>
-        <Route path='/detail/:id' exact component={DetailPage}/>
-        <Route path='/user/:id' exact component={UserPage}/>
-        <Route path='/upload' exact component={FileUploadPage}/>
-        <Route path='/upload' exact component={UploadPage}/>
-        <Route path='/verify' exact component={VerifyPage}/>
-        <Route path='/verifyforgot'exact component={VerifyForgotPage}/>
+        <Route exact path='/' component={HomePage}/>
+        <Route exact path='/category' component={CategoryPage}/>
+        <Route exact path='/contribution' component={ContributionPage}/>
+
+        <Route exact path='/about' component={AboutPage}/>
+        <Route exact path='/signin' component={SignInPage}/>
+        <Route exact path='/signup' component={SignUpPage}/>
+        <Route exact path='/forgot'  component={ForgotPage}/>
+
+        <Route exact path='/adminlogin' component={AdminLoginPage}/>
+        <Route exact path='/admindashboardnews' component={AdminNewsPage}/>
+        <Route exact path='/admindashboardusers' component={AdminUserPage}/>
+
+        <Route exact path='/detail/:id' component={DetailPage}/>
+        <Route exact path='/user/:id' component={UserPage}/>
+        <Route exact path='/editprofile' component={EditProfilePage}/>
+        <Route exact path='/upload' component={FileUploadPage}/>
+        <Route exact path='/verify' component={VerifyPage}/>
+        <Route exact path='/verifyforgot' component={VerifyForgotPage}/>
+        
         <Route exact component={NotfoundPage}/>
         </Switch>
       </Router>
