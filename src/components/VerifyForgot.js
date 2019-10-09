@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import{Link} from 'react-router-dom';
+import axios from 'axios';
+import{Link, withRouter} from 'react-router-dom';
 
 import MailBox from '../assets/img/103967-OM4NIH-225.png';
 
@@ -7,7 +8,56 @@ import '../assets/scss/VerifyForgot.scss'
 
 
 class VerifyForgot extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      token : "",
+      newPass : "",
+      confirmPass : ""
+    }
+  }
+
+
+  handleChange = async (e) => {
+    this.setState ({
+      [e.target.name] : e.target.value
+    })
+  }
+
+  handleSubmit = async (e) => {
+    e.preventDefault()
+    // console.log ("oke");
+    const {token, newPass, confirmPass} =this.state
+    if (newPass === confirmPass) {
+      alert("Congratulations!, has been success to change")
+    } else (
+      alert ("oops, something went wrong please check your password")
+    )
+
+    try {
+      const response = await axios.put(
+        `https://app-citizenjournalism.herokuapp.com/api/v1/user/reset-password`,
+        {
+          token : token,
+          password : newPass,
+        },
+        console.log (token, newPass)
+      )
+      console.log(response.data)
+      console.log ("berhasil")
+      this.props.history.push("/")
+    } catch (error) {
+      console.log (error.response.data)
+    }
+    
+
+  }
+
   render() {
+
+    const {token, newPass, confirmPass} = this.state
+
     return (
       <div>
         <div className="btn-back">
@@ -32,28 +82,51 @@ class VerifyForgot extends Component {
 
         <div className="w-full overflow-hidden input-forgot">
           <div className="flex justify-center">
-          <form>
-          <div className="col-3 input-effect">
-        	<input className="effect-16" type="text" placeholder=""/>
-            <label>Token Password</label>
+          <form onSubmit={this.handleSubmit}>
+          
+          <div className="col-3">
+          <input 
+          className="effect-1" 
+          type="text"
+          placeholder="Your Token"
+          name="token"
+          value={token}
+          onChange={this.handleChange}
+          />
+
+          <span className="focus-border"></span>
+          </div>
+          
+          
+          <div className="col-3">
+            <input 
+            className="effect-1" 
+            type="password" 
+            placeholder="New Password"
+            name="newPass"
+            value={newPass}
+            onChange={this.handleChange}
+            />
             <span className="focus-border"></span>
           </div>
-          <br/>
-          <div className="col-3 input-effect">
-            <input className="effect-16" type="text" placeholder=""/>
-            <label>New Password</label>
-            <span className="focus-border"></span>
-          </div>
-            <br/>
-            <div className="col-3 input-effect">
-              <input className="effect-16" type="text" placeholder=""/>
-              <label>Confirm Password</label>
+
+            <div className="col-3">
+              <input 
+              className="effect-1" 
+              type="password"
+              placeholder="Confirm Your Password"
+              name="confirmPass"
+              value={confirmPass}
+              onChange={this.handleChange}
+              />
               <span className="focus-border"></span>
             </div>
-            <br/>
 
             <div>
-            <button class="bg-gray-800 hover:bg-gray-600 text-white   text-sm py-2 px-4 rounded">
+            <button 
+            className="bg-gray-800 hover:bg-gray-600 text-white   text-sm py-2 px-4 rounded"
+            type="submit"
+            >
               Button
             </button>
             </div>
@@ -66,4 +139,4 @@ class VerifyForgot extends Component {
   }
 }
 
-export default VerifyForgot
+export default (withRouter (VerifyForgot));

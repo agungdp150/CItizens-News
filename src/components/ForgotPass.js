@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import axios from 'axios';
+import {Link, withRouter} from 'react-router-dom';
 
 import Pict3 from '../assets/img/59981.jpg';
 import Logo2 from '../assets/img/Logo2.png';
@@ -7,7 +8,41 @@ import Logo2 from '../assets/img/Logo2.png';
 import '../assets/scss/ForgotPass.scss';
 
 class ForogotPass extends Component {
+  constructor(props) {
+    super (props);
+
+    this.state = {
+      email : ''
+    }
+  }
+
+  handleChange = e => {
+    this.setState ({
+      [e.target.name] : e.target.value
+    });
+  };
+
+  handleSubmit = async (e) => {
+    e.preventDefault()
+
+    const {email} = this.state;
+
+    try {
+      const response = await axios.post (
+        `https://app-citizenjournalism.herokuapp.com/api/v1/user/reset-password`,
+        {
+          email : email
+        }
+      )
+      console.log (response);
+      this.props.history.push("/verifyforgot");
+    } catch (error) {
+      console.log (error.response.data);
+    }
+  }
+
   render() {
+
     return (
       <div>
         <div id="app" className="flex">
@@ -25,13 +60,19 @@ class ForogotPass extends Component {
                 you can reset your password here
               </p>
               <div className="mt-4 sm:mt-6 form-forgot">
-                <form>
+                <form onSubmit={this.handleSubmit}>
                   <input
                     type="email"
                     placeholder="e.g citizens@citizens.com"
+                    name="email"
+                    value={this.state.email}
+                    onChange={this.handleChange}
                     required
                   /> <br/>
-                  <button className="btn-forgot">
+                  <button 
+                  className="btn-forgot"
+                  type="submit"
+                  >
                     Reset my password
                   </button>
                 </form>
@@ -47,4 +88,4 @@ class ForogotPass extends Component {
   }
 }
 
-export default ForogotPass;
+export default (withRouter(ForogotPass));

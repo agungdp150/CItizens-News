@@ -38,6 +38,7 @@ class SignIn extends Component {
     // this.props.loginUser(dataLogin);
     await this.props.loginUser(dataLogin)
     if (this.props.login1) {
+      alert ("Login success :)")
       this.props.history.push("/");
     } else (
       alert ("Something went wrong!")
