@@ -85,7 +85,7 @@ class AdminNewsComponent extends Component {
                   <img
                     alt=""
                     className="block mx-auto"
-                    height="290px"
+                    width ="420px"
                     src="https://source.unsplash.com/WLUHO9A_xik/1600x900"
                   />
                 </div>
