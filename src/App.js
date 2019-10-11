@@ -30,6 +30,8 @@ import DetailPage from './pages/DetailPage';
 // Other
 import NotfoundPage from './pages/NotfoundPage';
 
+
+
 export class App extends Component {
   render() {
     return (
