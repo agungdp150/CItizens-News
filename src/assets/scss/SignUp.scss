@@ -1,29 +1,120 @@
 div {
   
-  .s-up {
-    img {
-      padding-top : 30px;
-    }
-  }
+  .style-up {
+    background-color: #F0F5f9;
 
-  .s-up-text {
-    padding: 15px;
     h1 {
-      font-size : 24px;
-      font-weight: bold;
+      margin-left: 30px;
+      margin-top : 30px;
     }
-
-    p{
-      font-size: 16px;
+ 
+    p {
+     margin-left: 30px;
+     margin-top : 5px;
     }
   }
-  
-  .s-up-qu {
-    p {
-     font-size: 14px;
-     margin : 10px;
-     padding-top: 50px;
+
+  @media (max-width: 1024px){
+    .style-up {
+      display: none;
     }
+  }
+
+
+  .up-style {
+    background-color: #1E2022;
+    color: #F0F5f9;
+
+    .col-3{
+      width: 90.33%; 
+      margin: 20px 3%; 
+      position: relative;
+     } /* necessary to give position: relative to parent. */
+     
+     input[type="text"]{
+       font: 15px/24px "Lato", Arial, sans-serif; 
+       color: #333;
+       background-color: #F0F5f9;
+       border-radius: 3px;
+       width: 100%; 
+       box-sizing: border-box; 
+       letter-spacing: 1px;
+     }
+ 
+     input[type="password"]{
+       font: 15px/24px "Lato", Arial, sans-serif; 
+       color: #333; 
+       background-color: #F0F5f9;
+       border-radius: 3px;
+       width: 100%; 
+       box-sizing: border-box; 
+       letter-spacing: 1px;
+     }
+
+     input[type="email"]{
+      font: 15px/24px "Lato", Arial, sans-serif; 
+      color: #333; 
+      background-color: #F0F5f9;
+      border-radius: 3px;
+      width: 100%; 
+      box-sizing: border-box; 
+      letter-spacing: 1px;
+    }
+
+    textarea[type="text"]{
+      font: 15px/24px "Lato", Arial, sans-serif; 
+      color: #333; 
+      background-color: #F0F5f9;
+      border-radius: 3px;
+      padding: 7px 10px;
+      width: 100%; 
+      box-sizing: border-box; 
+      letter-spacing: 1px;
+      overflow: auto;
+      resize: none;
+    }
+ 
+ .effect-1{
+   border: 0; 
+   padding: 7px 10px; 
+   border-bottom: 1px solid #ccc;
+ }
+ 
+ .effect-1 ~ .focus-border{
+   position: absolute; 
+   bottom: 0; 
+   left: 0; 
+   width: 0; 
+   height: 3px; 
+   background-color: #4caf50; 
+   transition: 0.4s;
+ }
+ .effect-1:focus ~ .focus-border{
+   width: 100%; 
+   transition: 0.4s;
+   }
+
+
+   .label-date {
+    font-size: 15px;
+    font-weight: 400;
+
+    input[type="date"]{
+      color: #52616B;
+      width: 100%;
+      padding: 7px 10px;
+      border-radius: 3px;
+      background-color: #F0F5f9;
+      &::placeholder {
+        color: #ccc;
+      }
+    }
+
+    input[type="date"]::-webkit-inner-spin-button {
+      display: none;
+      -webkit-appearance: none;
+    }
+  }
   }
 
   .s-up-form {
@@ -51,31 +142,7 @@ div {
         }
       }
 
-      .label-date {
-        font-size: 14px;
-        font-weight: 500;
-        text-align: center;
-
-        input[type="date"]{
-          color: #000000;
-          &::placeholder {
-            color: #999999;
-          }
-        }
-
-        input[type="date"]::-webkit-inner-spin-button {
-          display: none;
-          -webkit-appearance: none;
-        }
-      }
-
-      button {
-        border: 1px solid #ffffff;
-        padding: 5px 10px;
-        border-radius: 5px;
-        font-size: 14px;
-        margin-top: 10px;
-      }
+      
 
       textarea {
         overflow: auto;
@@ -88,10 +155,6 @@ div {
         resize: none;
       } 
     }
-  }
-
-  h4{
-    margin-bottom : 10px;
   }
 
   .s-gender {

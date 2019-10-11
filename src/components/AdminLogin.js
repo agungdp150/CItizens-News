@@ -1,47 +1,116 @@
 import React, { Component } from 'react'
+import {withRouter} from 'react-router-dom';
+// import {connect} from 'react-redux';
+// import {loginUser} from '../store/actions/loginAction';
 
 import Logo2 from '../assets/img/Logo2.png'
 
 import '../assets/scss/AdminLogin.scss'
 
 class AdminLogin extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state ={
+      username : "",
+      password : ""
+    }
+  }
+
+  handleChange = e => {
+    this.setState ({
+      [e.target.name] : e.target.value 
+    })
+  }
+
+  // handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   // console.log ("oke")
+
+  //   const dataAdmin = {
+  //     username : this.state.username,
+  //     password : this.state.password
+  //   }
+
+  //   await this.props.loginUser(dataAdmin)
+  //   if (this.props.login1) {
+  //     alert("Hello Admin :)")
+  //     this.props.history.push("/admindashboardnews")
+  //   } else {
+  //     alert("Something went wrong")
+  //   }
+  
+  // }
+
   render() {
+
+    const {username, password} = this.state
+
     return (
       <div>
         <div className="hero-admin">
           <div className="color-1">
-          <div class="flex justify-center">
-            <div class="w-full max-w-xs">
-              <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 my-32">
+          <div className="flex justify-center">
+            <div className="w-full max-w-xs">
+              <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 my-32" onSubmit={this.handleSubmit}>
                 <div className="flex justify-center pb-8">
                  <img src={Logo2} alt="Logo" width="150px"/>
                 </div>
-                <div class="mb-4">
-                  <label class="block text-grey-darker text-sm font-bold mb-2" for="username">
+                <div className="mb-4">
+                  <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="username">
                     Username
                   </label>
-                  <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username"/>
+                  <input 
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" 
+                  id="username" 
+                  type="text" 
+                  placeholder="Username"
+                  name="username"
+                  value={username}
+                  onChange={this.handleChange}
+                  />
                 </div>
-                <div class="mb-6">
-                  <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
+                <div className="mb-6">
+                  <label className="block text-grey-darker text-sm font-bold mb-2">
                     Password
                   </label>
-                  <input class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************"/>
-                  <p class="text-red text-xs italic">Please choose a password.</p>
+                  <input 
+                  className="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3 leading-tight focus:outline-none focus:shadow-outline" 
+       
+                  type="password" 
+                  placeholder="Password"
+                  name="password"
+                  value={password}
+                  onChange={this.handleChange}
+                  />
+                  <p className="text-red-500 text-xs italic">
+                    Please choose a password.
+                  </p>
                 </div>
-                <div class="flex items-center justify-center">
-                  <button class="bg-blue hover:bg-blue-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"  type="button">
+                <div className="flex items-center justify-center">
+                  <button 
+                  className="bg-blue hover:bg-blue-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"  
+                  type="submit"
+                  >
                     Sign In
                   </button>
                 </div>
               </form>
             </div>
-        </div>
-        </div>
+           </div>
+          </div>
         </div>
       </div>
     )
   }
 }
 
-export default AdminLogin
+
+// const mapStateToProps = state => {
+//   return {
+//     isAuthenticated : state.login1.isAuthenticated,
+//     login1 : state.login1.token
+//   }
+// }
+
+export default (withRouter(AdminLogin))

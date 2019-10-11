@@ -1,55 +1,28 @@
-import React, { Component } from 'react'
-import '../assets/scss/CarouselS.scss'
+import React, { Component } from 'react';
+import Carousel from 'nuka-carousel';
 
-export class CarouselS extends Component {
+
+import '../assets/scss/CarouselS.scss';
+
+
+class CarouselS extends Component {
   render() {
     return (
-      <div className="body-carousel">
-        <div className="content-img">
-          <div className="slider">
-            <div className="slide slide1">
-              <div className="caption">
-                <h2>Slide 1</h2>
-                <p className="font-light">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset</p>
-              </div>
-            </div>
-
-            <div className="slide slide2">
-              <div className="caption">
-                <h2 className="font-light">Slide 2</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset</p>
-              </div>
-            </div>
-
-            <div className="slide slide3">
-              <div className="caption">
-                <h2>Slide 3</h2>
-                <p className="font-light">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset</p>
-              </div>
-            </div>
-
-            <div className="slide slide4">
-              <div className="caption">
-                <h2 className="font-light">Slide 4</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset</p>
-              </div>
-            </div>
-
-            <div className="slide slide1">
-              <div className="caption">
-                <h2 className="font-light">Slide 1</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset</p>
-              </div>
-            </div>
-
-          </div>
+      <div>
+        <div className="carousel-style">
+        <Carousel>
+          <img src="https://images.pexels.com/photos/247676/pexels-photo-247676.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1200" alt="slide1" />
+          <img src="https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1200"  alt="slide2" />
+          <img src="https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1200"  alt="slide3" />
+          <img src="https://images.pexels.com/photos/50711/board-electronics-computer-data-processing-50711.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1200"  alt="slide4" />
+       </Carousel>
         </div>
       </div>
     )
   }
 }
 
-export default CarouselS
 
 
+export default CarouselS;
 

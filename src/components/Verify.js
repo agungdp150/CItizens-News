@@ -25,7 +25,7 @@ class Verify extends Component {
               <h1>Verify your email address</h1>
               <p>Thank you, to start become a Citizens, we need to verify your email address.<br/> Please check your email.</p>
               <div className="v-link">
-              <Link to="/home">
+              <Link to="/">
                 <button>Go home</button>
               </Link>
               </div>

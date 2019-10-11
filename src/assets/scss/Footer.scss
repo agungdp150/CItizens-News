@@ -1,27 +1,19 @@
 div {
   .fo-color {
-    background-color: black;
-    color: white;
-    font-weight: 500;
+    background-color: #1E2022;
+    color: #F0F5F9;
+    // font-weight: 500;
   }
 
-  .fo-link {
-    text-transform: capitalize;
-    font-size : 14px;
-    p {
-      &:hover {
-        color: #1CB5E0;   
-       }
-      }
-    }
+  // .fo-link {
+  //   text-transform: capitalize;
+  //   font-size : 14px;
+  //   }
 
     .fo-social {
       i {
         padding : 5px;
         font-size : 20px;
-        &:hover {
-          color: #1CB5E0;   
-         }
       }
     }
 
