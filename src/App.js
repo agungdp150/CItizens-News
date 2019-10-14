@@ -36,31 +36,31 @@ export class App extends Component {
   render() {
     return (
       <Provider store={store}>
-      <Router>
-        <Switch>
-        <Route exact path='/' component={HomePage}/>
-        <Route exact path='/category' component={CategoryPage}/>
-        <Route exact path='/contribution' component={ContributionPage}/>
+        <Router>
+          <Switch>
+            <Route exact path='/' component={HomePage}/>
+            <Route exact path='/category' component={CategoryPage}/>
+            <Route exact path='/contribution' component={ContributionPage}/>
 
-        <Route exact path='/about' component={AboutPage}/>
-        <Route exact path='/signin' component={SignInPage}/>
-        <Route exact path='/signup' component={SignUpPage}/>
-        <Route exact path='/forgot'  component={ForgotPage}/>
+            <Route exact path='/about' component={AboutPage}/>
+            <Route exact path='/signin' component={SignInPage}/>
+            <Route exact path='/signup' component={SignUpPage}/>
+            <Route exact path='/forgot'  component={ForgotPage}/>
 
-        <Route exact path='/adminlogin' component={AdminLoginPage}/>
-        <Route exact path='/admindashboardnews' component={AdminNewsPage}/>
-        <Route exact path='/admindashboardusers' component={AdminUserPage}/>
+            <Route exact path='/adminlogin' component={AdminLoginPage}/>
+            <Route exact path='/admindashboardnews' component={AdminNewsPage}/>
+            <Route exact path='/admindashboardusers' component={AdminUserPage}/>
 
-        <Route exact path='/detail/:id' component={DetailPage}/>
-        <Route exact path='/user/:id' component={UserPage}/>
-        <Route exact path='/editprofile' component={EditProfilePage}/>
-        <Route exact path='/upload' component={FileUploadPage}/>
-        <Route exact path='/verify' component={VerifyPage}/>
-        <Route exact path='/verifyforgot' component={VerifyForgotPage}/>
-        
-        <Route exact component={NotfoundPage}/>
-        </Switch>
-      </Router>
+            <Route exact path='/detail/:id' component={DetailPage}/>
+            <Route exact path='/user/:id' component={UserPage}/>
+            <Route exact path='/editprofile' component={EditProfilePage}/>
+            <Route exact path='/upload' component={FileUploadPage}/>
+            <Route exact path='/verify' component={VerifyPage}/>
+            <Route exact path='/verifyforgot' component={VerifyForgotPage}/>
+            
+            <Route exact component={NotfoundPage}/>
+          </Switch>
+        </Router>
       </Provider>
     )
   }

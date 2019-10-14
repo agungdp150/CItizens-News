@@ -9,4 +9,9 @@ export const LOGIN_FAIL = "LOGIN_FAIL";
 
 export const GET_NEWS = "GET_NEWS";
 
-export const GET_DETAIL_NEWS ="GET_DETAIL_NEWS";
+export const GET_DETAIL_NEWS = "GET_DETAIL_NEWS";
+
+export const GET_DETAIL_USER = "GET_DETAIL_USER";
+
+export const UPLOAD_NEWS_SUCCESS = "UPLOAD_NEWS_SUCCESS";
+export const UPLOAD_NEWS_FAIL = "UPLOAD_NEWS_FAIL"

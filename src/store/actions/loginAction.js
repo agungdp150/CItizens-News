@@ -9,40 +9,40 @@ export const getUser = () => async dispatch => {
 
   try {
     const response = await axios.GET(`https://app-citizenjournalism.herokuapp.com/api/v1/user`, {
-      headers : {
-        "Content-Type" : "application/json"
+      headers: {
+        "Content-Type": "application/json"
       }
     });
-    console.log (response.result);
+    console.log(response.data.result);
     dispatch({
-      type : type.GET_USER,
-      payload : response.result
+      type: type.GET_USER,
+      payload: response.data
     })
   } catch (error) {
-    console.log (error.response);
+    console.log(error.response);
     dispatch({
-      type : type.GET_USER_FAIL
+      type: type.GET_USER_FAIL
     })
   }
 };
 
 
-export const loginUser = SignIn => async dispatch =>{
+export const loginUser = SignIn => async dispatch => {
   try {
-    console.log (SignIn)
-    const response = await axios.post (
+    console.log(SignIn)
+    const response = await axios.post(
       `https://app-citizenjournalism.herokuapp.com/api/v1/user/login`,
       SignIn,
     );
-    console.log (response.data)
+    console.log(response.data)
     dispatch({
-      type : type.LOGIN_SUCCESS,
-      payload : response.data
+      type: type.LOGIN_SUCCESS,
+      payload: response.data
     });
-  } catch (error){
-    console.log (error.response.data);
+  } catch (error) {
+    console.log(error.response.data);
     dispatch({
-      type : type.LOGIN_FAIL
+      type: type.LOGIN_FAIL
     });
   }
 };
