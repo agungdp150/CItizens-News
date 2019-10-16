@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import axios from 'axios';
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getAllUser } from "../store/actions/getalluserAction";
+import setToken from '../helpers/setToken';
 
 import "../assets/scss/AdminUsersComponent.scss";
 
@@ -9,13 +11,41 @@ class AdminUsersComponent extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      token : '',
+
+    };
   }
 
   componentDidMount() {
+    if (localStorage.token){
+      setToken(localStorage.token);
+    }
     this.props.getAllUser();
+    setInterval(this.props.getAllUser(),2000)
     // console.log(this.props.getAllUser())
   }
+
+  handleDeletebyAdmin = async id=> {
+
+    const {token} = this.state;
+    console.log(token)
+
+    try {
+      const response = await axios.delete(
+        `https://app-citizenjournalism.herokuapp.com/api/v1/user/delete/${id}`, 
+        {
+          Authorization : `Bearer ${token}`
+        },
+        console.log(token)
+      );
+      console.log(response.data)
+      console.log("wakata")
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  }
+  
 
   render() {
     // console.log(this.props.allUser)
@@ -34,11 +64,14 @@ class AdminUsersComponent extends Component {
           <td className="py-4 px-16 border-b border-grey-light">{users.news.length}</td>
           <td className="py-4 px-6 border-b border-grey-light">
             <Link
-              to="#"
+              to={`/user/${users._id}`}
               className="text-grey-lighter font-bold py-1 px-3 mr-2 rounded text-xs bg-blue-500 hover:bg-blue-600 ">
               View
             </Link>
-            <button className="text-grey-lighter font-bold py-1 px-2 rounded text-xs bg-red-500 hover:bg-red-600">
+            <button 
+              className="text-grey-lighter font-bold py-1 px-2 rounded text-xs bg-red-500 hover:bg-red-600"
+              onClick={() => this.handleDeletebyAdmin(users._id)}
+              >
               Delete
             </button>
           </td>
