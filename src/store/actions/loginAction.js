@@ -6,7 +6,6 @@ export const getUser = () => async dispatch => {
   if (localStorage.token) {
     setToken(localStorage.token);
   }
-
   try {
     const response = await axios.GET(`https://app-citizenjournalism.herokuapp.com/api/v1/user`, {
       headers: {
@@ -34,11 +33,25 @@ export const loginUser = SignIn => async dispatch => {
       `https://app-citizenjournalism.herokuapp.com/api/v1/user/login`,
       SignIn,
     );
-    console.log(response.data)
-    dispatch({
-      type: type.LOGIN_SUCCESS,
-      payload: response.data
-    });
+    console.log(response.data.result.isAdmin)
+    switch (response.data.result.isAdmin) {
+      case true :
+        dispatch({
+          type: type.LOGIN_ADMIN_SUCCESS,
+          payload: response.data
+        });
+        break;
+      case false :
+        dispatch({
+          type: type.LOGIN_SUCCESS,
+          payload: response.data
+        });
+        break;
+      default:
+        dispatch({
+          type: type.LOGIN_FAIL
+        })
+    }
   } catch (error) {
     console.log(error.response.data);
     dispatch({

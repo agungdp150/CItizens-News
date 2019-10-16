@@ -29,9 +29,7 @@ class FileUpload extends Component {
 
   mediaHandle = e => {
     this.setState({
-      media : console.log (e.target.files),
-      name  : console.log (e.target.files[0].name),
-      type : console.log (e.target.files[0].type)
+      media : e.target.files[0]
     })
   }
 
@@ -41,20 +39,26 @@ class FileUpload extends Component {
 
   handleSubmit = async (e) =>{
     e.preventDefault();
-
+    const fd = new FormData();
+    fd.append('image', 
+    this.state.media, 
+    this.state.media.name, 
+    this.state.media.type);
+    // console.log(fd)
     const newsInput = {
       newsDesc : {
       title : this.state.title,
       description : this.state.description,
       category : this.state.category,
     },
-      image : this.state.media
+      image : fd
   }
 
     
-    console.log(newsInput)
+    // console.log(newsInput)
+    // console.log (fd)
 
-    // this.props.newsPostAction(newsInput);
+    this.props.newsPostAction(newsInput);
  
   }
 

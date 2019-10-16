@@ -19,6 +19,9 @@ import VerifyPage from './pages/VerifyPage';
 import VerifyForgotPage from './pages/VerifyForgotPage';
 import UserPage from './pages/UserPage';
 
+// Category Pages
+
+
 // Admin Control
 import AdminLoginPage from './pages/AdminLoginPage';
 import AdminNewsPage from './pages/AdminNewsPage';
@@ -39,7 +42,7 @@ export class App extends Component {
         <Router>
           <Switch>
             <Route exact path='/' component={HomePage}/>
-            <Route exact path='/category' component={CategoryPage}/>
+            <Route exact path='/category/:category' component={CategoryPage}/>
             <Route exact path='/contribution' component={ContributionPage}/>
 
             <Route exact path='/about' component={AboutPage}/>

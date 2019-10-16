@@ -133,9 +133,6 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = () => ({
-  getDetail: id => dispatch(getDetailUser(id))
-})
 
 export default connect(
   mapStateToProps,
