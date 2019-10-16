@@ -24,7 +24,7 @@ class GridNews extends Component {
     const dataNews = this.props.news;
 
     for (let newsCategory = 0; newsCategory < dataNews.length; newsCategory++) {
-      console.log(dataNews[newsCategory].category);
+      // console.log(dataNews[newsCategory].category);
     }
 
     // const newsCategory = () => {

@@ -6,6 +6,7 @@ import getdetailReducer from './getdetailReducer';
 import getdetailuserReducer from '../reducers/getdetailuserReducer';
 import createnewsReducer from '../reducers/createnewsReducer';
 import getdetailcategoriesReducer from '../reducers/getdetailcategoriesReducer';
+import getalluserReducer from '../reducers/getalluserReducer';
 
 export default combineReducers({
   register1 : registerReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
   getdetail1 : getdetailReducer,
   user1 : getdetailuserReducer,
   createnews1 : createnewsReducer,
-  categories1 : getdetailcategoriesReducer 
+  categories1 : getdetailcategoriesReducer,
+  getalluser1 : getalluserReducer
 })

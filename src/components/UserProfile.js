@@ -17,14 +17,9 @@ class UserProfile extends Component {
 
   render() {
 
-    console.log (this.props.details);
-    const {
-      image,
-      fullname,
-      username,
-      email,
-    } = this.props.details;
-
+    const userData = this.props.details.user
+    console.log (this.props.details.user);
+    console.log (userData && userData.fullname)
 
     return (
       <div>
@@ -33,13 +28,13 @@ class UserProfile extends Component {
             <div className="container mx-auto">
               <div className="flex flex-wrap py-8 flex-col sm:flex-row">
                 <div className="w-40 h-40 rounded-full overflow-hidden flex-shrink-0 m-auto sm:m-0">
-                  <img src={image.secure_url} alt={username} />
+                  <img src={userData && userData.image.secure_url} alt={userData && userData.username} />
                 </div>
                 <div className="sm:pl-10 sm:pt-4 flex-1">
                   <div className="flex sm:justify-between sm:flex-row sm:flex-no-wrap justify-center flex-wrap mb-6">
                     <div className="flex flex-wrap md:w-auto w-full md:mb-0 mb-4">
                       <h2 className="text-gray-800 text-2xl w-full mb-3 text-center sm:text-left mt-4 sm:mt-0">
-                        {fullname}
+                        {userData && userData.fullname}
                       </h2>
                       <div className="flex sm:w-auto w-full sm:justify-start justify-center">
                       
@@ -48,7 +43,7 @@ class UserProfile extends Component {
                         </span>
                         
                         <span className="text-gray-800 mr-4 tracking-wider">
-                          <span className="text-gray-800"></span> {email}
+                          <span className="text-gray-800"></span> {userData && userData.email}
                         </span>
 
                       </div>

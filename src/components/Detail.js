@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getDetail } from "../store/actions/getdetailAction";
-import { dispatch } from "rxjs/internal/observable/pairs";
 
 import "../assets/scss/Detail.scss";
 
