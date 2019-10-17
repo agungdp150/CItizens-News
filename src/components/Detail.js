@@ -1,25 +1,113 @@
 import React, { Component } from "react";
+import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getDetail } from "../store/actions/getdetailAction";
+import setToken from '../helpers/setToken';
 
 import "../assets/scss/Detail.scss";
 
+
 class Detail extends Component {
-  componentDidMount() {
-    const id = this.props.match.params.id;
-    this.props.getDetail(id);
+  constructor(props) {
+    super (props);
+
+    this.state = {
+      token : '',
+      comment : '',
+    }
   }
 
+
+  componentDidMount() {
+    if (localStorage.token) {
+      setToken(localStorage.token);
+    }
+    const id = this.props.match.params.id;
+    this.props.getDetail(id);
+    
+    // this.detail = setInterval(this.props.details, 1000);
+  }
+
+  handleChange = e => {
+    this.setState ({
+      [e.target.name] : e.target.value
+    })
+  }
+
+  handleComment = async (e) => {
+    e.preventDefault();
+
+    const {comment, token} = this.state;
+    try {
+      const response = await axios.post(
+        `https://app-citizenjournalism.herokuapp.com/api/v1/comment/add`,
+        {
+          Authorization : `Bearer ${token}`,
+          news_id : this.props.details._id,
+          comment : comment
+        },
+      ) ;
+      console.log(response.data)
+      console.log("wakata")
+      this.setState({
+        comment : ''
+      })
+      this.props.getDetail(this.props.match.params.id);
+    } catch (error) {
+      console.log(error.response);
+    }
+  }
+
+
+
+
+
   render() {
+
+    // console.log(this.props.details.listComment);
     const {
       title,
       description,
       category,
       user,
       date,
-      media
+      media,
+      listComment
     } = this.props.details;
+
+    const commentList = listComment.map(commentCheck => {
+      // console.log(commentCheck.user_id.fullname);
+      return (
+        <article className="mt-4 border-grey-dark bg-grey-lightest shadow rounded-r" key={commentCheck._id}>
+        <header className="flex items-center mb-2">
+          <div className="mr-8">
+            <img
+              className="rounded-full"
+              src={commentCheck.user_id.image.secure_url}
+              width="80"
+              height="80"
+              alt=""
+            />
+          </div>
+          <div>
+            <h4>
+              <p className="no-underline text-xl text-grey-darkest font-medium">
+                {commentCheck.user_id.fullname}
+              </p>
+            </h4>
+            <ul className="list-reset flex">
+              <span className="mt-2 text-grey-dark"></span>
+            </ul>
+          </div>
+        </header>
+        <p>
+            {commentCheck.comment}
+        </p>
+      </article>
+      )
+    })
+
     
 
     return (
@@ -42,10 +130,13 @@ class Detail extends Component {
           <div className="container mx-auto w-full overflow-hidden d-detail">
             <h1 className="container mt-4">Comments</h1>
             <div>
-              <form className="container ml-auto my-2">
+              <form className="container ml-auto my-2" onSubmit={this.handleComment}>
                 <textarea
                   input="text"
                   placeholder="insert your comment here..."
+                  name = "comment"
+                  value = {this.state.comment}
+                  onChange={this.handleChange}
                 />
                 <br />
                 <button
@@ -59,41 +150,7 @@ class Detail extends Component {
 
 
           <div className="container mx-auto w-full overflow-hidden d-detail d-border">
-            <article className="mt-4 border-grey-dark bg-grey-lightest shadow rounded-r">
-              <header className="flex items-center mb-2">
-                <div className="mr-8">
-                  <img
-                    className=""
-                    src="https://picsum.photos/80/80?image=1005"
-                    width="80"
-                    height="80"
-                    alt=""
-                  />
-                </div>
-                <div className="">
-                  <h4 className="">
-                    <p className="no-underline text-xl text-grey-darkest font-medium">
-                      Author :
-                    </p>
-                  </h4>
-                  <ul className="list-reset flex">
-                    <li className="mr-2 mt-2">
-                      <p className="no-underline text-grey-dark">12 days ago</p>
-                    </li>
-                    <span className="mt-2 text-grey-dark"></span>
-                  </ul>
-                </div>
-              </header>
-              <div className="text-grey-darker">
-                <p>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                  justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-                  sea takimata sanctus est Lorem ipsum dolor sit amet.
-                </p>
-              </div>
-            </article>
+            {commentList}
           </div>
 
         </div>

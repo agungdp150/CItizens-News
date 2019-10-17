@@ -37,9 +37,8 @@ class AdminUsersComponent extends Component {
         {
           Authorization : `Bearer ${token}`
         },
-        console.log(token)
       );
-      console.log(response.data)
+      console.log(response.data.result)
       console.log("wakata")
     } catch (error) {
       console.log(error.response.data);

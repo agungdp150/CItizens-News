@@ -7,6 +7,7 @@ const initialState = {
       secure_url: ''
     },
     description : '',
+    listComment : [],
     date: '',
     media : '',
     user:{
