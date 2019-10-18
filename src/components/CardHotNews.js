@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getNews } from "../store/actions/getnewsAction";
+import {ComingSoon} from '../assets/img/Coming.jpg';
 
 import "../assets/scss/CardHotNews.scss";
 
@@ -11,110 +12,103 @@ class CardHotNews extends Component {
   }
 
   render() {
-    console.log(this.props.news);
-    let dataHotNew = this.props.news;
-    let sliceNews = dataHotNew.slice(0, 3)
-    const hotData = sliceNews.map(newsHot =>{
-      console.log(newsHot)
-      return (
-        <div className="flex flex-row flex-wrap -mx-2">
-        <div className="w-full md:w-1/2 h-64 md:h-auto mb-4 px-2">
-          <img
-            src={newsHot.media.secure_url}
-            alt=""
-            class="block w-full h-64 bg-grey-dark bg-no-repeat bg-center bg-cover"></img>
-          <div className="py-6 px-4">
-            <h1 className="pb-4 font-serif">
-              Scotland in World Cup limbo ahead of must-win game that may
-              not happen
-            </h1>
-            <p className="text-justify font-serif">
-              Tokyo came to a standstill, justifying the decision taken by
-              World Rugby on Thursday to cancel Saturday’s match in
-              Yokohama, about miles south of the capital, between England
-              and France, with the city’s two airports closed and train
-              services suspended.
-            </p>
-          </div>
-        </div>
-        <div className="w-full md:w-1/2 mb-4 px-2 height-style">
-          <div className="flex flex-col sm:flex-row md:flex-col -mx-2">
-            <div className="w-full sm:w-1/2 md:w-full h-48 xl:h-64 mb-4 sm:mb-0 md:mb-4 px-2 relative">
-              <img
-                src="https://images.unsplash.com/photo-1562887193-417e6bcfedcb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=60"
-                alt=""
-                class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover"></img>
-              <h2 className="style-title font-serif">
-                Scotland in World Cup limbo ahead of must-win game that may
-                not happen
-              </h2>
-            </div>
-            <div className="w-full sm:w-1/2 md:w-full h-48 xl:h-64 px-2 relative">
-              <img
-                src="https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1200"
-                alt=""
-                class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover"></img>
-              <h2 className="style-title font-serif">
-                Scotland in World Cup limbo ahead
-              </h2>
-            </div>
-          </div>
-        </div>
-      </div>
-      )
-    })
+    // console.log(this.props.news);
+    const myNewData = this.props.news;
+    let newData = myNewData.splice(0,6)
+    console.log(newData)
+    // console.log(newData[0] && newData[0].status)
+    // console.log((newData[0] && newData[0].status === "Approved") ? newData[0]._id : "oops")
+
+
     return (
-      <div>
-        <div className="container mx-auto p-1">
-          <h1 className="my-6 text-2xl bg-gray-800 text-white font-bold py-2 px-4 rounded custom-title font-serif">
-            New Citizens News
+      <div className="bg-color-hot ">
+        <div className="container mx-auto">
+          <h1 className="mb-6 ml-6 text-3xl font-bold rounded custom-title font-serif">
+            Hot News from Our Citizens
           </h1>
-          {/* <div className="flex flex-row flex-wrap -mx-2">
-            <div className="w-full md:w-1/2 h-64 md:h-auto mb-4 px-2">
-              <img
-                src="https://images.unsplash.com/photo-1570884007389-d72c2103312d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=60"
-                alt=""
-                class="block w-full h-64 bg-grey-dark bg-no-repeat bg-center bg-cover"></img>
-              <div className="py-6 px-4">
-                <h1 className="pb-4 font-serif">
-                  Scotland in World Cup limbo ahead of must-win game that may
-                  not happen
+          <div>
+            <div class="grid-layout">
+              <div class="grid-item span-2 grid-item-10">
+                <img
+                 src={(newData[0] && newData[0].status === "Approved") ? newData[0].media.secure_url : ComingSoon}
+                 alt="test-img"
+                />
+                <Link to={`/detail/${(newData[0] && newData[0].status === "Approved") ? newData[0]._id : "oops"}`}>
+                <h1 className="capitalize text-xl">
+                  {(newData[0] && newData[0].status === "Approved") ? newData[0].title : "oops"}
                 </h1>
-                <p className="text-justify font-serif">
-                  Tokyo came to a standstill, justifying the decision taken by
-                  World Rugby on Thursday to cancel Saturday’s match in
-                  Yokohama, about miles south of the capital, between England
-                  and France, with the city’s two airports closed and train
-                  services suspended.
-                </p>
-              </div>
-            </div>
-            <div className="w-full md:w-1/2 mb-4 px-2 height-style">
-              <div className="flex flex-col sm:flex-row md:flex-col -mx-2">
-                <div className="w-full sm:w-1/2 md:w-full h-48 xl:h-64 mb-4 sm:mb-0 md:mb-4 px-2 relative">
-                  <img
-                    src="https://images.unsplash.com/photo-1562887193-417e6bcfedcb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=60"
-                    alt=""
-                    class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover"></img>
-                  <h2 className="style-title font-serif">
-                    Scotland in World Cup limbo ahead of must-win game that may
-                    not happen
-                  </h2>
-                </div>
-                <div className="w-full sm:w-1/2 md:w-full h-48 xl:h-64 px-2 relative">
-                  <img
-                    src="https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1200"
-                    alt=""
-                    class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover"></img>
-                  <h2 className="style-title font-serif">
-                    Scotland in World Cup limbo ahead
-                  </h2>
+                </Link>
+                <div>
+                  <p className="normal-case mt-4 font-normal">
+                  {(newData[0] && newData[0].status === "Approved") ? newData[0].description.substring(0, 150) : "oops"}...<Link to={`/detail/${(newData[0] && newData[0].status === "Approved") ? newData[0]._id : "oops"}`}> 
+                    <span className="font-semibold text-gray-600">Read More</span></Link></p>
                 </div>
               </div>
+              <div class="grid-item grid-item-11">
+              <img
+                 src={(newData[1] && newData[1].status === "Approved") ? newData[1].media.secure_url : ComingSoon}
+                 alt="test-img"
+                />
+                <Link to={`/detail/${(newData[1] && newData[1].status === "Approved") ? newData[1]._id : "oops"}`}>
+                <h1 className="capitalize text-sm">
+                {(newData[1] && newData[1].status === "Approved") ? newData[1].title : "oops"}
+                </h1>
+                </Link>
+              </div>
+              <div class="grid-item grid-item-12">
+              <img
+                 src={(newData[2] && newData[2].status === "Approved") ? newData[2].media.secure_url : ComingSoon}
+                 alt="test-img"
+                />
+                <Link to={`/detail/${(newData[2] && newData[2].status === "Approved") ? newData[2]._id : "oops"}`}>
+                <h1 className="capitalize text-sm">
+                {(newData[2] && newData[2].status === "Approved") ? newData[2].title : "oops"}
+                  </h1>
+                </Link>
+              </div>
+              <div class="grid-item span-2 grid-item-13">
+              <img
+                 src={(newData[3] && newData[3].status === "Approved") ? newData[3].media.secure_url : ComingSoon}
+                 alt="test-img"
+                />
+                <Link to={`/detail/${(newData[3] && newData[3].status === "Approved") ? newData[3]._id : "oops"}`}>
+                <h1 className="capitalize text-xl">
+                {(newData[3] && newData[3].status === "Approved") ? newData[3].title : "oops"}
+                </h1>
+                </Link>
+                <div>
+                  <p className="normal-case mt-4 font-normal">
+                  {(newData[3] && newData[3].status === "Approved") ? newData[3].description.substring(0, 150) : "oops"}...<Link to={`/detail/${(newData[3] && newData[3].status === "Approved") ? newData[3]._id : "oops"}`}>
+                    <span className="font-semibold text-gray-600">Read More</span></Link>
+                  </p>
+                </div>
+              </div>
+              <div class="grid-item grid-item-14">
+              <img
+                 src={(newData[4] && newData[4].status === "Approved") ? newData[4].media.secure_url : ComingSoon}
+                 alt="test-img"
+                />
+                <Link to={`/detail/${(newData[4] && newData[4].status === "Approved") ? newData[4]._id : "oops"}`}>
+                <h1 className="capitalize text-sm">
+                {(newData[4] && newData[4].status === "Approved") ? newData[4].title : "oops"}
+                </h1>
+                </Link>
+              </div>
+              <div class="grid-item grid-item-15">
+              <img
+                 src={(newData[5] && newData[5].status === "Approved") ? newData[5].media.secure_url : ComingSoon}
+                 alt="test-img"
+                />
+                <Link to={`/detail/${(newData[5] && newData[5].status === "Approved") ? newData[5]._id : "oops"}`}>
+                <h1 className="capitalize text-sm">
+                {(newData[5] && newData[5].status === "Approved") ? newData[5].title : "oops"}
+                </h1>
+                </Link>
+              </div>
             </div>
-          </div> */}
-          {/* {hotData} */}
+          </div>
         </div>
+        <hr className="line-style mx-8 mt-6"/>
       </div>
     );
   }

@@ -44,35 +44,65 @@ class HeaderS extends Component {
   // }
 
   render() {
+
     return (
-     <div>
-      <nav className="w-full nav items-center px-1 text-white coloring-navbar">
-      <div>
-        <ul className="flex justify-end text-base font-medium pt-4 px-4">
-          <li className="bg-transparent  font-semibold py-2 px-4 rounded">
-            <Link to="/signin">
-            Sign In
+     <div className="bg-color-hot ">
+       <div className="w-full nav-forjumbo text-white font-semibold uppercase">
+       <nav className="bg-transparent">
+        <div className="flex flex-wrap overflow-hidden p-3">
+         <div className="my-1 px-1 w-full overflow-hidden sm:my-1 sm:px-1 md:my-1 md:px-1 lg:my-1 lg:px-1 lg:w-1/3 xl:my-1 xl:px-1 xl:w-1/3">
+            <ul className="flex justify-around mt-6">
+              <Link to={`/category/News`}>
+              <li className="hvr-underline-from-center">
+                News
+              </li>
+              </Link>
+              <Link to={`/category/Lifestyle`}>
+              <li className="hvr-underline-from-center">
+                Lifestyle
+              </li>
+              </Link>
+              <Link to={`/category/Food`}>
+              <li className="hvr-underline-from-center">
+                Food
+              </li>
+              </Link>
+            </ul>
+          </div>
+
+         <div className="my-1 px-1 w-full overflow-hidden sm:my-1 sm:px-1 md:my-1 md:px-1 lg:my-1 lg:px-1 lg:w-1/3 xl:my-1 xl:px-1 xl:w-1/3 img-style-home">
+           <Link to="/">
+            <img 
+            src ={Logo3}
+            alt ="Logo"
+            className="flex justify-center mx-auto mt-2"
+            />
             </Link>
-          </li>
-          <li className="bg-transparent hover:bg-green-500 font-semibold hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent rounded">
-            <Link to="/signup">
-            Sign Up
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <div className="flex flex-no-shrink items-center mr-3 text-grey-darkest container px-4">
-        <Link to="/">
-          <img src={Logo3} alt="Logo" width="25%"/>
-        </Link>
-      </div>
-      <input className="menu-btn hidden" type="checkbox" id="menu-btn"/>
-      <label className="menu-icon block cursor-pointer md:hidden px-2 py-4 relative select-none" htmlFor="menu-btn">
-        <span className="navicon bg-grey-darkest flex items-center relative"></span>
-      </label>
-      <ul className="menu border-b md:border-none flex justify-end list-reset m-0 w-full md:w-auto">
-      </ul>
-    </nav>
+          </div>
+
+         <div className="my-1 px-1 w-full overflow-hidden sm:my-1 sm:px-1 md:my-1 md:px-1 lg:my-1 lg:px-1 lg:w-1/3 xl:my-1 xl:px-1 xl:w-1/3">
+         <ul className="flex justify-around mt-6">
+           <Link to={`/category/Tech`}>
+              <li className="hvr-underline-from-center">
+                Tech
+              </li>
+              </Link>
+              <Link to={`/category/Education`}>
+              <li className="hvr-underline-from-center">
+                Education
+              </li>
+              </Link>
+              <Link to={`/category/Entertainment`}>
+              <li className="hvr-underline-from-center">
+                Entertainment
+              </li>
+              </Link>
+          </ul>
+         </div>
+        
+        </div>
+       </nav>
+       </div>
     </div>
     )
   }
@@ -80,10 +110,10 @@ class HeaderS extends Component {
 
 const mapStateToProps = state => {
   return {
-    isAuthenticated : state.login1.isAuthenticated
+    isAuthenticated : state.login1.isAuthenticated,
   }
 }
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
 )  (withRouter(HeaderS))

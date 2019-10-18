@@ -1,10 +1,16 @@
 div {
   
-    main {
-      margin : 60px 35px 30px 35px;
+  .style-top {
+    bottom: 800px;
+    padding: 10px;
+  }
 
-      .grid-gap {
-        margin : 20px 0px;
-      }
-    }
+
+  .medal-top {
+    position: absolute;
+    z-index: 10;
+    left: 10;
+    
+  }
+
 }
