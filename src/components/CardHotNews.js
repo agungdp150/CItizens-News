@@ -15,7 +15,7 @@ class CardHotNews extends Component {
     // console.log(this.props.news);
     const myNewData = this.props.news;
     let newData = myNewData.splice(0,6)
-    console.log(newData)
+    // console.log(newData)
     // console.log(newData[0] && newData[0].status)
     // console.log((newData[0] && newData[0].status === "Approved") ? newData[0]._id : "oops")
 
@@ -27,8 +27,8 @@ class CardHotNews extends Component {
             Hot News from Our Citizens
           </h1>
           <div>
-            <div class="grid-layout">
-              <div class="grid-item span-2 grid-item-10">
+            <div className="grid-layout">
+              <div className="grid-item span-2 grid-item-10">
                 <img
                  src={(newData[0] && newData[0].status === "Approved") ? newData[0].media.secure_url : ComingSoon}
                  alt="test-img"
@@ -44,7 +44,7 @@ class CardHotNews extends Component {
                     <span className="font-semibold text-gray-600">Read More</span></Link></p>
                 </div>
               </div>
-              <div class="grid-item grid-item-11">
+              <div className="grid-item grid-item-11">
               <img
                  src={(newData[1] && newData[1].status === "Approved") ? newData[1].media.secure_url : ComingSoon}
                  alt="test-img"
@@ -55,7 +55,7 @@ class CardHotNews extends Component {
                 </h1>
                 </Link>
               </div>
-              <div class="grid-item grid-item-12">
+              <div className="grid-item grid-item-12">
               <img
                  src={(newData[2] && newData[2].status === "Approved") ? newData[2].media.secure_url : ComingSoon}
                  alt="test-img"
@@ -66,7 +66,7 @@ class CardHotNews extends Component {
                   </h1>
                 </Link>
               </div>
-              <div class="grid-item span-2 grid-item-13">
+              <div className="grid-item span-2 grid-item-13">
               <img
                  src={(newData[3] && newData[3].status === "Approved") ? newData[3].media.secure_url : ComingSoon}
                  alt="test-img"
@@ -83,7 +83,7 @@ class CardHotNews extends Component {
                   </p>
                 </div>
               </div>
-              <div class="grid-item grid-item-14">
+              <div className="grid-item grid-item-14">
               <img
                  src={(newData[4] && newData[4].status === "Approved") ? newData[4].media.secure_url : ComingSoon}
                  alt="test-img"
@@ -94,7 +94,7 @@ class CardHotNews extends Component {
                 </h1>
                 </Link>
               </div>
-              <div class="grid-item grid-item-15">
+              <div className="grid-item grid-item-15">
               <img
                  src={(newData[5] && newData[5].status === "Approved") ? newData[5].media.secure_url : ComingSoon}
                  alt="test-img"

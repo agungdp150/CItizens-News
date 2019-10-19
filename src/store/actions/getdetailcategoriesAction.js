@@ -1,9 +1,9 @@
 import axios from 'axios';
-import {GET_DATA_CATEGORY} from '../../types';
+import {GET_DATA_CATEGORY, GET_DATA_PAGINATION} from '../../types';
 
 export const getCategory = category => async dispatch => {
   try {
-    const response = await axios.get(`https://app-citizenjournalism.herokuapp.com/api/v1/news/category/${category}`);
+    const response = await axios.get(`https://app-citizenjournalism.herokuapp.com/api/v1/news/findcategory/${category}`);
     console.log(response.data.result)
     dispatch({
       type : GET_DATA_CATEGORY,
@@ -13,3 +13,10 @@ export const getCategory = category => async dispatch => {
     console.log(error.response.data);
   }
 }
+
+
+// export const getCategoryPage = page => async dispatch => {
+//   try {
+//     const response = await axios.get (`https://app-citizenjournalism.herokuapp.com/api/v1/news/category?page=${page}`)
+//   }
+// } 

@@ -1,16 +1,22 @@
 div {
   
   .style-top {
-    bottom: 800px;
     padding: 10px;
+    position: absolute;
+    // bottom: 230rem;
+    left: 65%;
+    margin : 10px 10px 0px;
   }
 
 
   .medal-top {
     position: absolute;
     z-index: 10;
-    left: 10;
-    
+    left: 10; 
+  }
+
+  .fas {
+    font-size: medium;
   }
 
 }
