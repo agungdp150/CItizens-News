@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {GET_DATA_CATEGORY, GET_DATA_PAGINATION} from '../../types';
+import {GET_DATA_CATEGORY} from '../../types';
 
 export const getCategory = category => async dispatch => {
   try {

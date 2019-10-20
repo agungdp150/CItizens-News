@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {withRouter, Link} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import axios from 'axios';
 import setToken from '../helpers/setToken';
 import { connect } from "react-redux";

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getDetailUser } from "../store/actions/getdetailuserAction";
