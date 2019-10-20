@@ -1,9 +1,11 @@
+@import "./Color.scss";
+
 div {
 
-  .text-categories {
-    font-size: 28px;
-    font-weight: 700;
-    padding-top : 20px;
+  .styling-category {
 
+    h4 {
+      border-bottom : solid 2px black;
+    }
   }
 }

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import HeaderS from '../components/HeaderS';
-import Jumbotron from '../components/Jumbotron';
+import NewJumbotron from '../components/NewJumbotron';
+import CardHotNews from '../components/CardHotNews';
 import Footer from '../components/Footer';
-import CarouselS from '../components/CarouselS';
 import GridNews from '../components/GridNews';
-import Citizens from '../components/Citizens';
 
 
 
@@ -13,9 +12,8 @@ export class HomePage extends Component {
     return (
       <div>
         <HeaderS/>
-        <Jumbotron/>
-        <Citizens/>
-        <CarouselS/>
+        <NewJumbotron/>
+        <CardHotNews/>
         <GridNews/>
         <Footer/>
       </div>

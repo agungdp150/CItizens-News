@@ -17,101 +17,92 @@ class HeaderS extends Component {
     this.props.history.push("/");
   }
 
-  navbarRender = () => {
-    if (this.props.isAuthenticated === true) {
-      return (
-      <div >
-      <li class="border-t md:border-none">
-        <Link to="/signin" class="block md:inline-block px-2 py-3 no-underline text-grey-darkest hover:text-grey-darker font-md text-sm"> 
-          Log Out
-        </Link>
-      </li>
-      </div>
-      )
-    } else {
-      return (
-        <div className="lg:flex md:flex">
-        <li class="border-t md:border-none">
-          <Link to="/signin" class="block md:inline-block px-2 py-3 no-underline text-grey-darkest hover:text-grey-darker font-md text-sm">Sign In</Link>
-        </li>
+  // navbarRender = () => {
+  //   if (this.props.isAuthenticated === true) {
+  //     return (
+  //     <div >
+  //     <li class="border-t md:border-none">
+  //       <Link to="/signin" class="block md:inline-block px-2 py-3 no-underline text-grey-darkest hover:text-grey-darker font-md text-sm"> 
+  //         Log Out
+  //       </Link>
+  //     </li>
+  //     </div>
+  //     )
+  //   } else {
+  //     return (
+  //       <div className="lg:flex md:flex">
+  //       <li class="border-t md:border-none">
+  //         <Link to="/signin" class="block md:inline-block px-2 py-3 no-underline text-grey-darkest hover:text-grey-darker font-md text-sm">Sign In</Link>
+  //       </li>
 
-        <li class="border-t md:border-none">
-          <Link to="/signup" class="block md:inline-block px-2 py-3 no-underline text-grey-darkest hover:text-grey-darker font-md text-sm">Sign Up</Link>
-        </li>
-        </div>
-      )
-    }
-  }
+  //       <li class="border-t md:border-none">
+  //         <Link to="/signup" class="block md:inline-block px-2 py-3 no-underline text-grey-darkest hover:text-grey-darker font-md text-sm">Sign Up</Link>
+  //       </li>
+  //       </div>
+  //     )
+  //   }
+  // }
 
   render() {
+
     return (
-     <div>
-      <nav className="nav flex flex-wrap items-center justify-between px-4 text-white coloring-navbar">
-      <div className="flex flex-no-shrink items-center mr-6 py-3 text-grey-darkest">
-        <Link to="/">
-          <img src={Logo3} alt="Logo" width="120"/>
-        </Link>
-
-        <div className="hide-menu">
-        <ul className="menu border-b md:border-none flex justify-end list-reset m-0 w-full md:w-auto">
-
-          <li className="border-t md:border-none ">
-            <Link to="/" className="block md:inline-block px-2 py-3 no-underline text-grey-darkest hover:text-grey-darker font-md text-sm">Home</Link>
-          </li>
-
-          <li className="border-t md:border-none">
-            <Link to="/category" className="block md:inline-block px-2 py-3 no-underline text-grey-darkest hover:text-grey-darker font-md text-sm">Category</Link>
-          </li>
-
-          <li className="border-t md:border-none">
-            <Link to="/contribution" className="block md:inline-block px-2 py-3 no-underline text-grey-darkest hover:text-grey-darker font-md text-sm">Contributor</Link>
-          </li>
-
-          <li className="border-t md:border-none">
-            <Link to="/about" className="block md:inline-block px-2 py-3 no-underline text-grey-darkest hover:text-grey-darker font-md text-sm">About</Link>
-          </li>
-          </ul>
+     <div className="bg-color-hot ">
+       <div className="w-full nav-forjumbo text-white font-semibold uppercase">
+       <nav className="bg-transparent">
+        <div className="flex flex-wrap overflow-hidden p-3">
+         <div className="my-1 px-1 w-full overflow-hidden sm:my-1 sm:px-1 md:my-1 md:px-1 lg:my-1 lg:px-1 lg:w-1/3 xl:my-1 xl:px-1 xl:w-1/3">
+            <ul className="flex justify-around mt-6">
+              <Link to={`/category/News`}>
+              <li className="hvr-underline-from-center">
+                News
+              </li>
+              </Link>
+              <Link to={`/category/Lifestyle`}>
+              <li className="hvr-underline-from-center">
+                Lifestyle
+              </li>
+              </Link>
+              <Link to={`/category/Food`}>
+              <li className="hvr-underline-from-center">
+                Food
+              </li>
+              </Link>
+            </ul>
           </div>
-      </div>
 
-      <input className="menu-btn hidden" type="checkbox" id="menu-btn"/>
-      <label className="menu-icon block cursor-pointer md:hidden px-2 py-4 relative select-none" htmlFor="menu-btn">
-        <span className="navicon bg-grey-darkest flex items-center relative"></span>
-      </label>
-      <ul className="menu border-b md:border-none flex justify-end list-reset m-0 w-full md:w-auto">
+         <div className="my-1 px-1 w-full overflow-hidden sm:my-1 sm:px-1 md:my-1 md:px-1 lg:my-1 lg:px-1 lg:w-1/3 xl:my-1 xl:px-1 xl:w-1/3 img-style-home">
+           <Link to="/">
+            <img 
+            src ={Logo3}
+            alt ="Logo"
+            className="flex justify-center mx-auto mt-2"
+            />
+            </Link>
+          </div>
 
-      <li className="border-t md:border-none lg:hidden md:hidden">
-            <Link to="/" className="block md:inline-block px-2 py-3 no-underline text-grey-darkest hover:text-grey-darker font-md text-sm">Home</Link>
-          </li>
-
-   
-          <li className="border-t md:border-none lg:hidden md:hidden">
-            <Link to="/category" className="block md:inline-block px-2 py-3 no-underline text-grey-darkest hover:text-grey-darker font-md text-sm">Category</Link>
-          </li>
-
-          <li className="border-t md:border-none lg:hidden md:hidden">
-            <Link to="/contribution" className="block md:inline-block px-2 py-3 no-underline text-grey-darkest hover:text-grey-darker font-md text-sm">Contributor</Link>
-          </li>
-
-          <li className="border-t md:border-none lg:hidden md:hidden">
-            <Link to="/about" className="block md:inline-block px-2 py-3 no-underline text-grey-darkest hover:text-grey-darker font-md text-sm">About</Link>
-          </li>
-
-          <li className="border-t md:border-none">
-            <div className="block md:inline-block px-2 py-3 no-underline text-grey-darkest hover:text-grey-darker font-md text-sm search-style">
-              <div className="flex">
-              <i className="fas fa-search"></i>
-              <input 
-                type = "search"
-                placeholder="search news..."
-              />
-              </div>
-            </div>
-          </li>
-
-        {this.navbarRender()}
-      </ul>
-    </nav>
+         <div className="my-1 px-1 w-full overflow-hidden sm:my-1 sm:px-1 md:my-1 md:px-1 lg:my-1 lg:px-1 lg:w-1/3 xl:my-1 xl:px-1 xl:w-1/3">
+         <ul className="flex justify-around mt-6">
+           <Link to={`/category/Tech`}>
+              <li className="hvr-underline-from-center">
+                Tech
+              </li>
+              </Link>
+              <Link to={`/category/Education`}>
+              <li className="hvr-underline-from-center">
+                Education
+              </li>
+              </Link>
+              <Link to={`/category/Entertainment`}>
+              <li className="hvr-underline-from-center">
+                Entertainment
+              </li>
+              </Link>
+          </ul>
+         </div>
+        
+        </div>
+       </nav>
+       </div>
     </div>
     )
   }
@@ -119,10 +110,10 @@ class HeaderS extends Component {
 
 const mapStateToProps = state => {
   return {
-    isAuthenticated : state.login1.isAuthenticated
+    isAuthenticated : state.login1.isAuthenticated,
   }
 }
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
 )  (withRouter(HeaderS))

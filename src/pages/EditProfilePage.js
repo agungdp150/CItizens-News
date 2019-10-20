@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import HeaderS from '../components/HeaderS';
+import HeadCategory from '../components/HeadCategory';
 import EditProfile from '../components/EditProfile';
 
 class EditProfilePage extends Component {
   render() {
     return (
       <div>
-        <HeaderS/>
+        <HeadCategory/>
         <EditProfile/>
       </div>
     )
