@@ -100,7 +100,7 @@ class EditProfile extends Component {
                   </label>
                   <input type="file" id="img-input" className="coba" />
                 </div>
-                <button className="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded text-xs mt-4 ml-2">
+                <button className="bg-blue-700 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded text-xs mt-4 ml-2">
                   Save Image
                 </button>
                 </form>
