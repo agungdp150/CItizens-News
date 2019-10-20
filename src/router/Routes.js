@@ -51,7 +51,7 @@ const Routes = () => {
 
         <Route exact path="/detail/:id" component={DetailPage} />
         <Route exact path="/user/:id" component={UserPage} />
-        <Route exact path="/editprofile" component={EditProfilePage} />
+        <Route exact path="/editprofile/:id" component={EditProfilePage} />
         <Route exact path="/upload" component={FileUploadPage} />
         <Route exact path="/verify" component={VerifyPage} />
         <Route exact path="/verifyforgot" component={VerifyForgotPage} />

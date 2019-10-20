@@ -14,7 +14,7 @@ class CardHotNews extends Component {
   render() {
     // console.log(this.props.news);
     const myNewData = this.props.news;
-    let newData = myNewData.splice(0,6)
+    let newData = myNewData.slice(0, 6)
     // console.log(newData)
     // console.log(newData[0] && newData[0].status)
     // console.log((newData[0] && newData[0].status === "Approved") ? newData[0]._id : "oops")

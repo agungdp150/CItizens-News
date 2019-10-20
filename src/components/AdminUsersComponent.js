@@ -22,7 +22,7 @@ class AdminUsersComponent extends Component {
       setToken(localStorage.token);
     }
     this.props.getAllUser();
-    setInterval(this.props.getAllUser(),2000)
+    // setInterval(this.props.getAllUser(),2000)
     // console.log(this.props.getAllUser())
   }
 

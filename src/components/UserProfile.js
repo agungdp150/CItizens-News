@@ -14,7 +14,7 @@ class UserProfile extends Component {
 
   render() {
     const userData = this.props.details.user;
-    console.log(this.props.details.user);
+    // console.log(this.props.details.user);
     console.log(userData && userData.fullname);
 
     return (
@@ -41,7 +41,7 @@ class UserProfile extends Component {
                         <h2 className="text-gray-800 text-3xl w-full mb-3 text-center sm:text-left font-bold font-serif mt-4 sm:mt-0">
                           {userData && userData.fullname} 
                           <span className="ml-6 text-xs font-sans font-normal text-green-500 py-1 px-2 border border-green-500 rounded"> 
-                          <Link to="/editprofile">Edit Profile</Link></span>
+                          <Link to={`/editprofile/${userData && userData._id}`}>Edit Profile</Link></span>
                         </h2>
                         <div className="flex sm:w-auto w-full sm:justify-start justify-center">
                           <span className="text-gray-800 mr-4 tracking-wider text-sm">
@@ -87,7 +87,9 @@ const mapStateToProps = state => {
   };
 };
 
+
+
 export default connect(
   mapStateToProps,
-  { getDetailUser }
+  {getDetailUser}
 )(withRouter(UserProfile));

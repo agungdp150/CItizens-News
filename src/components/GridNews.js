@@ -23,6 +23,7 @@ class GridNews extends Component {
   }
 
   render() {
+
     const newsData = this.props.news.map(newspro => {
       if (
         newspro.category[0] === "News" &&
@@ -184,7 +185,8 @@ class GridNews extends Component {
         newspro.category[0] === "Education" &&
         newspro.status === "Approved" &&
         newspro.category[0] !== "Video"
-      ) {
+      ) 
+      {
         return (
           <div key={newspro._id}>
             <div className="flex justify-beetwen pt-4">

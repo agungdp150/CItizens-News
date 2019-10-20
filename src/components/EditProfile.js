@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import {withRouter, Link} from 'react-router-dom';
 import axios from 'axios';
+import setToken from '../helpers/setToken';
+import { connect } from "react-redux";
+import { getDetailUser } from "../store/actions/getdetailuserAction";
 
 // import User from '../assets/img/user.svg'
 
@@ -19,6 +22,16 @@ class EditProfile extends Component {
     }
   }
 
+  componentDidMount(){
+    if (localStorage.token){
+      setToken(localStorage.token)
+    }
+    const id = this.props.match.params.id;
+    this.props.getDetailUser(id);
+  }
+
+  
+
 
   handleChange = (e) => {
     this.setState ({
@@ -30,41 +43,70 @@ class EditProfile extends Component {
     e.preventDefault();
 
     const {email, gender, birthday, fullname, address} = this.state;
-
     
+    try{
+      const response = await axios.put(
+        `https://app-citizenjournalism.herokuapp.com/api/v1/user/update`,
+        {
+          emai : email,
+          gender : gender,
+          birthday : birthday,
+          fullname : fullname,
+          address : address
+        }
+      );
+      console.log(response.data);
+      console.log("OKKKKKKK");
+    } catch (error) {
+      console.log(error.response.data)
+    }
+  }
+
+  handlePictProfile = async e => {
+    e.preventDefault();
+
+    // const fd = new FormData();
+    // fd.append('image',
+    //   this.state.media,
+    //   this.state.media.name,
+    //   this.state.media.type
+    //   )
+    // )
 
   }
   
 
-
-
   render() {
 
+    const accountEdit = this.props.details.user;
+    
     const {email, fullname, birthday, address} = this.state
 
     return (
       <div>
+        <div className="user-width mx-auto">
         <div className="flex flex-wrap overflow-hidden">
           <div className="w-full overflow-hidden lg:w-3/4 xl:w-3/4 bg-gray-400">
             <div>
               <div className="md:flex rounded-lg p-6">
+              <form>
                 <div className="image-upload">
-                  <form>
                   <label htmlFor="img-input">
                     <img
-                      className="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-6 object-cover cursor-pointer"
-                      src="https://images.pexels.com/photos/372042/pexels-photo-372042.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                      className="h-24 w-24 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-6 object-cover cursor-pointer"
+                      src={accountEdit && accountEdit.image.secure_url}
                       alt="your-pict"
                     />
                   </label>
-                  <input type="file" id="img-input" />
-                  </form>
+                  <input type="file" id="img-input" className="coba" />
                 </div>
+                <button className="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded text-xs mt-4 ml-2">
+                  Save Image
+                </button>
+                </form>
                 <div className="text-center md:text-left">
-                  <h2 className="text-xl">Erin Lindford</h2>
-                  <button className="bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-3 rounded text-xs">
-                    Delete Account
-                  </button>
+                  <h2 className="text-gray-800 text-xl w-full text-center sm:text-left font-bold font-serif pt-6 sm:mt-0">{accountEdit && accountEdit.fullname}</h2>
+                 
                 </div>
               </div>
             </div>
@@ -155,25 +197,23 @@ class EditProfile extends Component {
                   </button>
                 </div>
               </form>
+              <button className="bg-red-600 hover:bg-red-500 text-white font-semibold py-2 px-4 rounded text-xs">
+                Delet Account
+              </button>
             </div>
           </div>
 
           <div className="w-full overflow-hidden lg:w-1/4 xl:w-1/4 bg-blue-300">
-            <div className="fixed">
+            <div className="fixed w-48">
               <div className="p-4 mx-auto">
                 <h2 className="text-lg font-bold mb-2">Profile</h2>
                 <p className="text-sm">
-                  This information appears on your public profile, search
-                  results, and beyond. It helps instanly identify you those
-                  following you, and tells those who aren't more about you.
+                  This information appears on your public profile. It helps instanly identify you those following you, and tells those who aren't more about you.
                 </p>
               </div>
               <div className="p-4 mx-auto">
                 <h2 className="text-lg font-bold mb-2">Tips</h2>
                 <p className="text-sm">
-                  Filling your profile information will help people find you on
-                  Citizens. For exampl. you'll be more likely to turn up in a
-                  Citizens search if you've added your real name. <br />
                   Your Citizens profile picture helps instanly indentify you to
                   those following you and tells those who aren't more about you.
                 </p>
@@ -181,9 +221,19 @@ class EditProfile extends Component {
             </div>
           </div>
         </div>
+        </div>
       </div>
     );
   }
 }
 
-export default EditProfile;
+const mapStateToProps = state => {
+  return {
+    details: state.user1.detailUser
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {getDetailUser}
+) (withRouter(EditProfile));
