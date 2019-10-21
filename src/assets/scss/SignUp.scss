@@ -1,7 +1,7 @@
 div {
   
   .style-up {
-    background-color: #F0F5f9;
+    background-color: rgb(223, 223, 223);
 
     h1 {
       margin-left: 30px;
@@ -22,49 +22,29 @@ div {
 
 
   .up-style {
-    background-color: #1E2022;
+    background-color: rgb(58, 58, 58);
     color: #F0F5f9;
 
     .col-3{
-      width: 90.33%; 
-      margin: 20px 3%; 
+      width: 60.33%; 
+      margin: 20px 18%; 
       position: relative;
      } /* necessary to give position: relative to parent. */
      
-     input[type="text"]{
+     input[type="text"], [type="email"],[type="password"] {
        font: 15px/24px "Lato", Arial, sans-serif; 
-       color: #333;
-       background-color: #F0F5f9;
+       color: rgb(223, 223, 223);
+       background-color: transparent;
        border-radius: 3px;
        width: 100%; 
        box-sizing: border-box; 
        letter-spacing: 1px;
      }
- 
-     input[type="password"]{
-       font: 15px/24px "Lato", Arial, sans-serif; 
-       color: #333; 
-       background-color: #F0F5f9;
-       border-radius: 3px;
-       width: 100%; 
-       box-sizing: border-box; 
-       letter-spacing: 1px;
-     }
-
-     input[type="email"]{
-      font: 15px/24px "Lato", Arial, sans-serif; 
-      color: #333; 
-      background-color: #F0F5f9;
-      border-radius: 3px;
-      width: 100%; 
-      box-sizing: border-box; 
-      letter-spacing: 1px;
-    }
 
     textarea[type="text"]{
       font: 15px/24px "Lato", Arial, sans-serif; 
-      color: #333; 
-      background-color: #F0F5f9;
+      color: rgb(223, 223, 223);
+      background-color: transparent;
       border-radius: 3px;
       padding: 7px 10px;
       width: 100%; 
@@ -72,6 +52,7 @@ div {
       letter-spacing: 1px;
       overflow: auto;
       resize: none;
+      border: rgb(223, 223, 223) solid 1px;
     }
  
  .effect-1{
@@ -83,14 +64,14 @@ div {
  .effect-1 ~ .focus-border{
    position: absolute; 
    bottom: 0; 
-   left: 0; 
+   left: 98px; 
    width: 0; 
    height: 3px; 
    background-color: #4caf50; 
    transition: 0.4s;
  }
  .effect-1:focus ~ .focus-border{
-   width: 100%; 
+   width: 81%; 
    transition: 0.4s;
    }
 
@@ -100,11 +81,11 @@ div {
     font-weight: 400;
 
     input[type="date"]{
-      color: #52616B;
+      color: rgb(223, 223, 223);
+      background-color: transparent;
       width: 100%;
       padding: 7px 10px;
       border-radius: 3px;
-      background-color: #F0F5f9;
       &::placeholder {
         color: #ccc;
       }
@@ -158,8 +139,6 @@ div {
   }
 
   .s-gender {
-    display: flex;
-    justify-content: space-around;
     height: 30px;
     color: #ffffff;
   }

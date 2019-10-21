@@ -25,6 +25,8 @@ import UserPage from "../pages/UserPage";
 import AdminLoginPage from "../pages/AdminLoginPage";
 import AdminNewsPage from "../pages/AdminNewsPage";
 import AdminUserPage from "../pages/AdminUserPage";
+import AdminRejectedPage from "../pages/AdminRejectedPage";
+import AdminApprovedPage from "../pages/AdminApprovedPage";
 
 // News
 import DetailPage from "../pages/DetailPage";
@@ -46,7 +48,9 @@ const Routes = () => {
         <Route exact path="/forgot" component={ForgotPage} />
 
         <Route exact path="/adminlogin" component={AdminLoginPage} />
-        <Route exact path="/admindashboardnews" component={AdminNewsPage} />
+        <Route exact path="/admindashboardnews" component={AdminNewsPage}/>
+        <Route exact path="/adminapproved" component={AdminApprovedPage}/>
+        <Route exact path="/adminrejected" component={AdminRejectedPage}/>
         <Route exact path="/admindashboardusers" component={AdminUserPage} />
 
         <Route exact path="/detail/:id" component={DetailPage} />

@@ -23,7 +23,7 @@ class GridNews extends Component {
   }
 
   render() {
-
+    
     const newsData = this.props.news.map(newspro => {
       if (
         newspro.category[0] === "News" &&

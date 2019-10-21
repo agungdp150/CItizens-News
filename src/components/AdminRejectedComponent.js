@@ -25,7 +25,7 @@ class AdminNewsComponent extends Component {
     const dataAdmin = this.props.news.map(allnews => {
       // console.log(allnews.status)
       if (
-        allnews.status === "Approved"
+        allnews.status === "Rejected"
       ) {
       return(
         <tr className="hover:bg-grey-lighter" key={allnews._id}>
@@ -39,19 +39,12 @@ class AdminNewsComponent extends Component {
           {allnews.category}
         </td>
         <td className="py-4 px-6 border-b border-grey-light text-sm">
-         <h4 className="bg-transparent text-green-500 font-semibold py-1 px-2 border border-green-500 rounded text-sm">
+         <h4 className="bg-transparent text-red-500 font-semibold py-1 px-2 border border-red-500 rounded text-sm text-center">
           {allnews.status}
          </h4>
         </td>
         <td className="py-4 text-center border-b border-grey-light text-sm">
           {allnews.date.substring(0, 10)}
-        </td>
-        <td className="flex py-6 px-6 border-b border-grey-light">
-          <Link to={`/detail/${allnews._id}`}>
-        <button className="text-grey-lighter font-bold py-1 px-2 rounded text-xs bg-blue-600 hover:bg-blue-700 text-white">
-            View
-          </button>
-          </Link>
         </td>
       </tr>
       )
@@ -73,7 +66,7 @@ class AdminNewsComponent extends Component {
     let i = 0
     this.props.news.map(pendingTotal => {
       // console.log(pendingTotal.status)
-      if (pendingTotal.status === "Approved") {
+      if (pendingTotal.status === "Rejected") {
         i++
       } 
     })
@@ -87,7 +80,7 @@ class AdminNewsComponent extends Component {
       <div className="bg-gray-800 h-full w-full">
         <div className="w-4/5 mx-auto">
           <div className="text-5xl font-medium">
-            <h1 className="font-bold py-8 pl-2 text-5xl text-white">Citizens Approved</h1>
+            <h1 className="font-bold py-8 pl-2 text-5xl text-white">Citizens Rejected</h1>
             <div>
               <ul className="list-reset flex bg-transparent ">
                 <li className="py-3 px-4 text-center border-b-2 border-solid border-transparent border-teal bg-gray-100 mx-2 rounded">
@@ -97,7 +90,7 @@ class AdminNewsComponent extends Component {
                     <div className="text-sm tracking-tight mb-1 text-blue-500">
                       Total News
                     </div>
-                    <div className="text-sm tracking-tight text-blue-500 text-teal">
+                    <div className="text-sm tracking-tight text-teal text-blue-500">
                     {amountData.length}
                     </div>
                   </Link>
@@ -106,16 +99,16 @@ class AdminNewsComponent extends Component {
                   <Link
                     to="#"
                     className="text-grey-darker no-underline hover:no-underline">
-                    <div className="text-sm tracking-tight mb-1 text-green-500">
-                      Total Approved
+                    <div className="text-sm tracking-tight mb-1 text-red-500">
+                      Total Rejected
                     </div>
-                    <div className="text-sm text-green-500 tracking-tight text-teal">{i}</div>
+                    <div className="text-sm tracking-tight text-teal text-red-500">{i}</div>
                   </Link>
                 </li>
               </ul>
             </div>
           </div>
-          <div className="bg-white shadow-md rounded mt-6 pb-6 bg-gray-100">
+          <div className="bg-white mt-6 pb-6 shadow-md rounded  bg-gray-100">
             <table className="text-left w-full border-collapse">
               <thead>
                 <tr>
@@ -134,18 +127,16 @@ class AdminNewsComponent extends Component {
                   <th className="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
                     Date
                   </th>
-                  <th className="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-                    Actions
-                  </th>
                 </tr>
               </thead>
               <tbody>
-                {dataAdmin}               
+                {dataAdmin}
+
+               
               </tbody>
             </table>
           </div>
         </div>
-        <div className="bg-gray-800 w-full"></div>
       </div>
     );
   }

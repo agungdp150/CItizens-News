@@ -4,7 +4,7 @@ div{
 
   
   .text-container {
-    max-width: 828px;
+    max-width: 780px;
     padding: 30px 20px;
     color: $color-black4;
   }
@@ -29,25 +29,29 @@ div{
   }
 
   .d-detail {
-    textarea{
-      border : 1px $color-black4 solid;
-      width: 100%;
-      padding: 12px;
-      height: 100px;
-      outline: none;
-      border-radius: 10px;
-      font-size: 14px;
-      resize: none;
-      overflow: auto;
-      }
+    .col-3{
+      width: 100%; 
+      margin: 15px 0; 
+      position: relative;
+     } /* necessary to give position: relative to parent. */
+     
+     input[type="text"]{
+       font: 15px/24px "Lato", Arial, sans-serif; 
+       color:  rgb(56, 56, 56);
+       background-color: transparent;
+       border-radius: 3px;
+       width: 100%; 
+       box-sizing: border-box; 
+       letter-spacing: 1px;
+       border-bottom: rgb(56, 56, 56) solid 2px;
+       padding: 5px;
+     }
 
 
     }
    
 
   .d-border {
-
-    
 
     @media screen and (max-width: 800px) {
       article {

@@ -3,8 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { loginUser } from "../store/actions/loginAction";
 
-import Logo2 from "../assets/img/Logo2.png";
-import Pict1 from "../assets/img/2650149.png";
+import Logo3 from "../assets/img/Logo3.png";
 
 import "../assets/scss/SignIn.scss";
 
@@ -51,71 +50,92 @@ class SignIn extends Component {
     return (
       <div>
         <div className="flex flex-wrap overflow-hidden">
-          <div className="w-full overflow-hidden lg:w-1/3 xl:w-1/3 sign-style h-screen pt-32">
-            <h1 className="text-center font-medium text-3xl"> Sign In </h1>{" "}
+          <div className="w-full overflow-hidden lg:w-3/5 xl:w-3/5 sign-style h-screen pt-12">
+            <Link to="/">
+            <img 
+              src={Logo3} 
+              alt="Logo-Citizens"
+              className="w-40 mx-auto"
+              />
+            </Link>
             <div>
               <form onSubmit={this.handleSubmit}>
-                <div className="col-3">
+                <div className="col-3 flex">
+                  <label className="w-1/4 p-4">Username</label>
                   <input
                     className="effect-1"
                     type="text"
-                    placeholder="Username"
+                    placeholder="citizens username"
                     name="username"
                     value={username}
                     onChange={this.handleChange}
-                  />{" "}
-                  <span className="focus-border"> </span>{" "}
+                  />
+                  <span className="focus-border"> </span>
                 </div>
-                <div className="col-3">
+                <div className="col-3 flex">
+                  <label className="w-1/4 p-4">Password</label>
                   <input
                     className="effect-1"
                     type="Password"
-                    placeholder="Password"
+                    placeholder="your password"
                     name="password"
                     value={password}
                     onChange={this.handleChange}
-                  />{" "}
-                  <span className="focus-border"> </span>{" "}
-                </div>{" "}
+                  />
+                  <span className="focus-border"> </span>
+                </div>
                 <div className="flex justify-center">
                   <button
-                    className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded text-sm"
+                    className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-12 rounded text-sm"
                     type="submit">
-                    Sign In{" "}
-                  </button>{" "}
-                </div>{" "}
-              </form>{" "}
+                    Sign In
+                  </button>
+                </div>
+                <br/>
+                <p className="flex justify-center">or</p>
+                <br/>
+                <div className="flex justify-center">
+                  <button
+                    className="bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-12 rounded text-sm"
+                    type="submit">
+                    Sign In With <span><i className="fab fa-google-plus-g"></i></span>
+                  </button>
+                </div>
+              </form>
               <div className="text-center text-xs mt-4">
                 <p>
-                  {" "}
-                  <Link to="/forgot"> forgot password ? </Link>
+                 
+                  <Link to="/forgot"> Forgot password ? </Link>
                 </p>
                 <p className="mt-1">
-                  {" "}
-                  don 't have account yet register{" "}
-                  <Link to="/signup">here...</Link>
-                </p>{" "}
-              </div>{" "}
+                
+                  Don 't have any account yet?
+                  <Link to="/signup" className="ml-1"> register here...</Link>
+                </p>
+              </div>
             </div>
           </div>
-          <div className="w-full overflow-hidden lg:w-2/3 xl:w-2/3 bg-blue-300 style-in">
-            <div className="flex justify-center mt-12">
-              <Link to="/">
-                <img src={Logo2} alt="Logo" width="180px" />
-              </Link>{" "}
-            </div>{" "}
-            <div className="text-login">
-              <h1 className="font-medium"> Hello Citizens... </h1>{" "}
+
+          <div className="w-full overflow-hidden lg:w-2/5 xl:w-2/5 bg-blue-300 style-in">
+            <div className="bg-gray-800 text-gray-200 mt-24 p-10 font-serif">
+              <h1 className="font-serif text-4xl">
+                Login with your Google Account
+              </h1>
               <p>
-                Please sign in to access your account and contribute with other
-                people about happen today{" "}
-              </p>{" "}
-            </div>{" "}
-            <div className="flex justify-center">
-              <img src={Pict1} alt="Join Our Citizens" width="46%" />
-            </div>{" "}
-          </div>{" "}
-        </div>{" "}
+                 Now you can login with your Google Account wiht these step :
+                </p>
+                <ul className="-ml-4">
+                  <li>
+                    <p><span><i className="fas fa-check-circle"></i></span>Click sign In with G+</p>
+                  </li>
+                  <li>
+                    <p><span><i className="fas fa-check-circle"></i></span>Allow Citizen News to get your Profile from Google</p>
+                  </li>
+                </ul>
+            </div>
+
+          </div>
+        </div>
       </div>
     );
   }
