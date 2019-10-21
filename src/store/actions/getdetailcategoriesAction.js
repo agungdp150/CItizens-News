@@ -15,8 +15,4 @@ export const getCategory = category => async dispatch => {
 }
 
 
-// export const getCategoryPage = page => async dispatch => {
-//   try {
-//     const response = await axios.get (`https://app-citizenjournalism.herokuapp.com/api/v1/news/category?page=${page}`)
-//   }
-// } 
+

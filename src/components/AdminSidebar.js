@@ -10,16 +10,22 @@ class NavbarAdmin extends Component {
         <div className="area"></div>
           <nav className="main-menu">
             <ul>
-              <li>
-                <Link to="/">
-                <i className="fas fa-user-circle fa-2x"></i>
-                <span className="nav-text">Admin</span>
+              <li className="has-subnav">
+                <Link to="/admindashboardnews">
+                <i className="far fa-newspaper fa-2x"></i>
+                <span className="nav-text">Dashboard</span>
                 </Link>
               </li>
               <li className="has-subnav">
                 <Link to="/admindashboardnews">
-                <i className="far fa-newspaper fa-2x"></i>
-                <span className="nav-text">All News</span>
+                <i className="fas fa-clipboard-check fa-2x"></i>
+                <span className="nav-text">Publish</span>
+                </Link>
+              </li>
+              <li className="has-subnav">
+                <Link to="/admindashboardnews">
+                <i className="fas fa-times-circle fa-2x"></i>
+                <span className="nav-text">Reject</span>
                 </Link>
               </li>
               <li className="has-subnav">

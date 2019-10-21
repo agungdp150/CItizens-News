@@ -50,7 +50,7 @@ class AdminUsersComponent extends Component {
     // console.log(this.props.allUser)
 
     const allUserData = this.props.allUser.map((users, index) => {
-      console.log(users);
+      // console.log(users);
       return (
         <tr className="hover:bg-grey-lighter">
           <td className="py-4 px-6 border-b border-grey-light">{index + 1}</td>

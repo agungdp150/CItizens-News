@@ -7,6 +7,7 @@ import getdetailuserReducer from '../reducers/getdetailuserReducer';
 import createnewsReducer from '../reducers/createnewsReducer';
 import getdetailcategoriesReducer from '../reducers/getdetailcategoriesReducer';
 import getalluserReducer from '../reducers/getalluserReducer';
+import catepageReducer from '../reducers/catepageReducer';
 
 export default combineReducers({
   register1 : registerReducer,
@@ -16,5 +17,6 @@ export default combineReducers({
   user1 : getdetailuserReducer,
   createnews1 : createnewsReducer,
   categories1 : getdetailcategoriesReducer,
-  getalluser1 : getalluserReducer
+  getalluser1 : getalluserReducer,
+  pagecate1 : catepageReducer
 })

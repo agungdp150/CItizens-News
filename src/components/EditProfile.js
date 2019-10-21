@@ -19,6 +19,7 @@ class EditProfile extends Component {
       birthday : '',
       gender : '',
       address : '',
+      myProfile : null 
     }
   }
 
@@ -31,7 +32,6 @@ class EditProfile extends Component {
   }
 
   
-
 
   handleChange = (e) => {
     this.setState ({
@@ -62,17 +62,31 @@ class EditProfile extends Component {
     }
   }
 
+  handlerChangePict = e => {
+    this.setState ({
+      myProfile : e.target.files[0]
+    })
+  }
+
   handlePictProfile = async e => {
     e.preventDefault();
 
-    // const fd = new FormData();
-    // fd.append('image',
-    //   this.state.media,
-    //   this.state.media.name,
-    //   this.state.media.type
-    //   )
-    // )
-
+    const fd = new FormData();
+    fd.append('image', 
+    this.state.myProfile, 
+    this.state.myProfile.name, 
+    this.state.myProfile.type);
+    axios.put (`https://app-citizenjournalism.herokuapp.com/api/v1/user/photo`, fd, {
+      onUploadProgress: progressEvent => {
+        console.log('upload progress = :' + Math.round(progressEvent.loaded/progressEvent.total * 100) + "%")
+      }
+    })
+    .then(response => {
+      console.log(response)
+      .catch(error => {
+        console.log(error.data)
+      });
+    });
   }
   
 
@@ -89,6 +103,7 @@ class EditProfile extends Component {
           <div className="w-full overflow-hidden lg:w-3/4 xl:w-3/4 bg-gray-400">
             <div>
               <div className="md:flex rounded-lg p-6">
+
               <form>
                 <div className="image-upload">
                   <label htmlFor="img-input">
@@ -98,12 +113,21 @@ class EditProfile extends Component {
                       alt="your-pict"
                     />
                   </label>
-                  <input type="file" id="img-input" className="coba" />
+                  <input 
+                  type="file" 
+                  id="img-input" 
+                  className="coba" 
+                  onChange={this.handlerChangePict}
+                  />
                 </div>
-                <button className="bg-blue-700 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded text-xs mt-4 ml-2">
+                <button 
+                className="bg-blue-700 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded text-xs mt-4 ml-2"
+                onClick={this.handlePictProfile}
+                >
                   Save Image
                 </button>
                 </form>
+
                 <div className="text-center md:text-left">
                   <h2 className="text-gray-800 text-xl w-full text-center sm:text-left font-bold font-serif pt-6 sm:mt-0">{accountEdit && accountEdit.fullname}</h2>
                  

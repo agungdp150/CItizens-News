@@ -46,8 +46,8 @@ const Routes = () => {
         <Route exact path="/forgot" component={ForgotPage} />
 
         <Route exact path="/adminlogin" component={AdminLoginPage} />
-        <PrivateRoute exact path="/admindashboardnews" component={AdminNewsPage} />
-        <PrivateRoute exact path="/admindashboardusers" component={AdminUserPage} />
+        <Route exact path="/admindashboardnews" component={AdminNewsPage} />
+        <Route exact path="/admindashboardusers" component={AdminUserPage} />
 
         <Route exact path="/detail/:id" component={DetailPage} />
         <Route exact path="/user/:id" component={UserPage} />
