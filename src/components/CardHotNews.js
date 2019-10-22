@@ -7,13 +7,17 @@ import {ComingSoon} from '../assets/img/Coming.jpg';
 import "../assets/scss/CardHotNews.scss";
 
 class CardHotNews extends Component {
+
   componentDidMount() {
     this.props.getNews();
   }
 
   render() {
-    // console.log(this.props.news);
-    const myNewData = this.props.news;
+
+    let hotNews = this.props.news
+
+    // console.log("props",this.props.news);
+    const myNewData = hotNews.filter(saring => saring.status === "Approved")
     let newData = myNewData.slice(0, 6)
     // console.log(newData)
     // console.log(newData[0] && newData[0].status)

@@ -116,7 +116,7 @@ class GridNews extends Component {
                   <Link to={`/detail/${newspro._id}`}>{newspro.title}</Link>
                 </h1>
                 <p className="text-sm font-serif pt-2 text-gray-700">
-                  {newspro.description.substring(0, 170)}...{" "}
+                  {newspro.description.substring(0, 170)}...
                   <Link to={`/detail/${newspro._id}`}>
                     <span className="text-blue-800 font-bold font-sans">
                       Read More
@@ -271,7 +271,7 @@ class GridNews extends Component {
             <div className="flex justify-end">
               <Link to="/category/News">
                 <h2 className="text-blue-800 font-bold">
-                  More News{" "}
+                  More News
                   <span>
                     <i className="fas fa-chevron-circle-right" />
                   </span>
@@ -289,7 +289,7 @@ class GridNews extends Component {
             <div className="flex justify-end">
               <Link to="/category/Lifestyle">
                 <h2 className="text-blue-800 font-bold pt-4">
-                  More Lifestyle{" "}
+                  More Lifestyle
                   <span>
                     <i className="fas fa-chevron-circle-right" />
                   </span>
@@ -307,7 +307,7 @@ class GridNews extends Component {
             <div className="flex justify-end">
               <Link to="/category/Food">
                 <h2 className="text-blue-800 font-bold">
-                  More Food{" "}
+                  More Food
                   <span>
                     <i className="fas fa-chevron-circle-right" />
                   </span>
@@ -325,7 +325,7 @@ class GridNews extends Component {
             <div className="flex justify-end pt-4">
               <Link to="/category/Tech">
                 <h2 className="text-blue-800 font-bold">
-                  More Tech{" "}
+                  More Tech
                   <span>
                     <i className="fas fa-chevron-circle-right" />
                   </span>
@@ -343,7 +343,7 @@ class GridNews extends Component {
             <div className="flex justify-end pt-4">
               <Link to="/category/Education">
                 <h2 className="text-blue-800 font-bold">
-                  More Education{" "}
+                  More Education
                   <span>
                     <i className="fas fa-chevron-circle-right" />
                   </span>
@@ -361,7 +361,7 @@ class GridNews extends Component {
             <div className="flex justify-end pt-4">
               <Link to="/category/Entertaintment">
                 <h2 className="text-blue-800 font-bold">
-                  More Entertaintment{" "}
+                  More Entertaintment
                   <span>
                     <i className="fas fa-chevron-circle-right" />
                   </span>

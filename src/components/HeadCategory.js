@@ -18,7 +18,7 @@ class HeadCategory extends Component {
 
             <label htmlFor="menu-toggle" className="pointer-cursor md:hidden block">
               <svg
-                className="fill-current text-gray-300 hover:text-white"
+                className="fill-current text-gray-800 hover:text-white"
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
                 height="20"

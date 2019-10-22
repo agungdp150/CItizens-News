@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import HeadCategory from '../components/HeadCategory';
-import About from '../components/About';
-import Footer from '../components/Footer';
+import DetailVideo from '../components/DetailVideo';
 
-class AboutPage extends Component {
+class DetailVideoPage extends Component {
   render() {
     return (
       <div>
         <HeadCategory/>
-        <About/>
-        <Footer/>
+        <DetailVideo/>
       </div>
     )
   }
 }
 
-export default AboutPage
+export default DetailVideoPage;

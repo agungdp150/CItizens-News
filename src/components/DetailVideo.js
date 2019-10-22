@@ -1,14 +1,12 @@
-import React, { Component } from "react";
-import axios from "axios";
-import { Link, withRouter } from "react-router-dom";
+import React, { Component } from 'react';
+import axios from 'axios';
+import {Link, withRouter} from 'react-router-dom';
 import { connect } from "react-redux";
 import { getDetail } from "../store/actions/getdetailAction";
 import setToken from '../helpers/setToken';
+import ReactPlayer from 'react-player';
 
-import "../assets/scss/Detail.scss";
-
-
-class Detail extends Component {
+class DetailVideo extends Component {
   constructor(props) {
     super (props);
 
@@ -17,7 +15,6 @@ class Detail extends Component {
       comment : '',
     }
   }
-
 
   componentDidMount() {
     if (localStorage.token) {
@@ -62,8 +59,7 @@ class Detail extends Component {
 
 
   render() {
-
-    // console.log(this.props.details.listComment);
+    // console.log(this.props.details)
     const {
       title,
       description,
@@ -96,25 +92,30 @@ class Detail extends Component {
       )
     })
 
-    
-
     return (
-      <div className="bg-color-hot">
+      <div>
+        
+        <div className="bg-color-hot">
         <div className="flex flex-wrap overflow-hidden text-container container mx-auto">
 
           <div className="w-full overflow-hidden article-style">
             <h1 className="text-4xl font-serif">{title}</h1>
             <div className="font-medium">
-                <h3 className="text-base"> Author : <Link to={`/user/${user._id}`} >{user && user.username}</Link></h3>
+                <h3 className="text-base"> Author : <Link to="" >{user.username}</Link></h3>
                 <h3 className="text-sm font-normal mb-6">{date.substring(0, 10)}</h3>
             </div>
             
-            <img src={media.secure_url} alt={title} />
+            <ReactPlayer
+             url={media.secure_url} 
+             width="100%" 
+             playing={false}
+             controls={true}
+             />
 
             <div className="container mx-auto my-10">
              <p className="text-lg font-serif">{description}</p>
             </div>
-            <h3 className="text-sm font-bold font-serif mb-2 ">Category : {category}</h3>
+            <h3 className="text-sm font-bold font-serif mb-2 ">Category : {category} </h3>
           </div>
 
           <div className="container mx-auto w-full overflow-hidden d-detail">
@@ -128,6 +129,7 @@ class Detail extends Component {
                     className="effect-1"
                     type="text"
                     placeholder="insert your comment here..."
+                    autoComplete="off"
                     name = "comment"
                     value = {this.state.comment}
                     onChange={this.handleChange}
@@ -144,12 +146,14 @@ class Detail extends Component {
           </div>
 
           <div className="w-full overflow-hidden mb-4">
-          {commentList}
+            {commentList}
           </div>
 
         </div>
       </div>
-    );
+
+      </div>
+    )
   }
 }
 
@@ -161,5 +165,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getDetail }
-)(withRouter(Detail));
+  {getDetail}
+) (withRouter(DetailVideo))

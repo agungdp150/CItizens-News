@@ -8,6 +8,7 @@ import createnewsReducer from '../reducers/createnewsReducer';
 import getdetailcategoriesReducer from '../reducers/getdetailcategoriesReducer';
 import getalluserReducer from '../reducers/getalluserReducer';
 import catepageReducer from '../reducers/catepageReducer';
+import getvideoReducer from '../reducers/getvideoReducer';
 
 export default combineReducers({
   register1 : registerReducer,
@@ -18,5 +19,6 @@ export default combineReducers({
   createnews1 : createnewsReducer,
   categories1 : getdetailcategoriesReducer,
   getalluser1 : getalluserReducer,
-  pagecate1 : catepageReducer
+  pagecate1 : catepageReducer,
+  video1 : getvideoReducer
 })

@@ -22,7 +22,7 @@ class NewJumbotron extends Component {
             for the public Good</h1>
             <Link to="/signin">
             <button className="font-bold first bg-blue-700 hover:bg-blue-800 ">
-              BECOME CITIZENS <span><i className="fas fa-arrow-right"/></span>
+              JOIN US <span><i className="fas fa-arrow-right"/></span>
             </button>
             </Link>
             <Link to="/about">

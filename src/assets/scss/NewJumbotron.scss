@@ -35,18 +35,18 @@ div {
       position: absolute;
       padding: 5px 5px 5px 40px;
       /* border-radius: 6px; */
-      bottom: 60px;
+      bottom: 0px;
       color: white;
       z-index: 3;
       font-size: 12px;
 
       &.first {
-        right: 450px;
+        right: 440px;
         // background-color: #006AB9;
       }
 
       &.second {
-        right: 290px;
+        right: 280px;
         padding: 4px 5px 4px 40px;
       }
 
@@ -73,19 +73,19 @@ div {
       button {
         position: absolute;
         padding: 5px 5px 5px 40px;
-        bottom : -240px;
+        bottom : -80px;
         /* border-radius: 6px; */
         color: white;
         z-index: 3;
         font-size: 12px;
   
         &.first {
-          right: 300px;
+          right: 270px;
           // background-color: #006AB9;
         }
   
         &.second {
-          right: 140px;
+          right: 110px;
           padding: 4px 5px 4px 40px;
         }
   
@@ -97,6 +97,25 @@ div {
   }
 
   @media only screen and (max-width: 768px) {
+
+    .nj-background-color {
+      background-color: rgba(98, 98, 98, 0.2);
+      height: 85vh;
+      width: 100%;
+      position: absolute;
+      z-index: 2;
+    }
+
+    .nj-jumbo {
+      position: relative;
+      bottom: 0px;
+  
+      img {
+        height: 85vh;
+        width: 100%;
+      }
+    }
+
     .nj-text {
       display: flex;
       justify-content: flex-end;
@@ -113,7 +132,7 @@ div {
       button {
         position: absolute;
         padding: 5px 5px 5px 40px;
-        bottom : -200px;
+        bottom : 100px;
         /* border-radius: 6px; */
         color: white;
         z-index: 3;
@@ -125,7 +144,7 @@ div {
         }
   
         &.second {
-          right: 170px;
+          right: 160px;
           padding: 4px 5px 4px 40px;
         }
   
@@ -136,7 +155,26 @@ div {
     }
   }
 
-  @media only screen and (max-width: 415px) {
+  @media only screen and (max-width: 516px) {
+
+    .nj-background-color {
+      background-color: rgba(98, 98, 98, 0.2);
+      height: 85vh;
+      width: 100%;
+      position: absolute;
+      z-index: 2;
+    }
+
+    .nj-jumbo {
+      position: relative;
+      bottom: 0px;
+  
+      img {
+        height: 85vh;
+        width: 100%;
+      }
+    }
+
     .nj-text {
       display: flex;
       justify-content: flex-end;
@@ -144,24 +182,199 @@ div {
       h1 {
         position: relative;
         bottom: 300px;
-        right: 70px;
+        right: 80px;
         color: #F6F3F4;
         z-index: 12;
         line-height: 32px;
-        font-size: 24px;
       }
   
       button {
         position: absolute;
         padding: 5px 5px 5px 40px;
-        bottom : -200px;
+        bottom : 90px;
         /* border-radius: 6px; */
         color: white;
         z-index: 3;
         font-size: 12px;
   
         &.first {
-          right: 200px;
+          right: 330px;
+          // background-color: #006AB9;
+        }
+  
+        &.second {
+          right: 160px;
+          padding: 4px 5px 4px 40px;
+        }
+  
+        i {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+
+  
+
+  @media only screen and (max-width: 415px) {
+    .nj-background-color {
+      background-color: rgba(98, 98, 98, 0.2);
+      height: 55vh;
+      width: 100%;
+      position: absolute;
+      z-index: 2;
+    }
+
+    .nj-jumbo {
+      position: relative;
+      bottom: 0px;
+  
+      img {
+        height: 55vh;
+        width: 100%;
+      }
+    }
+    .nj-text {
+      display: flex;
+      justify-content: flex-end;
+  
+      h1 {
+        position: relative;
+        bottom: 300px;
+        right: 100px;
+        color: #F6F3F4;
+        z-index: 12;
+        line-height: 32px;
+        font-size: 21px;
+      }
+  
+      button {
+        position: absolute;
+        padding: 5px 5px 5px 40px;
+        bottom : 360px;
+        /* border-radius: 6px; */
+        color: white;
+        z-index: 3;
+        font-size: 12px;
+  
+        &.first {
+          right: 190px;
+          // background-color: #006AB9;
+        }
+  
+        &.second {
+          right: 30px;
+          padding: 4px 5px 4px 40px;
+        }
+  
+        i {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 411px) {
+    .nj-background-color {
+      background-color: rgba(98, 98, 98, 0.2);
+      height: 55vh;
+      width: 100%;
+      position: absolute;
+      z-index: 2;
+    }
+
+    .nj-jumbo {
+      position: relative;
+      bottom: 0px;
+  
+      img {
+        height: 55vh;
+        width: 100%;
+      }
+    }
+    .nj-text {
+      display: flex;
+      justify-content: flex-end;
+  
+      h1 {
+        position: relative;
+        bottom: 300px;
+        right: 100px;
+        color: #F6F3F4;
+        z-index: 12;
+        line-height: 32px;
+        font-size: 21px;
+      }
+  
+      button {
+        position: absolute;
+        padding: 5px 5px 5px 40px;
+        bottom : 340px;
+        /* border-radius: 6px; */
+        color: white;
+        z-index: 3;
+        font-size: 12px;
+  
+        &.first {
+          right: 190px;
+          // background-color: #006AB9;
+        }
+  
+        &.second {
+          right: 30px;
+          padding: 4px 5px 4px 40px;
+        }
+  
+        i {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 360px) {
+    .nj-background-color {
+      background-color: rgba(98, 98, 98, 0.2);
+      height: 55vh;
+      width: 100%;
+      position: absolute;
+      z-index: 2;
+    }
+
+    .nj-jumbo {
+      position: relative;
+      bottom: 0px;
+  
+      img {
+        height: 55vh;
+        width: 100%;
+      }
+    }
+    .nj-text {
+      display: flex;
+      justify-content: flex-end;
+  
+      h1 {
+        position: relative;
+        bottom: 300px;
+        right: 80px;
+        color: #F6F3F4;
+        z-index: 12;
+        line-height: 32px;
+        font-size: 22px;
+      }
+  
+      button {
+        position: absolute;
+        padding: 5px 5px 5px 40px;
+        bottom : 290px;
+        /* border-radius: 6px; */
+        color: white;
+        z-index: 3;
+        font-size: 12px;
+  
+        &.first {
+          right: 190px;
           // background-color: #006AB9;
         }
   

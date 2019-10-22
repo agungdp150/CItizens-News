@@ -50,8 +50,8 @@ class HeaderS extends Component {
        <div className="w-full nav-forjumbo text-white font-semibold uppercase">
        <nav className="bg-transparent">
         <div className="flex flex-wrap overflow-hidden p-3">
-         <div className="my-1 px-1 w-full overflow-hidden sm:my-1 sm:px-1 md:my-1 md:px-1 lg:my-1 lg:px-1 lg:w-1/3 xl:my-1 xl:px-1 xl:w-1/3">
-            <ul className="flex justify-around mt-6">
+         <div className="w-full">
+            <ul className="flex justify-around mt-6 text-setting">
               <Link to={`/category/News`}>
               <li className="hvr-underline-from-center">
                 News
@@ -67,19 +67,31 @@ class HeaderS extends Component {
                 Food
               </li>
               </Link>
+              <Link to={`/category/Tech`}>
+              <li className="hvr-underline-from-center">
+                Tech
+              </li>
+              </Link>
+              <Link to={`/category/Education`}>
+              <li className="hvr-underline-from-center">
+                Education
+              </li>
+              </Link>
+              <Link to={`/category/Entertainment`}>
+              <li className="hvr-underline-from-center">
+                Entertainment
+              </li>
+              </Link>
+              <Link to={`/category/Entertainment`}>
+              <li className="hvr-underline-from-center">
+                Video
+              </li>
+              </Link>
             </ul>
           </div>
 
-         <div className="my-1 px-1 w-full overflow-hidden sm:my-1 sm:px-1 md:my-1 md:px-1 lg:my-1 lg:px-1 lg:w-1/3 xl:my-1 xl:px-1 xl:w-1/3 img-style-home">
-           <Link to="/">
-            <img 
-            src ={Logo3}
-            alt ="Logo"
-            className="flex justify-center mx-auto mt-2"
-            />
-            </Link>
-          </div>
-
+    
+{/* 
          <div className="my-1 px-1 w-full overflow-hidden sm:my-1 sm:px-1 md:my-1 md:px-1 lg:my-1 lg:px-1 lg:w-1/3 xl:my-1 xl:px-1 xl:w-1/3">
          <ul className="flex justify-around mt-6">
            <Link to={`/category/Tech`}>
@@ -98,7 +110,7 @@ class HeaderS extends Component {
               </li>
               </Link>
           </ul>
-         </div>
+         </div> */}
         
         </div>
        </nav>

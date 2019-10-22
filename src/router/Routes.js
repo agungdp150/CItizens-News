@@ -5,7 +5,6 @@ import PrivateRoute from './PrivateRoutes';
 
 // Main Page
 import HomePage from "../pages/HomePage";
-import CategoryPage from "../pages/CategoryPage";
 import ContributionPage from "../pages/ContributionPage";
 import AboutPage from "../pages/AboutPage";
 
@@ -20,6 +19,8 @@ import VerifyForgotPage from "../pages/VerifyForgotPage";
 import UserPage from "../pages/UserPage";
 
 // Category Pages
+import CategoryPage from "../pages/CategoryPage";
+import DetailVideoPage from "../pages/DetailVideoPage";
 
 // Admin Control
 import AdminLoginPage from "../pages/AdminLoginPage";
@@ -54,6 +55,7 @@ const Routes = () => {
         <Route exact path="/admindashboardusers" component={AdminUserPage} />
 
         <Route exact path="/detail/:id" component={DetailPage} />
+        <Route exact path="/videoDetail/:id" component={DetailVideoPage}/>
         <Route exact path="/user/:id" component={UserPage} />
         <Route exact path="/editprofile/:id" component={EditProfilePage} />
         <Route exact path="/upload" component={FileUploadPage} />
