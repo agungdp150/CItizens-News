@@ -82,7 +82,7 @@ class HeaderS extends Component {
                 Entertainment
               </li>
               </Link>
-              <Link to={`/category/Entertainment`}>
+              <Link to={`/category/Video`}>
               <li className="hvr-underline-from-center">
                 Video
               </li>

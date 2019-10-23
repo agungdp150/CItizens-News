@@ -6,7 +6,7 @@ import {
 import setToken from '../../helpers/setToken'
 
 
-export const newsPostAction = (data, id) => async dispatch => {
+export const newsPostAction = (data) => async dispatch => {
   if (localStorage.token) {
     setToken(localStorage.token)
   }

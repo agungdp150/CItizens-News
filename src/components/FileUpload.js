@@ -122,6 +122,10 @@ class FileUpload extends Component {
                     defaultValue
                   >Entertainment
                   </option>
+                  <option 
+                    defaultValue
+                  >Video
+                  </option>
                 </select>
                 <span className="focus-border"></span>
               </div>

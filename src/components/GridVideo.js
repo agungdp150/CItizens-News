@@ -13,14 +13,14 @@ class GridVideo extends Component {
 
   render() {
 
-    console.log(this.props.allVideo)
+    // console.log(this.props.allVideo)
     
     let filterData = this.props.allVideo.filter(saring => saring.status === "Approved");
     
     let videoCitizens = filterData.slice(0,6)
     
     const videos = videoCitizens.map(vidZens => {
-      console.log(vidZens._id)
+      // console.log(vidZens._id)
       return (
         <div className="w-full overflow-hidden md:w-1/2 lg:w-1/3 xl:w-1/3 p-2" key={vidZens._id}>
         <div className="flex flex-wrap overflow-hidden">
