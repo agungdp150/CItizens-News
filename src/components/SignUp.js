@@ -63,7 +63,7 @@ class SignUp extends Component {
         <div className="flex flex-wrap overflow-hidden">
           <div className="w-full overflow-hidden lg:w-2/5 xl:w-2/5 bg-blue-300 style-up">
               <div className="bg-gray-800 mt-24 p-10 text-gray-200">
-                <h3 className="ml-8 text-2xl font-bold">Welcome to Citizen News</h3>
+                <h3 className="ml-8 text-2xl font-semibold">Welcome to Citizen News</h3>
                 <div>
                 <h1 className="font-serif text-4xl">Complete Your Personal Information</h1>
                 <p>

@@ -61,6 +61,7 @@ class Detail extends Component {
 
 
 
+
   render() {
 
     // console.log(this.props.details.listComment);
@@ -74,23 +75,21 @@ class Detail extends Component {
       listComment
     } = this.props.details;
 
+    // console.log(listComment)
     const commentList = listComment.map(commentCheck => {
-      // console.log(commentCheck.user_id.fullname);
+      // console.log(commentCheck && commentCheck.user_id.fullname);
       return (
        <div className="sm:flex sm:items-top px-6 py-4" key={commentCheck._id}>
-       <img className="block h-8 w-12 sm:h-12 rounded-full mb-4 sm:mb-0 sm:mr-4 sm:ml-0 mt-2 object-cover " src={commentCheck.user_id.image.secure_url} alt=""/>
+       <img className="block h-8 w-12 sm:h-12 rounded-full mb-4 sm:mb-0 sm:mr-4 sm:ml-0 mt-2 object-cover " src="" alt="profile-pict"/>
        <div className="sm:text-left sm:flex-grow">
          <div>
-           <p className="text-md font-semibold leading-tight py-2">{commentCheck.user_id.fullname}</p>
+           <p className="text-md font-semibold leading-tight py-2">Aldow </p>
            <div>
            <p className="text-sm leading-tight text-grey-dark ">
            {commentCheck.comment}
            </p>
            </div>
          </div>
-         {/* <div>
-           <button class="text-xs font-semibold rounded-full px-4 py-1 leading-normal bg-white border border-purple text-purple hover:bg-purple hover:text-white">Message</button>
-         </div> */}
        </div>
      </div>
       )

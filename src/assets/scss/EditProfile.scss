@@ -20,9 +20,10 @@ div {
 
     .col-3 {
       // float: left; 
-      width: 57.33%;
-      margin: 40px 3%;
+      width: 87%;
+      margin: 30px 5%;
       position: relative;
+      
     }
 
     input[type="text"],
@@ -32,6 +33,7 @@ div {
       width: 100%;
       box-sizing: border-box;
       letter-spacing: 1px;
+      border-radius: 2px;
     }
 
     .effect-1 {
@@ -57,7 +59,7 @@ div {
 
     input[type="date"] {
       width: 100%;
-      color: #ccc;
+      color: #333;
       padding: 8px 5px;
     }
 
@@ -76,5 +78,25 @@ div {
 
   .radio {
     margin-right: 20px;
+  }
+
+  .btn-delete{
+    margin-left: 2rem;
+  }
+
+  @media only screen and (max-width: 768px) {
+    
+    .btn-edit{
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-delete {
+      display: flex;
+      justify-content: center;
+      margin-left: -13px;
+    }
+
+    
   }
 }

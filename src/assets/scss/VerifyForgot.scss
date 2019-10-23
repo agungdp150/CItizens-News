@@ -1,21 +1,10 @@
 div {
-  .btn-back {
-    position: absolute;
-    margin-top: 10px;
-    i {
-      font-size: 16px;
-    }
-
-    button {
-      font-size: 12px;
-      z-index: -5;
-    }
-  }
 
   .img-style {
 
     img {
       width: 20%;
+      margin : 30px 0px 50px 0px;
     }
   }
 
@@ -30,7 +19,7 @@ div {
   @media (max-width: 724px){
     .img-style {
       img {
-        width: 35%;
+        width: 45%;
       }
     }
   }
@@ -40,13 +29,15 @@ div {
     form {
       position: relative;
       margin-top: 40px;
-      left: -50px;
+      left: -90px;
 
      :focus{outline: none;}
 
+     
+
     .col-3{
-      width: 150%; 
-      margin: 15px 5%; 
+      width: 190%; 
+      margin: 25px 0; 
       position: relative;
     } 
     
@@ -89,26 +80,52 @@ div {
       transition: 0.4s;
     }
     
+    .btn-response{
+      width: 190%
+    }
     
     }
   }
 
   .bcg-color {
-    background-color: #F0F5f9;
-    height: 97vh;
+    background-color: #4D4D4D;
+    height: 100vh;
   }
 
   @media (max-width: 724px){
-    .bcg-color {
-      background-color: #F0F5f9;
-      height: 97vh;
+
+    .input-forgot {
+    
+      form {
+        position: relative;
+        margin-top: 40px;
+        left: -30px;
+  
+       :focus{outline: none;}
+  
+      .col-3{
+        width: 140%; 
+        margin: 25px 0; 
+        position: relative;
+      } 
+      
+      .btn-response{
+        width: 140%
+      }
     }
+  }
+
+    .bcg-color {
+      background-color: #4D4D4D;
+      height: 100vh;
+    }
+
   }
 
   @media (max-width: 1125px){
     .bcg-color {
-      background-color: #F0F5f9;
-      height: 97vh;
+      background-color: #4D4D4D;
+         height: 100vh;
     }
   }
 }

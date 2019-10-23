@@ -98,7 +98,7 @@ class GridNews extends Component {
     });
 
     let foodFilter = cateNews.filter(
-      checkNews => checkNews.category[0] === "Lifestyle"
+      checkNews => checkNews.category[0] === "Food"
     );
 
     let sliceFood = foodFilter.slice(0, 4);

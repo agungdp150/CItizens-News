@@ -50,7 +50,7 @@ class SignIn extends Component {
     return (
       <div>
         <div className="flex flex-wrap overflow-hidden">
-          <div className="w-full overflow-hidden lg:w-3/5 xl:w-3/5 sign-style h-screen pt-12">
+          <div className="w-full overflow-hidden lg:w-3/5 xl:w-3/5 sign-style h-screen pt-32">
             <Link to="/">
             <img 
               src={Logo3} 
@@ -91,16 +91,6 @@ class SignIn extends Component {
                     Sign In
                   </button>
                 </div>
-                <br/>
-                <p className="flex justify-center">or</p>
-                <br/>
-                <div className="flex justify-center">
-                  <button
-                    className="bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-12 rounded text-sm"
-                    type="submit">
-                    Sign In With <span><i className="fab fa-google-plus-g"></i></span>
-                  </button>
-                </div>
               </form>
               <div className="text-center text-xs mt-4">
                 <p>
@@ -119,17 +109,17 @@ class SignIn extends Component {
           <div className="w-full overflow-hidden lg:w-2/5 xl:w-2/5 bg-blue-300 style-in">
             <div className="bg-gray-800 text-gray-200 mt-24 p-10 font-serif">
               <h1 className="font-serif text-4xl">
-                Login with your Google Account
+               Sign In with Citizens Account
               </h1>
               <p>
                  Now you can login with your Google Account wiht these step :
                 </p>
                 <ul className="-ml-4">
                   <li>
-                    <p><span><i className="fas fa-check-circle"></i></span>Click sign In with G+</p>
+                    <p><span><i className="fas fa-check-circle"></i></span>Upload more news and become our Top Contributor.</p>
                   </li>
                   <li>
-                    <p><span><i className="fas fa-check-circle"></i></span>Allow Citizen News to get your Profile from Google</p>
+                    <p><span><i className="fas fa-check-circle"></i></span>Subscribe your favorite contributor, and give them appreciation by leaving comment.</p>
                   </li>
                 </ul>
             </div>

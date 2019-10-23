@@ -15,6 +15,7 @@ import EditProfilePage from "../pages/EditProfilePage";
 import FileUploadPage from "../pages/FileUploadPage";
 import VerifyPage from "../pages/VerifyPage";
 import VerifyForgotPage from "../pages/VerifyForgotPage";
+import SuccesChangePasswordPage from "../pages/SuccesChangePasswordPage";
 
 // Profile
 import UserNewsPage from "../pages/UserNewsPage";
@@ -64,7 +65,9 @@ const Routes = () => {
         <Route exact path="/user/:id/upload" component={FileUploadPage} />
         
         <Route exact path="/verify" component={VerifyPage} />
-        <Route exact path="/verifyforgot" component={VerifyForgotPage} />
+        <Route exact path="/verifyforgot" component={VerifyForgotPage}/>
+        <Route exact path="/verifyforgot/succeschange" component={SuccesChangePasswordPage}/>
+        
 
         <Route component={NotfoundPage} />
       </Switch>
