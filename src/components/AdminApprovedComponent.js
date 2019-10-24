@@ -74,8 +74,14 @@ class AdminNewsComponent extends Component {
     this.props.news.map(pendingTotal => {
       // console.log(pendingTotal.status)
       if (pendingTotal.status === "Approved") {
-        i++
-      } 
+        return(
+          i++
+          )
+        } else {
+          return( 
+            null
+          )
+        }
     })
 
 

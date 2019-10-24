@@ -126,8 +126,14 @@ class AdminNewsComponent extends Component {
     this.props.news.map(pendingTotal => {
       // console.log(pendingTotal.status)
       if (pendingTotal.status === "Pending") {
-        i++;
-      } 
+        return(
+        i++
+        )
+      } else {
+        return( 
+          null
+        )
+      }
     });
 
     // let arrSum = arr => arr.reduce((a,b) => a + b, 0)
