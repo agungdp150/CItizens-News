@@ -79,7 +79,8 @@ class EditProfile extends Component {
       onUploadProgress: progressEvent => {
         console.log('upload progress = :' + Math.round(progressEvent.loaded/progressEvent.total * 100) + "%")
       }
-    }).then(response => {
+    })
+    .then(response => {
       console.log(response.data)
     });
   }

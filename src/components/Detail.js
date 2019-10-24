@@ -77,13 +77,13 @@ class Detail extends Component {
 
     // console.log(listComment)
     const commentList = listComment.map(commentCheck => {
-      // console.log(commentCheck && commentCheck.user_id.fullname);
+      // console.log(commentCheck);
       return (
        <div className="sm:flex sm:items-top px-6 py-4" key={commentCheck._id}>
-       <img className="block h-8 w-12 sm:h-12 rounded-full mb-4 sm:mb-0 sm:mr-4 sm:ml-0 mt-2 object-cover " src="" alt="profile-pict"/>
+       <img className="block h-8 w-12 sm:h-12 rounded-full mb-4 sm:mb-0 sm:mr-4 sm:ml-0 mt-2 object-cover " src={commentCheck.user_id.image.secure_url} alt="profile-pict"/>
        <div className="sm:text-left sm:flex-grow">
          <div>
-           <p className="text-md font-semibold leading-tight py-2">Aldow </p>
+           <p className="text-md font-semibold leading-tight py-2">{commentCheck.user_id.fullname} </p>
            <div>
            <p className="text-sm leading-tight text-grey-dark ">
            {commentCheck.comment}

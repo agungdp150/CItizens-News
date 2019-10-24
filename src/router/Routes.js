@@ -16,6 +16,7 @@ import FileUploadPage from "../pages/FileUploadPage";
 import VerifyPage from "../pages/VerifyPage";
 import VerifyForgotPage from "../pages/VerifyForgotPage";
 import SuccesChangePasswordPage from "../pages/SuccesChangePasswordPage";
+import NewCitizensPage from "../pages/NewCitizensPage";
 
 // Profile
 import UserNewsPage from "../pages/UserNewsPage";
@@ -37,6 +38,7 @@ import DetailPage from "../pages/DetailPage";
 
 // Other
 import NotfoundPage from "../pages/NotfoundPage";
+import NewGreetCitizen from "../components/NewGreetCitizen";
 
 const Routes = () => {
   return (
@@ -67,7 +69,7 @@ const Routes = () => {
         <Route exact path="/verify" component={VerifyPage} />
         <Route exact path="/verifyforgot" component={VerifyForgotPage}/>
         <Route exact path="/verifyforgot/succeschange" component={SuccesChangePasswordPage}/>
-        
+        <Route exact path="/greetings" component={NewCitizensPage}/>
 
         <Route component={NotfoundPage} />
       </Switch>
