@@ -19,7 +19,7 @@ class About extends Component {
           playing className="shadow mx-auto my-4"
           />
           <p className="font-light">
-          Citizen News  is the platform for you to share your story, to speak up your voice, and to spread the news. Proudly developed by Aldo Lim, Angel Ria Purnamasari (lovely Aldo), Kaleb Lim, Agung Dwi Putra, Khairunissa Afifa, and Joe Phang.
+          Citizen News  is the platform for you to share your story, to speak up your voice, and to spread the news. Proudly developed by Aldo Lim, Angel Ria Purnamasari, Kaleb Lim, Agung Dwi Putra, Khairunissa Afifa, and Joe Phang.
           </p>
         </div >
         <div className="container mx-auto px-4 text-ab">
