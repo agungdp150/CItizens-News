@@ -1,0 +1,208 @@
+div {
+  
+  .style-up {
+    background-color: rgb(223, 223, 223);
+
+    h1 {
+      margin-left: 30px;
+      margin-top : 30px;
+    }
+ 
+    p {
+     margin-left: 30px;
+     margin-top : 5px;
+    }
+  }
+
+  @media (max-width: 1022px){
+    .style-up {
+      display: none;
+    }
+  }
+
+
+  .up-style {
+    background-color: rgb(58, 58, 58);
+    color: #F0F5f9;
+
+    .col-3{
+      width: 60.33%; 
+      margin: 20px 18%; 
+      position: relative;
+     } /* necessary to give position: relative to parent. */
+     
+     input[type="text"], [type="email"],[type="password"] {
+       font: 15px/24px "Lato", Arial, sans-serif; 
+       color: rgb(223, 223, 223);
+       background-color: transparent;
+       border-radius: 3px;
+       width: 100%; 
+       box-sizing: border-box; 
+       letter-spacing: 1px;
+     }
+
+    textarea[type="text"]{
+      font: 15px/24px "Lato", Arial, sans-serif; 
+      color: rgb(223, 223, 223);
+      background-color: transparent;
+      border-radius: 3px;
+      padding: 7px 10px;
+      width: 100%; 
+      box-sizing: border-box; 
+      letter-spacing: 1px;
+      overflow: auto;
+      resize: none;
+      border: rgb(223, 223, 223) solid 1px;
+    }
+ 
+ .effect-1{
+   border: 0; 
+   padding: 7px 10px; 
+   border-bottom: 1px solid #ccc;
+ }
+ 
+ .effect-1 ~ .focus-border{
+   position: absolute; 
+   bottom: 0; 
+   left: 98px; 
+   width: 0; 
+   height: 3px; 
+   background-color: #4caf50; 
+   transition: 0.4s;
+ }
+ .effect-1:focus ~ .focus-border{
+   width: 81%; 
+   transition: 0.4s;
+   }
+
+
+   .label-date {
+    font-size: 15px;
+    font-weight: 400;
+
+    input[type="date"]{
+      color: rgb(223, 223, 223);
+      background-color: transparent;
+      width: 100%;
+      padding: 7px 10px;
+      border-radius: 3px;
+      &::placeholder {
+        color: #ccc;
+      }
+    }
+
+    input[type="date"]::-webkit-inner-spin-button {
+      display: none;
+      -webkit-appearance: none;
+    }
+  }
+  }
+
+  .s-up-form {
+    padding-top: 30px;
+    h1{
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+    }
+    
+    form {
+      margin : 10px 0px 10px 20px;
+      align-content: center;
+      input {
+        width: 90%;
+        border-radius: 5px;
+        margin: 5px;
+        font-size: 14px;
+        padding: 8px;
+        color: #000000;
+        outline: none;
+        border-bottom: solid 2px #ffffff;
+        &::placeholder{
+          color: #999999;
+        }
+      }
+
+      
+
+      textarea {
+        overflow: auto;
+        color : #000000;
+        margin: 5px;
+        padding : 10px;
+        border-radius: 5px;
+        width: 90%;
+        font-size: 14px;
+        resize: none;
+      } 
+    }
+  }
+
+  .s-gender {
+    height: 30px;
+    color: #ffffff;
+  }
+
+  .radio {
+    display: flex;
+    cursor: pointer;
+
+    .label {
+      position: relative;
+      display: block;
+      margin-right: 10px;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #999999;
+      border-radius: 100%;
+      -webkit-tap-highlight-color: transparent;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+        background: #999999;
+        transform: scale(0);
+        transition: all .2s ease;
+        opacity: .08;
+        pointer-events: none;
+
+        &:hover {
+          .label:after {
+            transform: scale(3.6);
+          }
+        }
+      }
+    }
+
+
+    input[type="radio"]:checked+.label {
+      border-color: white;
+
+      &:after {
+        transform: scale(1);
+        transition: all .2s cubic-bezier(.35, .9, .4, .9);
+        opacity: 1;
+      }
+    }
+
+    .cntr {
+      width: 100%;
+      text-align: center;
+    }
+
+    .hidden {
+      display: flex;
+      display: none
+    }
+
+
+  }
+  
+}
+
+

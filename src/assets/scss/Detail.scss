@@ -1,0 +1,63 @@
+@import "./Color.scss";
+
+div{
+
+  
+  .text-container {
+    max-width: 780px;
+    padding: 30px 20px;
+    color: $color-black4;
+  }
+
+  .article-style {
+    h1 {
+      font-weight: 400;
+      margin : 10px 0px;
+    }
+
+    img {
+      width: 100%;
+      height: 70vh;
+    }
+    
+    p {
+      text-align: justify;
+      font-weight: 300;
+      line-height: 35px;
+      white-space: pre-wrap;
+    }
+  }
+
+  .d-detail {
+    .col-3{
+      width: 100%; 
+      margin: 15px 0; 
+      position: relative;
+     } /* necessary to give position: relative to parent. */
+     
+     input[type="text"]{
+       font: 15px/24px "Lato", Arial, sans-serif; 
+       color:  rgb(56, 56, 56);
+       background-color: transparent;
+       border-radius: 3px;
+       width: 100%; 
+       box-sizing: border-box; 
+       letter-spacing: 1px;
+       border-bottom: rgb(56, 56, 56) solid 2px;
+       padding: 5px;
+     }
+
+
+    }
+   
+
+  .d-border {
+
+    @media screen and (max-width: 800px) {
+      article {
+        width: 70%;
+        margin-left: 50px;
+      }
+    }
+  }
+}
