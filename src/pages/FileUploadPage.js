@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import HeadCategory from '../components/HeadCategory';
 import FileUpload from '../components/FileUpload';
-import HeaderS from '../components/HeaderS';
+
 
 
 
@@ -8,7 +9,7 @@ class FileUploadPage extends Component {
   render() {
     return (
       <div>
-        <HeaderS/>
+        <HeadCategory/>
         <FileUpload/>
       </div>
     )

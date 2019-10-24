@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import HeaderS from '../components/HeaderS';
+import HeadCategory from '../components/HeadCategory';
 import About from '../components/About';
 import Footer from '../components/Footer';
 
@@ -7,7 +7,7 @@ class AboutPage extends Component {
   render() {
     return (
       <div>
-        <HeaderS/>
+        <HeadCategory/>
         <About/>
         <Footer/>
       </div>

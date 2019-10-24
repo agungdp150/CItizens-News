@@ -10,11 +10,24 @@ div {
     z-index: 10;
   }
 
+
+
+  @media only screen and (max-width: 415px) {
+    .text-setting {
+    
+      li {
+        font-size: 10px;
+      }
+    }
+  
+  }
+  
   @media only screen and (max-width: 1023px) {
     .nav-forjumbo {
       position: relative;
       width: 100%;
       z-index: 10;
+      color: rgb(59, 59, 59);
     }
   }
 

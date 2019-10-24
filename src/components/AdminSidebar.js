@@ -10,16 +10,22 @@ class NavbarAdmin extends Component {
         <div className="area"></div>
           <nav className="main-menu">
             <ul>
-              <li>
-                <Link to="/">
-                <i className="fas fa-user-circle fa-2x"></i>
-                <span className="nav-text">Admin</span>
-                </Link>
-              </li>
               <li className="has-subnav">
                 <Link to="/admindashboardnews">
                 <i className="far fa-newspaper fa-2x"></i>
-                <span className="nav-text">All News</span>
+                <span className="nav-text">Dashboard</span>
+                </Link>
+              </li>
+              <li className="has-subnav">
+                <Link to="/adminapproved">
+                <i className="fas fa-clipboard-check fa-2x"></i>
+                <span className="nav-text">News Publish</span>
+                </Link>
+              </li>
+              <li className="has-subnav">
+                <Link to="/adminrejected">
+                <i className="fas fa-times-circle fa-2x"></i>
+                <span className="nav-text">News Reject</span>
                 </Link>
               </li>
               <li className="has-subnav">
@@ -32,8 +38,10 @@ class NavbarAdmin extends Component {
               <ul className="logout">
               <li>
               <Link to="/adminlogin">
+                <button>
                 <i className="fa fa-power-off fa-2x"></i>
                 <span className="nav-text">Logout</span>
+                </button>
               </Link>
               </li>
             </ul>

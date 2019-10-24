@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
-import MailBox from "../assets/img/103967-OM4NIH-225.png";
+import Logo3 from "../assets/img/Logo3.png";
 
 import "../assets/scss/VerifyForgot.scss";
 
@@ -53,29 +53,20 @@ class VerifyForgot extends Component {
 
     return (
       <div className="bcg-color">
-        <div className="btn-back">
-          <Link to="/">
-            <button>
-              <i className="fas fa-arrow-circle-left" /> Go Home
-            </button>
-          </Link>
-        </div>
         <div className="flex flex-wrap overflow-hidden">
           <div className="w-full overflow-hidden">
             <div className="flex justify-center img-style">
-              <img src={MailBox} alt="mailbox"/>
+              <img src={Logo3} alt="mailbox"/>
             </div>
             <div className="text-center">
-              <p>
-                We already send token to your e-mail.
-                <br />
-                Please check your e-mail and write it bellow.
-              </p>
+              <h1 className="text-white text-3xl font-serif font-semibold">
+                Reset Your Password
+              </h1>
             </div>
           </div>
 
           <div className="w-full overflow-hidden input-forgot">
-            <div className="flex justify-center">
+            <div className="mx-auto flex justify-center">
               <form onSubmit={this.handleSubmit}>
                 <div className="col-3">
                   <input
@@ -113,11 +104,11 @@ class VerifyForgot extends Component {
                   <span className="focus-border"></span>
                 </div>
 
-                <div className="flex justify-center ml-32">
+                <div>
                   <button
-                    className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded text-sm"
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded text-xs btn-response"
                     type="submit">
-                    Verify Password
+                    Update
                   </button>
                 </div>
               </form>

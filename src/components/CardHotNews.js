@@ -7,13 +7,17 @@ import {ComingSoon} from '../assets/img/Coming.jpg';
 import "../assets/scss/CardHotNews.scss";
 
 class CardHotNews extends Component {
+
   componentDidMount() {
     this.props.getNews();
   }
 
   render() {
-    // console.log(this.props.news);
-    const myNewData = this.props.news;
+
+    let hotNews = this.props.news
+
+    // console.log("props",this.props.news);
+    const myNewData = hotNews.filter(saring => saring.status === "Approved")
     let newData = myNewData.slice(0, 6)
     // console.log(newData)
     // console.log(newData[0] && newData[0].status)
@@ -32,9 +36,10 @@ class CardHotNews extends Component {
                 <img
                  src={(newData[0] && newData[0].status === "Approved") ? newData[0].media.secure_url : ComingSoon}
                  alt="test-img"
+                 className="h-56 mx-auto w-100% object-cover"
                 />
                 <Link to={`/detail/${(newData[0] && newData[0].status === "Approved") ? newData[0]._id : "oops"}`}>
-                <h1 className="capitalize text-xl">
+                <h1 className="capitalize text-xl font-semibold pt-2">
                   {(newData[0] && newData[0].status === "Approved") ? newData[0].title : "oops"}
                 </h1>
                 </Link>
@@ -48,9 +53,10 @@ class CardHotNews extends Component {
               <img
                  src={(newData[1] && newData[1].status === "Approved") ? newData[1].media.secure_url : ComingSoon}
                  alt="test-img"
+                 className="h-32 mx-auto"
                 />
                 <Link to={`/detail/${(newData[1] && newData[1].status === "Approved") ? newData[1]._id : "oops"}`}>
-                <h1 className="capitalize text-sm">
+                <h1 className="capitalize text-sm font-semibold pt-2">
                 {(newData[1] && newData[1].status === "Approved") ? newData[1].title : "oops"}
                 </h1>
                 </Link>
@@ -59,9 +65,10 @@ class CardHotNews extends Component {
               <img
                  src={(newData[2] && newData[2].status === "Approved") ? newData[2].media.secure_url : ComingSoon}
                  alt="test-img"
+                 className="h-32 mx-auto"
                 />
                 <Link to={`/detail/${(newData[2] && newData[2].status === "Approved") ? newData[2]._id : "oops"}`}>
-                <h1 className="capitalize text-sm">
+                <h1 className="capitalize text-sm pt-2 font-semibold">
                 {(newData[2] && newData[2].status === "Approved") ? newData[2].title : "oops"}
                   </h1>
                 </Link>
@@ -70,9 +77,10 @@ class CardHotNews extends Component {
               <img
                  src={(newData[3] && newData[3].status === "Approved") ? newData[3].media.secure_url : ComingSoon}
                  alt="test-img"
+                 className="h-56 mx-auto w-100% object-cover"
                 />
                 <Link to={`/detail/${(newData[3] && newData[3].status === "Approved") ? newData[3]._id : "oops"}`}>
-                <h1 className="capitalize text-xl">
+                <h1 className="capitalize text-xl font-semibold pt-2">
                 {(newData[3] && newData[3].status === "Approved") ? newData[3].title : "oops"}
                 </h1>
                 </Link>
@@ -87,9 +95,10 @@ class CardHotNews extends Component {
               <img
                  src={(newData[4] && newData[4].status === "Approved") ? newData[4].media.secure_url : ComingSoon}
                  alt="test-img"
+                 className="h-32 mx-auto"
                 />
                 <Link to={`/detail/${(newData[4] && newData[4].status === "Approved") ? newData[4]._id : "oops"}`}>
-                <h1 className="capitalize text-sm">
+                <h1 className="capitalize text-sm pt-2 font-semibold">
                 {(newData[4] && newData[4].status === "Approved") ? newData[4].title : "oops"}
                 </h1>
                 </Link>
@@ -98,9 +107,10 @@ class CardHotNews extends Component {
               <img
                  src={(newData[5] && newData[5].status === "Approved") ? newData[5].media.secure_url : ComingSoon}
                  alt="test-img"
+                 className="h-32 mx-auto"
                 />
                 <Link to={`/detail/${(newData[5] && newData[5].status === "Approved") ? newData[5]._id : "oops"}`}>
-                <h1 className="capitalize text-sm">
+                <h1 className="capitalize text-sm pt-2 font-semibold">
                 {(newData[5] && newData[5].status === "Approved") ? newData[5].title : "oops"}
                 </h1>
                 </Link>

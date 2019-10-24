@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import ReactPlayer from "react-player";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getDetailUser } from "../store/actions/getdetailuserAction";
@@ -15,23 +14,24 @@ class UserProfile extends Component {
   render() {
     const userData = this.props.details.user;
     // console.log(this.props.details.user);
-    console.log(userData && userData.fullname);
+    // console.log(userData && userData);
+
 
     return (
       <div className="bg-color-hot">
-        <div className="user-width mx-auto">
+        <div className="user-width mx-auto bg-white">
 
-          <div className="flex flex-col min-h-screen px-4">
+          <div className="flex flex-col px-4 bg-color-hot">
             
             <div className="bg-user">
               <div className="container mx-auto">
                 <div className="flex flex-wrap py-8 flex-col sm:flex-row">
                   
-                  <div className="w-32 h-32 rounded-full overflow-hidden flex-shrink-0 m-auto sm:m-0">
+                  <div className="w-32 h-32 rounded-full flex-shrink-0 m-auto sm:m-0">
                     <img
                       src={userData && userData.image.secure_url}
                       alt={userData && userData.username}
-                      className="object-cover self-center rounded-full shadow-lg mb-6"
+                      className="object-cover self-center rounded-full shadow-lg mb-6 h-32 w-32 md:h-32 md:w-32"
                     />
                   </div>
                   
@@ -61,18 +61,9 @@ class UserProfile extends Component {
                       Subscribe
                     </button>
                     </div>
-
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div className="flex justify-center border-t border-gray-700 py-5">
-            <Link to="#" className="text-white mx-5">Articles</Link>
-      <Link to="#" className="text-gray-600 mx-5 hover:text-gray-500">Recommends</Link>
-      <Link to="#" className="text-gray-600 mx-5 hover:text-gray-500">Subscriptions</Link>
-            </div>
-            <div className="bg-gray-900 pt-12 pb-6 flex-1">
             </div>
           </div>
         </div>

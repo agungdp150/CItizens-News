@@ -62,7 +62,6 @@ class Detail extends Component {
 
 
 
-
   render() {
 
     // console.log(this.props.details.listComment);
@@ -76,42 +75,30 @@ class Detail extends Component {
       listComment
     } = this.props.details;
 
+    // console.log(listComment)
     const commentList = listComment.map(commentCheck => {
-      // console.log(commentCheck.user_id.fullname);
+      // console.log(commentCheck);
       return (
-        <article className="mt-4 border-grey-dark bg-grey-lightest shadow rounded-r" key={commentCheck._id}>
-        <header className="flex items-center mb-2">
-          <div className="mr-8">
-            <img
-              className="rounded-full"
-              src={commentCheck.user_id.image.secure_url}
-              width="80"
-              height="80"
-              alt=""
-            />
-          </div>
-          <div>
-            <h4>
-              <p className="no-underline text-xl text-grey-darkest font-medium">
-                {commentCheck.user_id.fullname}
-              </p>
-            </h4>
-            <ul className="list-reset flex">
-              <span className="mt-2 text-grey-dark"></span>
-            </ul>
-          </div>
-        </header>
-        <p>
-            {commentCheck.comment}
-        </p>
-      </article>
+       <div className="sm:flex sm:items-top px-6 py-4" key={commentCheck._id}>
+       <img className="block h-8 w-12 sm:h-12 rounded-full mb-4 sm:mb-0 sm:mr-4 sm:ml-0 mt-2 object-cover " src={commentCheck.user_id.image.secure_url} alt="profile-pict"/>
+       <div className="sm:text-left sm:flex-grow">
+         <div>
+           <p className="text-md font-semibold leading-tight py-2">{commentCheck.user_id.fullname} </p>
+           <div>
+           <p className="text-sm leading-tight text-grey-dark ">
+           {commentCheck.comment}
+           </p>
+           </div>
+         </div>
+       </div>
+     </div>
       )
     })
 
     
 
     return (
-      <div>
+      <div className="bg-color-hot">
         <div className="flex flex-wrap overflow-hidden text-container container mx-auto">
 
           <div className="w-full overflow-hidden article-style">
@@ -120,37 +107,43 @@ class Detail extends Component {
                 <h3 className="text-base"> Author : <Link to={`/user/${user._id}`} >{user && user.username}</Link></h3>
                 <h3 className="text-sm font-normal mb-6">{date.substring(0, 10)}</h3>
             </div>
+            
             <img src={media.secure_url} alt={title} />
+
             <div className="container mx-auto my-10">
              <p className="text-lg font-serif">{description}</p>
             </div>
-            <h3 className="text-sm font-bold font-serif ">Category : {category}</h3>
+            <h3 className="text-sm font-bold font-serif mb-2 ">Category : {category}</h3>
           </div>
 
           <div className="container mx-auto w-full overflow-hidden d-detail">
-            <h1 className="container mt-4">Comments</h1>
+            <hr/>
+            <h1 className="container mt-4 text-base font-semibold">Comments</h1>
             <div>
               <form className="container ml-auto my-2" onSubmit={this.handleComment}>
-                <textarea
-                  input="text"
-                  placeholder="insert your comment here..."
-                  name = "comment"
-                  value = {this.state.comment}
-                  onChange={this.handleChange}
+
+                <div className="col-3">
+                  <input
+                    className="effect-1"
+                    type="text"
+                    placeholder="insert your comment here..."
+                    name = "comment"
+                    value = {this.state.comment}
+                    onChange={this.handleChange}
                 />
-                <br />
+                </div>
                 <button
-                    className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded text-sm ml-2"
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded text-xs ml-2"
                     type="submit">
                     Post
                   </button>
               </form>
             </div>
+
           </div>
 
-
-          <div className="container mx-auto w-full overflow-hidden d-detail d-border">
-            {commentList}
+          <div className="w-full overflow-hidden mb-4">
+          {commentList}
           </div>
 
         </div>

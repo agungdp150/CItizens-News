@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import ReactPlayer from 'react-player';
+
+import about from '../assets/about/about.mp4'
+
 import '../assets/scss/About.scss';
 
 class About extends Component {
   render() {
     return (
-      <div>
+      <div className="py-12 bg-color-hot">
         <div className="container mx-auto px-4 text-ab">
-          <h1 className="text-4xl font-normal mb-4">CITIZENS</h1>
-          <p className="font-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br/><br/>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br/><br/>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br/><br/>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <h1 className="text-4xl font-normal mb-4">
+            CITIZENS
+          </h1>
+          <p className="font-light">
+          Citizen News  is the platform for you to share your story, to speak up your voice, and to spread the news. Proudly developed by Aldo Lim, Angel Ria Purnamasari (lovely Aldo), Kaleb Lim, Agung Dwi Putra, Khairunissa Afifa, and Joe Phang.
           </p>
+          <ReactPlayer 
+          url={about} 
+          playing className="shadow mx-auto my-4"
+          />
         </div >
         <div className="container mx-auto px-4 text-ab">
-        <h1>Our Team</h1>
+        <h1 className="my-4">Our Team</h1>
         <div className="flex flex-wrap overflow-hidden">
         <div class="relative mb-4 w-full overflow-hidden md:w-1/2 lg:w-1/6 xl:w-1/6">
           <div class="w-24 h-full rounded-full overflow-hidden shadow-inner text-center bg-purple table cursor-pointer">

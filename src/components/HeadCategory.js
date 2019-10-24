@@ -1,11 +1,18 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import {withRouter ,Link } from "react-router-dom";
 import Logo2 from "../assets/img/Logo2.png";
+import {connect} from "react-redux";
+
 
 import "../assets/scss/HeadCategory.scss";
 
 class HeadCategory extends Component {
+
+  
+
+
   render() {
+    // console.log(this.props.isAuthenticated)
     return (
       <div>
         <header className="lg:px-16 px-8 py-4 md:py-0 shadow sticky top-0 nav-color">
@@ -18,7 +25,7 @@ class HeadCategory extends Component {
 
             <label htmlFor="menu-toggle" className="pointer-cursor md:hidden block">
               <svg
-                className="fill-current text-gray-300 hover:text-white"
+                className="fill-current text-gray-800 hover:text-white"
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
                 height="20"
@@ -38,23 +45,56 @@ class HeadCategory extends Component {
                   <form id="demo-2">
                     <input 
                     type="search" 
-                    placeholder="Search"/>
+                    placeholder="Search"
+                    className="mx-4"
+                    />
                   </form>
                   </li>
-                  <li>
-                    <Link
-                      to="/signin"
-                      className="md:px-4 md:py-4 px-0 block text-sm get-login">
-                      Sign In
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/signup"
-                      className="md:px-4 md:py-2 text-xs px-0 block bg-gray-200 px-4 border border-gray-500 rounded get-start">
-                      Get Started
-                    </Link>
-                  </li>
+                
+
+            
+                    {this.props.isAuthenticated ? (
+                      <div className="flex">
+                        <li>
+                        <div className="flex flex-col">
+                          <div>
+                            <div className=" flex items-center justify-center">
+                              <Link
+                                className="cursor-pointer w-10 h-10 rounded-full overflow-hidden"
+                                to="">
+                                <img
+                                  src="https://randomuser.me/api/portraits/men/28.jpg"
+                                  alt="pict-profile"
+                                  className="object-fit"
+                                />
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <button className="text-xs mt-2 mx-4">Log Out</button>
+                      </li>
+                      </div>
+                    ):(
+                      <div className="flex ">
+                          <li>
+                          <Link
+                            to="/signin"
+                            className="md:px-4 md:py-4 px-0 block text-sm get-login">
+                            Sign In
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/signup"
+                            className="md:px-4 md:py-2 text-xs px-0 block bg-gray-200 px-4 border border-gray-500 rounded get-start mt-2">
+                            Get Started
+                          </Link>
+                        </li>
+                      </div>
+                    )}
+        
                 </ul>
               </nav>
             </div>
@@ -65,4 +105,14 @@ class HeadCategory extends Component {
   }
 }
 
-export default HeadCategory;
+const mapSTateToProps = state => {
+  return {
+    isAuthenticated : state.login1.isAuthenticated,
+
+  }
+} 
+
+export default connect(
+  mapSTateToProps
+
+) (withRouter(HeadCategory));
