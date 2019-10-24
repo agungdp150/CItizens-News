@@ -106,7 +106,7 @@ class AdminNewsComponent extends Component {
               className="text-grey-lighter font-bold py-1 px-2 rounded text-xs bg-red-600 hover:bg-red-700 text-white"
               onClick={() => this.handleReject(allnews._id)}
               >
-                Rejected
+                Reject
               </button>
             </td>
           </tr>
@@ -139,7 +139,7 @@ class AdminNewsComponent extends Component {
     // let arrSum = arr => arr.reduce((a,b) => a + b, 0)
 
     return (
-      <div className="bg-gray-800 h-screen w-full">
+      <div className="bg-gray-800 h-full w-full">
         <div className="w-4/5 mx-auto">
           <div className="text-5xl font-medium">
             <h1 className="font-bold py-8 pl-2 text-white text-5xl">Citizens News</h1>

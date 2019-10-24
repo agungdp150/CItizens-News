@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+// import Moment from 'react-moment';
+import 'moment-timezone';
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getNews } from "../store/actions/getnewsAction";
@@ -50,7 +52,7 @@ class GridNews extends Component {
                   {newspro.user.username}
                 </Link>
               </p>
-              <p className="text-xs ">{newspro.date.substring(0, 10)}</p>
+              <p className="text-xs text-gray-700">Published on {newspro.date.substring(0, 10)}</p>
             </div>
             <div className="w-1/4 px-2 pt-2">
               <img src={newspro.media.secure_url} alt="nature" width="100%" />
@@ -87,7 +89,7 @@ class GridNews extends Component {
                   {newspro.user.username}
                 </Link>
               </p>
-              <p className="text-xs ">{newspro.date.substring(0, 10)}</p>
+              <p className="text-xs text-gray-700">Published on {newspro.date.substring(0, 10)}</p>
             </div>
             <div className="w-1/4 px-2 pt-2">
               <img src={newspro.media.secure_url} alt="nature" width="100%" />
@@ -124,7 +126,7 @@ class GridNews extends Component {
                   {newspro.user.username}
                 </Link>
               </p>
-              <p className="text-xs ">{newspro.date.substring(0, 10)}</p>
+              <p className="text-xs text-gray-700">Published on {newspro.date.substring(0, 10)}</p>
             </div>
             <div className="w-1/4 px-2 pt-2">
               <img src={newspro.media.secure_url} alt="nature" width="100%" />
@@ -161,7 +163,7 @@ class GridNews extends Component {
                   {newspro.user.username}
                 </Link>
               </p>
-              <p className="text-xs ">{newspro.date.substring(0, 10)}</p>
+              <p className="text-xs text-gray-700">Published on {newspro.date.substring(0, 10)}</p>
             </div>
             <div className="w-1/4 px-2 pt-2">
               <img src={newspro.media.secure_url} alt="nature" width="100%" />
@@ -198,7 +200,7 @@ class GridNews extends Component {
                   {newspro.user.username}
                 </Link>
               </p>
-              <p className="text-xs ">{newspro.date.substring(0, 10)}</p>
+              <p className="text-xs text-gray-700">Published on {newspro.date.substring(0, 10)}</p>
             </div>
             <div className="w-1/4 px-2 pt-2">
               <img src={newspro.media.secure_url} alt="nature" width="100%" />
@@ -235,7 +237,7 @@ class GridNews extends Component {
                   {newspro.user.username}
                 </Link>
               </p>
-              <p className="text-xs ">{newspro.date.substring(0, 10)}</p>
+              <p className="text-xs text-gray-700">Published on {newspro.date.substring(0, 10)}</p>
             </div>
             <div className="w-1/4 px-2 pt-2">
               <img src={newspro.media.secure_url} alt="nature" width="100%" />

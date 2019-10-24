@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import Logo3 from "../assets/img/Logo3.png";
+import Logo2 from "../assets/img/Logo2.png";
 
 import "../assets/scss/Footer.scss";
 
@@ -15,7 +15,7 @@ class Footer extends Component {
               <div className="flex-1 mb-6">
                 <Link to="/">
                   <img
-                    src={Logo3}
+                    src={Logo2}
                     alt="Logo"
                     className="fill-current inline"
                     width="170px"

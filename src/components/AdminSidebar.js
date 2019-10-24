@@ -4,6 +4,13 @@ import {Link} from 'react-router-dom';
 import "../assets/scss/NavbarAdmin.scss";
 
 class NavbarAdmin extends Component {
+
+  removeToken = async () => {
+    await localStorage.clear();
+    window.location.reload(true);
+    this.props.history.push('/adminlogin');
+  }  
+
   render() {
     return (
       <div>
@@ -37,12 +44,12 @@ class NavbarAdmin extends Component {
               </ul>
               <ul className="logout">
               <li>
-              <Link to="/adminlogin">
-                <button>
+   
+                <button onClick={this.removeToken} className="text-white">
                 <i className="fa fa-power-off fa-2x"></i>
                 <span className="nav-text">Logout</span>
                 </button>
-              </Link>
+
               </li>
             </ul>
           </nav>

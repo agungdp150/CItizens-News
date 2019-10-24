@@ -14,7 +14,7 @@ class UserProfile extends Component {
   render() {
     const userData = this.props.details.user;
     // console.log(this.props.details.user);
-    // console.log(userData && userData);
+    console.log(userData && userData);
 
 
     return (
@@ -45,8 +45,13 @@ class UserProfile extends Component {
                         </h2>
                         <div className="flex sm:w-auto w-full sm:justify-start justify-center">
                           <span className="text-gray-800 mr-4 tracking-wider text-sm">
+                            <span className="text-gray-800 mx-1"> Contribution</span>
+                            {userData && userData.news.length}
+                          </span>
+
+                          <span className="text-gray-800 mr-4 tracking-wider text-sm">
                             <span className="text-gray-800"> Subcribers </span>
-                            80
+                            10
                           </span>
 
                           <span className="text-gray-800 mr-4 tracking-wider text-sm">
