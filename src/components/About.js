@@ -9,18 +9,18 @@ import '../assets/scss/About.scss';
 class About extends Component {
   render() {
     return (
-      <div className="py-12 bg-color-hot">
+      <div className="py-8 bg-color-hot">
         <div className="container mx-auto px-4 text-ab">
           <h1 className="text-4xl font-normal mb-4">
             CITIZENS
           </h1>
-          <p className="font-light">
-          Citizen News  is the platform for you to share your story, to speak up your voice, and to spread the news. Proudly developed by Aldo Lim, Angel Ria Purnamasari (lovely Aldo), Kaleb Lim, Agung Dwi Putra, Khairunissa Afifa, and Joe Phang.
-          </p>
           <ReactPlayer 
           url={about} 
           playing className="shadow mx-auto my-4"
           />
+          <p className="font-light">
+          Citizen News  is the platform for you to share your story, to speak up your voice, and to spread the news. Proudly developed by Aldo Lim, Angel Ria Purnamasari (lovely Aldo), Kaleb Lim, Agung Dwi Putra, Khairunissa Afifa, and Joe Phang.
+          </p>
         </div >
         <div className="container mx-auto px-4 text-ab">
         <h1 className="my-4">Our Team</h1>

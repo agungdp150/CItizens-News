@@ -42,7 +42,7 @@ class Contribution extends Component {
 
     let topFirst = topContributor[0]
 
-    console.log(topFirst && topFirst._id.image.secure_url)
+    // console.log(topFirst && topFirst._id.image.secure_url)
 
     const cutTop = topContributor.slice(1);
 

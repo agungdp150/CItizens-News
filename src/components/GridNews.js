@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Moment from 'react-moment';
+// import Moment from 'react-moment';
 import 'moment-timezone';
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
