@@ -127,7 +127,7 @@ class AdminNewsComponent extends Component {
       // console.log(pendingTotal.status)
       if (pendingTotal.status === "Pending") {
         i++;
-      }
+      } 
     });
 
     // let arrSum = arr => arr.reduce((a,b) => a + b, 0)

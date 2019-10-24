@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import Logo3 from '../assets/img/Logo3.png'
+// import Logo3 from '../assets/img/Logo3.png'
 
 import '../assets/scss/HeaderS.scss'
 class HeaderS extends Component {

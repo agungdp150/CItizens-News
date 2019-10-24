@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getCategory } from "../store/actions/getdetailcategoriesAction";
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
 
 import "../assets/scss/Categories.scss";
 

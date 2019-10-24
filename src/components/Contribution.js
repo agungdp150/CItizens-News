@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Medal from '../assets/img/medal.svg';
 import Silver from '../assets/img/silver.svg';
-import Bronze from '../assets/img/bronze.svg';
+// import Bronze from '../assets/img/bronze.svg';
 
 import '../assets/scss/Contribution.scss'
 
