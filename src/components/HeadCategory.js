@@ -4,11 +4,16 @@ import Logo2 from "../assets/img/Logo2.png";
 import {connect} from "react-redux";
 
 
+
 import "../assets/scss/HeadCategory.scss";
 
 class HeadCategory extends Component {
 
-  
+  removeToken = async () => {
+    await localStorage.clear();
+    window.location.reload(true);
+    this.props.history.push('/');
+  }  
 
 
   render() {
@@ -19,7 +24,7 @@ class HeadCategory extends Component {
           <div className="container mx-auto flex flex-wrap items-center">
             <div className="flex-1 flex justify-between items-center">
               <Link to="/">
-              <img src={Logo2} alt="Logo-Citizens" className="w-32  block" />
+              <img src={Logo2} alt="Logo-Citizens" className="w-32  block"/>
               </Link>
             </div>
 
@@ -61,9 +66,9 @@ class HeadCategory extends Component {
                             <div className=" flex items-center justify-center">
                               <Link
                                 className="cursor-pointer w-10 h-10 rounded-full overflow-hidden"
-                                to="">
+                                to="/user/5da71cdc106f7800176a2b42">
                                 <img
-                                  src="https://randomuser.me/api/portraits/men/28.jpg"
+                                  src="https://res.cloudinary.com/limkaleb/image/upload/v1571898796/citizen-journalism/gdf1ny2gsafg5c9d75qy.png"
                                   alt="pict-profile"
                                   className="object-fit"
                                 />
@@ -73,7 +78,7 @@ class HeadCategory extends Component {
                         </div>
                       </li>
                       <li>
-                        <button className="text-xs mt-2 mx-4">Log Out</button>
+                        <button className="text-xs mt-2 mx-4" onClick={this.removeToken} >Log Out</button>
                       </li>
                       </div>
                     ):(

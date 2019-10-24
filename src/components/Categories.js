@@ -45,7 +45,7 @@ class Categories extends Component {
                 {categoryObj.user.username}
               </Link>
             </p>
-            <p className="text-xs ">{categoryObj.date.substring(0, 10)}</p>
+            <p className="text-xs text-gray-700">Published on {categoryObj.date.substring(0, 10)}</p>
           </div>
           <div className="w-1/4 px-2 pt-2">
 
@@ -74,8 +74,8 @@ class Categories extends Component {
               </Link>
             </h1>
             <h3 className="ml-16 font-semibold w-2/3 mt-6 categories-responsive">{firstNews && firstNews.user.username}</h3>
-            <h3 className="ml-16 w-2/3 categories-responsive">
-              {firstNews && firstNews.date.substring(0, 10)}
+            <h3 className="ml-16 w-2/3 categories-responsive text-gray-700"> Published on <span className="mx-1">
+              {firstNews && firstNews.date.substring(0, 10)}</span>
             </h3>
           </div>
 
