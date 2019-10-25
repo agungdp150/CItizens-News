@@ -56,6 +56,7 @@ class FileUpload extends Component {
     // console.log (fd)
 
     this.props.newsPostAction(newsInput);
+    alert("Wow, you have add contribution :)")
     this.props.history.push("/");
   };
 

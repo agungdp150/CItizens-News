@@ -80,6 +80,7 @@ class EditProfile extends Component {
         console.log('upload progress = :' + Math.round(progressEvent.loaded/progressEvent.total * 100) + "%")
       }
     })
+    alert("success change pict")
     .then(response => {
       console.log(response.data)
     });
@@ -96,6 +97,7 @@ class EditProfile extends Component {
           Authorization : `Bearer ${token}`
         }
       );
+      alert("Are you sure?")
       console.log(response.data.result);
       console.log('wakata');
       
