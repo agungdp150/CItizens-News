@@ -2,8 +2,12 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { loginUser } from "../../store/actions/loginAction";
+import Lottie from 'react-lottie';
 
 import Logo3 from "../../assets/img/Logo3.png";
+
+// Loading stuff
+import Myloading from '../../assets/loading/2053-loading.json';
 
 import "../../assets/scss/SignIn.scss";
 
@@ -13,7 +17,8 @@ class SignIn extends Component {
 
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      loading : false
     };
   }
 
@@ -26,6 +31,7 @@ class SignIn extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     // console.log ("oke")
+    // const {loading} = this.state
 
     const dataLogin = {
       username: this.state.username,
@@ -36,7 +42,10 @@ class SignIn extends Component {
     await this.props.loginUser(dataLogin);
     const token = await localStorage.getItem("token");
     if (token) {
-      console.log(token);
+      // console.log(token);
+      // this.setState({
+      //   loading : true
+      // })
       alert("Login success :)");
       this.props.history.push("/");
     } else {
@@ -46,6 +55,17 @@ class SignIn extends Component {
 
   render() {
     const { username, password } = this.state;
+
+    // console.log(this.state.loading)
+
+    const setLoattie ={
+      loop : true,
+      autoplay : true,
+      animationData : Myloading,
+      renderSettings: {
+        preserveAspectRatio: 'xMidYMid slice'
+      }
+    }
 
     return (
       <div>
@@ -85,12 +105,24 @@ class SignIn extends Component {
                   <span className="focus-border"> </span>
                 </div>
                 <div className="flex justify-center">
-                  <button
-                    className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-12 rounded text-sm"
-                    type="submit">
-                    Sign In
-                  </button>
+                  {/* {this.state.loading ?  <Lottie 
+                  options={setLoattie}
+                  width={100}
+                  />   :   <button
+                  className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-12 rounded text-sm"
+                  type="submit">
+                  Sign In
+                </button>} */}
+                <button
+                  className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-12 rounded text-sm"
+                  type="submit">
+                  Sign In
+                </button>
                 </div>
+                <Lottie 
+                  options={setLoattie}
+                  width={100}
+                  />
               </form>
               <div className="text-center text-xs mt-4">
                 <p>
@@ -98,7 +130,6 @@ class SignIn extends Component {
                   <Link to="/forgot"> Forgot password ? </Link>
                 </p>
                 <p className="mt-1">
-                
                   Don 't have any account yet?
                   <Link to="/signup" className="ml-1"> register here...</Link>
                 </p>

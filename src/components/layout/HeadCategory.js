@@ -1,13 +1,23 @@
 import React, { Component } from "react";
+// import axios from "axios";
 import {withRouter ,Link } from "react-router-dom";
 import Logo2 from "../../assets/img/Logo2.png";
 import {connect} from "react-redux";
 
 
 
+
 import "../../assets/scss/HeadCategory.scss";
 
 class HeadCategory extends Component {
+  constructor(props) {
+    super (props);
+
+    this.state ={
+      query : "",
+      status : "Approved"
+    }
+  }
 
   removeToken = async () => {
     await localStorage.clear();
@@ -15,6 +25,26 @@ class HeadCategory extends Component {
     this.props.history.push('/');
   }  
 
+
+
+  handleChange = e => {
+    this.setState({
+      [e.target.name] : e.target.value
+    });
+  };
+
+  handleSearch = async () => {
+
+    // const {query, status} = this.state
+    
+    // try {
+    //   const response = await axios.get(
+    //     `https://app-citizenjournalism.herokuapp.com/api/v1/news/search?title=${query}`, 
+    //   )
+    // }
+  }
+
+  
 
   render() {
     // console.log(this.props.token)
@@ -39,7 +69,11 @@ class HeadCategory extends Component {
                 <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
               </svg>
             </label>
-            <input className="hidden" type="checkbox" id="menu-toggle" />
+            <input 
+              className="hidden" 
+              type="checkbox"
+              id="menu-toggle" 
+              />
 
             <div
               className="hidden md:flex md:items-center md:w-auto w-full text-black"
@@ -51,6 +85,10 @@ class HeadCategory extends Component {
                     <input 
                     type="search" 
                     placeholder="Search"
+                    name="query"
+                    value= {this.state.query}
+                    onChange={this.handleChange}
+                    autoComplete ="off"
                     className="mx-4"
                     />
                   </form>

@@ -1,10 +1,13 @@
-import {GET_DETAIL_USER} from '../../types';
+import {GET_DETAIL_USER, GET_STATUS_NEWS_USER} from '../../types';
 
 const initialState = {
   detailUser : {
     image : {
       secure_url : ''
     }
+  },
+  userNews : {
+    news : []
   }
 }
 
@@ -17,8 +20,13 @@ export default function (state = initialState, action) {
         ...state,
         ...payload,
         detailUser : payload
-      }
-
+      };
+      case GET_STATUS_NEWS_USER :
+          return {
+            ...state,
+            ...action.payload,
+            userNews : action.payload
+          }
       default : 
       return state
   }

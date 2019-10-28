@@ -84,7 +84,7 @@ class EditProfile extends Component {
   }
 
 
-  handleDeleteByUser = async e => {
+  handleDeleteByUser = async () => {
     const {token} = this.state
     
     try {

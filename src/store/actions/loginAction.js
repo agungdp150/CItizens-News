@@ -8,7 +8,7 @@ export const getUser = () => async dispatch => {
   }
   try {
     const response = await axios.GET(`https://app-citizenjournalism.herokuapp.com/api/v1/user`);
-    console.log(response.data.result);
+    // console.log(response.data);
     dispatch({
       type: GET_USER,
       payload: response.data
@@ -29,7 +29,7 @@ export const loginUser = SignIn => async dispatch => {
       `https://app-citizenjournalism.herokuapp.com/api/v1/user/login`,
       SignIn,
     );
-    console.log(response.data.result.isAdmin)
+    console.log(response.data.result)
     switch (response.data.result.isAdmin) {
       case true:
         dispatch({
