@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Verify from '../components/Verify';
+import Verify from '../components/User/Verify';
 
 class VerifyPage extends Component {
   render() {

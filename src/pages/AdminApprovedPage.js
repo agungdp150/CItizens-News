@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import AdminSidebar from '../components/AdminSidebar';
-import AdminApprovedComponent from '../components/AdminApprovedComponent';
+import AdminSidebar from '../components/Admin/AdminSidebar';
+import AdminApprovedComponent from '../components/Admin/AdminApprovedComponent';
 
 
 class AdminDashboardPage extends Component {

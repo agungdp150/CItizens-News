@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import AdminSidebar from '../components/AdminSidebar';
-import AdminNewsComponent from '../components/AdminNewsComponent';
+import AdminSidebar from '../components/Admin/AdminSidebar';
+import AdminNewsComponent from '../components/Admin/AdminNewsComponent';
 
 
 class AdminDashboardPage extends Component {

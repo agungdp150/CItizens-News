@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import HeadCategory from '../components/HeadCategory';
-import FileUpload from '../components/FileUpload';
+import HeadCategory from '../components/layout/HeadCategory';
+import FileUpload from '../components/Upload/FileUpload';
 
 
 

@@ -2,7 +2,7 @@ import {LOGIN_ADMIN_SUCCESS, LOGIN_SUCCESS, LOGIN_FAIL, GET_USER_FAIL} from '../
 
 const initialState = {
   token: localStorage.getItem('token'),
-  isAuthenticated: null,
+  isAuthenticated: false,
   isAdmin: '',
   loading: true,
   user: null

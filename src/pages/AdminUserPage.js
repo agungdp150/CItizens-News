@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import AdminSidebar from '../components/AdminSidebar';
-import AdminUsersComponent from '../components/AdminUsersComponent';
+import AdminSidebar from '../components/Admin/AdminSidebar';
+import AdminUsersComponent from '../components/Admin/AdminUsersComponent';
 
 
 class AdminUserPage extends Component {

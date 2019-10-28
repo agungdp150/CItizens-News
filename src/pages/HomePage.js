@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import HeadCategory from '../components/HeadCategory';
-import HeaderS from '../components/HeaderS';
-import NewJumbotron from '../components/NewJumbotron';
-import CardHotNews from '../components/CardHotNews';
-import GridVideo from '../components/GridVideo';
-import Contribution from '../components/Contribution';
-import Footer from '../components/Footer';
-import GridNews from '../components/GridNews';
+import HeadCategory from '../components/layout/HeadCategory';
+import HeaderS from '../components/layout/HeaderS';
+import NewJumbotron from '../components/Home/NewJumbotron';
+import CardHotNews from '../components/Home/CardHotNews';
+import GridVideo from '../components/Home/GridVideo';
+import Contribution from '../components/Home/Contribution';
+import Footer from '../components/layout/Footer';
+import GridNews from '../components/Home/GridNews';
 
 
 
