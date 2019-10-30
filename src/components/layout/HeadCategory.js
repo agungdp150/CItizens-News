@@ -50,17 +50,30 @@ class HeadCategory extends Component {
     // console.log(this.props.token)
     return (
       <div>
-        <header className="lg:px-16 px-8 py-4 md:py-0 shadow sticky top-0 nav-color">
+        <header className="lg:px-16 px-8 py-4 md:py-0 top-0 nav-color">
           <div className="container mx-auto flex flex-wrap items-center">
-            <div className="flex-1 flex justify-between items-center">
+            
+            <div className="flex-1 flex items-center">
+              <ul className="flex mx-4">
+                <li className="mx-2 text-xs">
+                  <div>
+                    <button className="py-1 px-2 font-semibold text-blue-500">Login</button>
+                  </div>
+                </li>
+                <li className="mx-2 text-xs">
+                  <div>
+                    <button className="bg-transparent hover:bg-blue-500 text-blue-600 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded">Sign Up</button>
+                  </div>
+                </li>
+              </ul>
               <Link to="/">
-              <img src={Logo2} alt="Logo-Citizens" className="w-32  block"/>
+              <img src={Logo2} alt="Logo-Citizens" className="w-24 py-4  block"/>
               </Link>
             </div>
 
             <label htmlFor="menu-toggle" className="pointer-cursor md:hidden block">
               <svg
-                className="fill-current text-gray-800 hover:text-white"
+                className="fill-current text-gray-800 hover:text-gray-400"
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
                 height="20"
@@ -79,70 +92,96 @@ class HeadCategory extends Component {
               className="hidden md:flex md:items-center md:w-auto w-full text-black"
               id="menu">
               <nav>
-                <ul className="md:flex items-center justify-between text-base pt-4 md:pt-0">
-                  <li className="md:px-2 py-4 px-0 block search-bar-style">
-                  <form id="demo-2">
-                    <input 
-                    type="search" 
-                    placeholder="Search"
-                    name="query"
-                    value= {this.state.query}
-                    onChange={this.handleChange}
-                    autoComplete ="off"
-                    className="mx-4"
-                    />
-                  </form>
-                  </li>
-                
+              <ul className="md:flex items-center justify-between text-base pt-4 md:pt-0">
 
-            
-                    {this.props.token ? (
-                      <div className="flex">
-                        <li>
-                        <div className="flex flex-col">
-                          <div>
-                            <div className=" flex items-center justify-center">
-                              <Link
-                                className="cursor-pointer w-10 h-10 rounded-full overflow-hidden"
-                                to="/user/5da71cdc106f7800176a2b42">
-                                <img
-                                  src="https://res.cloudinary.com/limkaleb/image/upload/v1571898796/citizen-journalism/gdf1ny2gsafg5c9d75qy.png"
-                                  alt="pict-profile"
-                                  className="object-fit"
-                                />
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <button className="text-xs mt-2 mx-4" onClick={this.removeToken} >Log Out</button>
-                      </li>
-                      </div>
-                    ):(
-                      <div className="flex ">
-                          <li>
-                          <Link
-                            to="/signin"
-                            className="md:px-4 md:py-4 px-0 block text-sm get-login">
-                            Sign In
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to="/signup"
-                            className="md:px-4 md:py-2 text-xs px-0 block bg-gray-200 px-4 border border-gray-500 rounded get-start mt-2">
-                            Get Started
-                          </Link>
-                        </li>
-                      </div>
-                    )}
-        
-                </ul>
+              <div className="flex font-medium">
+
+              <li className="action">
+              <Link
+                to="#1"
+                className="md:px-4 md:py-4 px-0 block text-base get-login">
+                News
+              </Link>
+            </li>
+
+            <li className="action">
+              <Link
+                to="#2"
+                className="md:px-4 md:py-4 px-0 block text-sm text-base get-login">
+                Education
+              </Link>
+            </li>
+
+            <li className="action">
+              <Link
+                to="#3"
+                className="md:px-4 md:py-4 px-0 block text-sm text-base get-login">
+                Tech
+              </Link>
+            </li>
+
+            <li className="action">
+              <Link
+                to="#6"
+                className="md:px-4 md:py-4 px-0 block text-sm text-base get-login">
+                Food
+              </Link>
+            </li>
+
+            <li className="action">
+              <Link
+                to="#5"
+                className="md:px-4 md:py-4 px-0 block text-sm text-base get-login">
+                Lifestyle
+              </Link>
+            </li>
+
+            <li className="action">
+              <Link
+                to="#7"
+                className="md:px-4 md:py-4 px-0 block text-sm text-base get-login">
+                Entertainment
+              </Link>
+            </li>
+
+            <li className="action">
+              <Link
+                to="#8"
+                className="md:px-4 md:py-4 px-0 block text-sm text-base get-login">
+                Food
+              </Link>
+            </li>
+
+            <li className="action">
+              <Link
+                to="#9"
+                className="md:px-4 md:py-4 px-0 block text-sm text-base get-login">
+                Video
+              </Link>
+            </li> 
+            </div>
+
+            <li className="md:px-2 py-4 px-0 block search-bar-style">
+              <form id="demo-2">
+                  <input 
+                  type="search" 
+                  placeholder="Search"
+                  name="query"
+                  value= {this.state.query}
+                  onChange={this.handleChange}
+                  autoComplete ="off"
+                  className="mx-4"
+                  />
+              </form>
+            </li>
+              </ul>
               </nav>
             </div>
           </div>
         </header>
+        <div className="upload-btn text-blue-500">
+            <button><i className="fas fa-plus-circle"></i></button>
+        </div>
       </div>
     );
   }

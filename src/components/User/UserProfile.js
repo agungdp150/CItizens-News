@@ -12,17 +12,46 @@ class UserProfile extends Component {
     super(props);
 
     this.state = {
-      token: ""
+      token: "",
+      subs : false,
+      scanSubs : []
     };
   }
 
-  componentDidMount() {
+
+  handleCheckSub = async (id) => {
+    if (localStorage.token){
+      setToken(localStorage.token)
+    }
+
+    let tokenCheck = localStorage.token
+
+    await axios.get(
+      `https://app-citizenjournalism.herokuapp.com/api/v1/subs/${id}`,
+      {
+        headers : {
+          Authorization : `Bearer ${tokenCheck}`
+        }
+      }
+    )
+    .then (response => {
+      console.log(response.data)
+      this.setState({subs : response.data.result})
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
+  componentDidMount = async() => {
     if (localStorage.token) {
       setToken(localStorage.token);
     }
     const id = this.props.match.params.id;
     this.props.getDetailUser(id);
+    await this.handleCheckSub(id);
   }
+
 
   handleSubs = async id => {
 
@@ -37,8 +66,9 @@ class UserProfile extends Component {
           }
         }
       );
-      console.log(response.data.result);
+      console.log(response.data);
       alert("Makasih ya bang")
+      this.handleCheckSub(id)
     } catch (error) {
       console.log(error.response.data);
     }
@@ -46,9 +76,39 @@ class UserProfile extends Component {
 
 
 
+  handleDeletSubs = async (id) => {
+    
+    if(localStorage.token){
+      setToken(localStorage.token)
+    }
+
+    let tokenCheck = localStorage.token
+
+    try {
+      const response = await axios.delete(
+        `https://app-citizenjournalism.herokuapp.com/api/v1/subs/${id}`,
+        {
+          headers:{
+            Authorization : `Bearer ${tokenCheck}`
+          }
+        }
+      );
+      console.log(response.data);
+      alert ('Abang jahat banget')
+      this.handleCheckSub(id)
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  }
+
+
+
+
   render() {
+    console.log(this.state.subs)
     const userData = this.props.details.user;
-    // console.log(userData && userData.subscribers.length);
+    // console.log(userData && userData);
+    // console.log(this.state.scanSubs)
 
     return (
       <div className='bg-color-hot'>
@@ -98,11 +158,16 @@ class UserProfile extends Component {
                       </div>
                     </div>
                     <div className='btn-center'>
-                      <button
+                      {this.state.subs === true ? 
+                      ( <button
+                        className='bg-gray-800 text-white font-semibold rounded btn-subs text-xs'
+                        onClick={() => this.handleDeletSubs(userData && userData._id)}>
+                        Unsubscribe
+                      </button>) : ( <button
                         className='bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded btn-subs text-xs'
                         onClick={() => this.handleSubs(userData && userData._id)}>
                         Subscribe
-                      </button>
+                      </button>)}
                     </div>
                   </div>
                 </div>

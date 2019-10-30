@@ -2,8 +2,29 @@
 
 div {
 
+
+  // For Responsive Navbar
+
   .nav-color {
-    background-color: #ffffff;
+    background-color: #fff;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+  }
+
+  // for upload btn
+  .upload-btn {
+    position: fixed;
+    margin-top: 89vh;
+    margin-left: 1.5vh;
+    z-index: 80;
+    overflow: auto;
+      button {
+        float: right;
+      }
+      i {
+        font-size: 2.5rem;
+      }
   }
 
 
@@ -111,7 +132,12 @@ div {
     color: transparent;
   }
 
+// For active
 
+.action:hover {
+  border-bottom: 1px solid rgb(79, 104, 248);
+  color: rgb(79, 104, 248);
+}
 
 
 

@@ -15,13 +15,13 @@ export class HomePage extends Component {
     return (
       <div>
         <HeadCategory/>
-        <HeaderS/>
-        <NewJumbotron/>
-        <CardHotNews/>
-        <Contribution/>
+        {/* <HeaderS/> */}
+        {/* <NewJumbotron/> */}
+        {/* <CardHotNews/>
+        <Contribution/> */}
         <GridNews/>
-        <GridVideo/>
-        <Footer/>
+        {/* <GridVideo/>
+        <Footer/> */}
       </div>
     )
   }

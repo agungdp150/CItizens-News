@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 // import Moment from 'react-moment';
-import 'moment-timezone';
+import "moment-timezone";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getNews } from "../../store/actions/getnewsAction";
+
+import Contribution from "./Contribution";
 
 import "../../assets/scss/GridNews.scss";
 
@@ -34,28 +36,30 @@ class GridNews extends Component {
     const newsData = sliceNews.map(newspro => {
       return (
         <div key={newspro._id}>
-          <div className="flex justify-beetwen pt-4">
-            <div className="w-3/4 pr-4">
-              <h1 className="text-lg font-semibold font-serif pt-2 capitalize">
+          <div className='flex justify-beetwen pt-4'>
+            <div className='w-3/4 pr-4'>
+              <h1 className='text-lg font-semibold font-serif pt-2 capitalize'>
                 <Link to={`/detail/${newspro._id}`}>{newspro.title}</Link>
               </h1>
-              <p className="text-sm font-serif pt-2 text-gray-700">
+              <p className='text-sm font-serif pt-2 text-gray-700'>
                 {newspro.description.substring(0, 170)}...{" "}
                 <Link to={`/detail/${newspro._id}`}>
-                  <span className="text-blue-800 font-bold font-sans">
+                  <span className='text-blue-800 font-bold font-sans'>
                     Read More
                   </span>
                 </Link>
               </p>
-              <p className="text-sm font-bold pt-2">
+              <p className='text-sm font-bold pt-2'>
                 <Link to={`/user/${newspro.user._id}`}>
                   {newspro.user.username}
                 </Link>
               </p>
-              <p className="text-xs text-gray-700">Published on {newspro.date.substring(0, 10)}</p>
+              <p className='text-xs text-gray-700'>
+                Published on {newspro.date.substring(0, 10)}
+              </p>
             </div>
-            <div className="w-1/4 px-2 pt-2">
-              <img src={newspro.media.secure_url} alt="nature" width="100%" />
+            <div className='w-1/4 px-2 pt-2'>
+              <img src={newspro.media.secure_url} alt='nature' width='100%' />
             </div>
           </div>
         </div>
@@ -71,28 +75,30 @@ class GridNews extends Component {
     const lifestyleData = sliceLifestyle.map(newspro => {
       return (
         <div key={newspro._id}>
-          <div className="flex justify-beetwen pt-4">
-            <div className="w-3/4 pr-4">
-              <h1 className="text-lg font-semibold font-serif pt-2 capitalize">
+          <div className='flex justify-beetwen pt-4'>
+            <div className='w-3/4 pr-4'>
+              <h1 className='text-lg font-semibold font-serif pt-2 capitalize'>
                 <Link to={`/detail/${newspro._id}`}>{newspro.title}</Link>
               </h1>
-              <p className="text-sm font-serif pt-2 text-gray-700">
+              <p className='text-sm font-serif pt-2 text-gray-700'>
                 {newspro.description.substring(0, 170)}...{" "}
                 <Link to={`/detail/${newspro._id}`}>
-                  <span className="text-blue-800 font-bold font-sans">
+                  <span className='text-blue-800 font-bold font-sans'>
                     Read More
                   </span>
                 </Link>
               </p>
-              <p className="text-sm font-bold pt-2">
+              <p className='text-sm font-bold pt-2'>
                 <Link to={`/user/${newspro.user._id}`}>
                   {newspro.user.username}
                 </Link>
               </p>
-              <p className="text-xs text-gray-700">Published on {newspro.date.substring(0, 10)}</p>
+              <p className='text-xs text-gray-700'>
+                Published on {newspro.date.substring(0, 10)}
+              </p>
             </div>
-            <div className="w-1/4 px-2 pt-2">
-              <img src={newspro.media.secure_url} alt="nature" width="100%" />
+            <div className='w-1/4 px-2 pt-2'>
+              <img src={newspro.media.secure_url} alt='nature' width='100%' />
             </div>
           </div>
         </div>
@@ -108,28 +114,30 @@ class GridNews extends Component {
     const foodData = sliceFood.map(newspro => {
       return (
         <div key={newspro._id}>
-          <div className="flex justify-beetwen pt-4">
-            <div className="w-3/4 pr-4">
-              <h1 className="text-lg font-semibold font-serif pt-2 capitalize">
+          <div className='flex justify-beetwen pt-4'>
+            <div className='w-3/4 pr-4'>
+              <h1 className='text-lg font-semibold font-serif pt-2 capitalize'>
                 <Link to={`/detail/${newspro._id}`}>{newspro.title}</Link>
               </h1>
-              <p className="text-sm font-serif pt-2 text-gray-700">
+              <p className='text-sm font-serif pt-2 text-gray-700'>
                 {newspro.description.substring(0, 170)}...
                 <Link to={`/detail/${newspro._id}`}>
-                  <span className="text-blue-800 font-bold font-sans">
+                  <span className='text-blue-800 font-bold font-sans'>
                     Read More
                   </span>
                 </Link>
               </p>
-              <p className="text-sm font-bold pt-2">
+              <p className='text-sm font-bold pt-2'>
                 <Link to={`/user/${newspro.user._id}`}>
                   {newspro.user.username}
                 </Link>
               </p>
-              <p className="text-xs text-gray-700">Published on {newspro.date.substring(0, 10)}</p>
+              <p className='text-xs text-gray-700'>
+                Published on {newspro.date.substring(0, 10)}
+              </p>
             </div>
-            <div className="w-1/4 px-2 pt-2">
-              <img src={newspro.media.secure_url} alt="nature" width="100%" />
+            <div className='w-1/4 px-2 pt-2'>
+              <img src={newspro.media.secure_url} alt='nature' width='100%' />
             </div>
           </div>
         </div>
@@ -145,28 +153,30 @@ class GridNews extends Component {
     const techData = sliceTech.map(newspro => {
       return (
         <div key={newspro._id}>
-          <div className="flex justify-beetwen pt-4">
-            <div className="w-3/4 pr-4">
-              <h1 className="text-lg font-semibold font-serif pt-2 capitalize">
+          <div className='flex justify-beetwen pt-4'>
+            <div className='w-3/4 pr-4'>
+              <h1 className='text-lg font-semibold font-serif pt-2 capitalize'>
                 <Link to={`/detail/${newspro._id}`}>{newspro.title}</Link>
               </h1>
-              <p className="text-sm font-serif pt-2 text-gray-700">
+              <p className='text-sm font-serif pt-2 text-gray-700'>
                 {newspro.description.substring(0, 170)}...{" "}
                 <Link to={`/detail/${newspro._id}`}>
-                  <span className="text-blue-800 font-bold font-sans">
+                  <span className='text-blue-800 font-bold font-sans'>
                     Read More
                   </span>
                 </Link>
               </p>
-              <p className="text-sm font-bold pt-2">
+              <p className='text-sm font-bold pt-2'>
                 <Link to={`/user/${newspro.user._id}`}>
                   {newspro.user.username}
                 </Link>
               </p>
-              <p className="text-xs text-gray-700">Published on {newspro.date.substring(0, 10)}</p>
+              <p className='text-xs text-gray-700'>
+                Published on {newspro.date.substring(0, 10)}
+              </p>
             </div>
-            <div className="w-1/4 px-2 pt-2">
-              <img src={newspro.media.secure_url} alt="nature" width="100%" />
+            <div className='w-1/4 px-2 pt-2'>
+              <img src={newspro.media.secure_url} alt='nature' width='100%' />
             </div>
           </div>
         </div>
@@ -182,28 +192,30 @@ class GridNews extends Component {
     const educateData = sliceEdu.map(newspro => {
       return (
         <div key={newspro._id}>
-          <div className="flex justify-beetwen pt-4">
-            <div className="w-3/4 pr-4">
-              <h1 className="text-lg font-semibold font-serif pt-2 capitalize">
+          <div className='flex justify-beetwen pt-4'>
+            <div className='w-3/4 pr-4'>
+              <h1 className='text-lg font-semibold font-serif pt-2 capitalize'>
                 <Link to={`/detail/${newspro._id}`}>{newspro.title}</Link>
               </h1>
-              <p className="text-sm font-serif pt-2 text-gray-700">
+              <p className='text-sm font-serif pt-2 text-gray-700'>
                 {newspro.description.substring(0, 170)}...{" "}
                 <Link to={`/detail/${newspro._id}`}>
-                  <span className="text-blue-800 font-bold font-sans">
+                  <span className='text-blue-800 font-bold font-sans'>
                     Read More
                   </span>
                 </Link>
               </p>
-              <p className="text-sm font-bold pt-2">
+              <p className='text-sm font-bold pt-2'>
                 <Link to={`/user/${newspro.user._id}`}>
                   {newspro.user.username}
                 </Link>
               </p>
-              <p className="text-xs text-gray-700">Published on {newspro.date.substring(0, 10)}</p>
+              <p className='text-xs text-gray-700'>
+                Published on {newspro.date.substring(0, 10)}
+              </p>
             </div>
-            <div className="w-1/4 px-2 pt-2">
-              <img src={newspro.media.secure_url} alt="nature" width="100%" />
+            <div className='w-1/4 px-2 pt-2'>
+              <img src={newspro.media.secure_url} alt='nature' width='100%' />
             </div>
           </div>
         </div>
@@ -219,28 +231,30 @@ class GridNews extends Component {
     const entertainData = sliceEnter.map(newspro => {
       return (
         <div key={newspro._id}>
-          <div className="flex justify-beetwen pt-4">
-            <div className="w-3/4 pr-4">
-              <h1 className="text-lg font-semibold font-serif pt-2 capitalize">
+          <div className='flex justify-beetwen pt-4'>
+            <div className='w-3/4 pr-4'>
+              <h1 className='text-lg font-semibold font-serif pt-2 capitalize'>
                 <Link to={`/detail/${newspro._id}`}>{newspro.title}</Link>
               </h1>
-              <p className="text-sm font-serif pt-2 text-gray-700">
+              <p className='text-sm font-serif pt-2 text-gray-700'>
                 {newspro.description.substring(0, 170)}...{" "}
                 <Link to={`/detail/${newspro._id}`}>
-                  <span className="text-blue-800 font-bold font-sans">
+                  <span className='text-blue-800 font-bold font-sans'>
                     Read More
                   </span>
                 </Link>
               </p>
-              <p className="text-sm font-bold pt-2">
+              <p className='text-sm font-bold pt-2'>
                 <Link to={`/user/${newspro.user._id}`}>
                   {newspro.user.username}
                 </Link>
               </p>
-              <p className="text-xs text-gray-700">Published on {newspro.date.substring(0, 10)}</p>
+              <p className='text-xs text-gray-700'>
+                Published on {newspro.date.substring(0, 10)}
+              </p>
             </div>
-            <div className="w-1/4 px-2 pt-2">
-              <img src={newspro.media.secure_url} alt="nature" width="100%" />
+            <div className='w-1/4 px-2 pt-2'>
+              <img src={newspro.media.secure_url} alt='nature' width='100%' />
             </div>
           </div>
         </div>
@@ -248,113 +262,105 @@ class GridNews extends Component {
     });
 
     return (
-      <div className="bg-color-hot">
-        <div className="container mx-auto pt-6"></div>
-        <div className="flex flex-wrap overflow-hidden mx-8">
-          <div className="w-2/3 overflow-hidden sm:w-2/3 md:w-2/3 lg:w-2/3 xl:w-2/3 px-4">
-            <h1 className="pb-4 mt-4 ml-1 text-3xl font-bold rounded font-serif">
-              News
-            </h1>
-            <div>{newsData}</div>
-            <div className="flex justify-end">
-              <Link to="/category/News">
-                <h2 className="text-blue-800 font-bold">
-                  More News
-                  <span>
-                    <i className="fas fa-chevron-circle-right" />
-                  </span>
-                </h2>
-              </Link>
+      <div className='bg-color-hot'>
+        <div className="flex justify-end play-button">
+          <img src="https://neversinkmediagroup.com/wabt/wp-content/uploads/sites/7/2018/10/Google-Play-Store-Logo.png" alt="play-store" className="w-64"/>
+        </div>
+        <div className='widht-home mx-auto'>
+          <div>
+            <div className='title-grid flex flex-wrap w-full'>
+              <div>
+                <hr className='separator' />
+              </div>
+              <div className='title-design w-1/2'>
+                <Link to='#'>
+                  <span>News</span>
+                </Link>
+              </div>
+              <div className='btn-seemore w-1/2 text-right'>
+                <Link to='#'>
+                  <button className='px-12 py-3 text-sm text-white font-semibold'>
+                    See More
+                  </button>
+                </Link>
+              </div>
             </div>
-          </div>
+            <div className='flex flex-wrap overflow-hidden'>
+              <div className='w-full overflow-hidden md:w-3/4 lg:w-3/4 xl:w-3/4 px-4'>
+                <div className='flex flex-wrap overflow-hidden'>
+                  <div className='w-full overflow-hidden'>
+                    <div class='flex flex-wrap overflow-hidden'>
 
-          <div className="w-2/3 overflow-hidden sm:w-2/3 md:w-2/3 lg:w-2/3 xl:w-2/3 px-4">
-            <hr className="line-style mt-4" />
-            <h1 className="pb-4 mt-4 ml-1 text-3xl font-bold rounded font-serif">
-              Lifestyle
-            </h1>
-            <div>{lifestyleData}</div>
-            <div className="flex justify-end">
-              <Link to="/category/Lifestyle">
-                <h2 className="text-blue-800 font-bold pt-4">
-                  More Lifestyle
-                  <span>
-                    <i className="fas fa-chevron-circle-right" />
-                  </span>
-                </h2>
-              </Link>
-            </div>
-          </div>
+                      <div class='w-full overflow-hidden md:w-1/2 lg:w-1/2 xl:w-1/2 p-3'>
+                        <img
+                          src='https://images.pexels.com/photos/3074526/pexels-photo-3074526.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+                          alt='Name'
+                          className='h-64 w-full'
+                        />
+                        <h2 className='py-3 font-serif font-semibold'>
+                          Is testosterone really the answer to my
+                          post-menopausal sexual problems?
+                        </h2>
+                      </div>
 
-          <div className="w-2/3 overflow-hidden sm:w-2/3 md:w-2/3 lg:w-2/3 xl:w-2/3 px-4">
-            <hr className="line-style mt-4" />
-            <h1 className="pb-4 mt-4 ml-1 text-3xl font-bold rounded font-serif">
-              Food
-            </h1>
-            <div>{foodData}</div>
-            <div className="flex justify-end">
-              <Link to="/category/Food">
-                <h2 className="text-blue-800 font-bold">
-                  More Food
-                  <span>
-                    <i className="fas fa-chevron-circle-right" />
-                  </span>
-                </h2>
-              </Link>
-            </div>
-          </div>
+                      <div class='w-full overflow-hidden md:w-1/2 lg:w-1/2 xl:w-1/2 p-3'>
+                        <div class='w-full overflow-hidden border-b-2 border-black'>
+                          <h2 className='font-semibold my-4 font-serif'>
+                            Jacob Rees-Mogg: my early career as an avant garde
+                            film star
+                          </h2>
+                        </div>
+                        <div class='w-full overflow-hidden border-b-2 border-black'>
+                          <h2 className='font-semibold my-4 font-serif'>
+                            Jacob Rees-Mogg: my early career as an avant garde
+                            film star
+                          </h2>
+                        </div>
+                        <div class='w-full overflow-hidden border-b-2 border-black'>
+                          <h2 className='font-semibold my-4 font-serif'>
+                            Jacob Rees-Mogg: my early career as an avant garde
+                            film star
+                          </h2>
+                        </div>
+                      </div>
 
-          <div className="w-2/3 overflow-hidden sm:w-2/3 md:w-2/3 lg:w-2/3 xl:w-2/3 px-4">
-            <hr className="line-style mt-4" />
-            <h1 className="pb-4 mt-4 ml-1 text-3xl font-bold rounded font-serif">
-              Tech
-            </h1>
-            <div>{techData}</div>
-            <div className="flex justify-end pt-4">
-              <Link to="/category/Tech">
-                <h2 className="text-blue-800 font-bold">
-                  More Tech
-                  <span>
-                    <i className="fas fa-chevron-circle-right" />
-                  </span>
-                </h2>
-              </Link>
-            </div>
-          </div>
+                    </div>
+                  </div>
+                  
+                  <div className='w-full overflow-hidden'>
+                    <div className='flex flex-wrap overflow-hidden'>
+                      <div className='w-full overflow-hidden md:w-1/2 lg:w-1/2 xl:w-1/2 p-3'>
+                        <img
+                          src='https://images.pexels.com/photos/3074526/pexels-photo-3074526.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+                          alt='name'
+                          className='h-64 w-full'
+                        />
+                        <h2 className='py-3 font-serif font-semibold'>
+                          Is testosterone really the answer to my
+                          post-menopausal sexual problems?
+                        </h2>
+                      </div>
 
-          <div className="w-2/3 overflow-hidden sm:w-2/3 md:w-2/3 lg:w-2/3 xl:w-2/3 px-4">
-            <hr className="line-style mt-4" />
-            <h1 className="pb-4 mt-4 ml-1 text-3xl font-bold rounded font-serif">
-              Education
-            </h1>
-            <div>{educateData}</div>
-            <div className="flex justify-end pt-4">
-              <Link to="/category/Education">
-                <h2 className="text-blue-800 font-bold">
-                  More Education
-                  <span>
-                    <i className="fas fa-chevron-circle-right" />
-                  </span>
-                </h2>
-              </Link>
-            </div>
-          </div>
+                      <div className='w-full overflow-hidden md:w-1/2 lg:w-1/2 xl:w-1/2 p-3'>
+                        <img
+                          src='https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+                          alt='name'
+                          className='h-64 w-full'
+                        />
+                        <h2 className='py-3 font-serif font-semibold'>
+                          Is testosterone really the answer to my
+                          post-menopausal sexual problems?
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-          <div className="w-2/3 overflow-hidden sm:w-2/3 md:w-2/3 lg:w-2/3 xl:w-2/3 px-4">
-            <hr className="line-style mt-4" />
-            <h1 className="pb-4 mt-4 ml-1 text-3xl font-bold rounded font-serif">
-              Entertaintment
-            </h1>
-            <div>{entertainData}</div>
-            <div className="flex justify-end pt-4">
-              <Link to="/category/Entertainment">
-                <h2 className="text-blue-800 font-bold">
-                  More Entertaintment
-                  <span>
-                    <i className="fas fa-chevron-circle-right" />
-                  </span>
-                </h2>
-              </Link>
+              <div className='w-full overflow-hidden md:w-1/4 lg:w-1/4 xl:w-1/4 px-4'>
+                <Contribution/>
+              </div>
+
             </div>
           </div>
         </div>
