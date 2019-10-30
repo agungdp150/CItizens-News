@@ -19,12 +19,14 @@ div {
     margin-left: 1.5vh;
     z-index: 80;
     overflow: auto;
-      button {
-        float: right;
-      }
-      i {
-        font-size: 2.5rem;
-      }
+
+    button {
+      float: right;
+    }
+
+    i {
+      font-size: 2.5rem;
+    }
   }
 
 
@@ -132,17 +134,27 @@ div {
     color: transparent;
   }
 
-// For active
+  // For active
 
-.action:hover {
-  border-bottom: 1px solid rgb(79, 104, 248);
-  color: rgb(79, 104, 248);
-}
+  .action:hover {
+    border-bottom: 1px solid rgb(79, 104, 248);
+    color: rgb(79, 104, 248);
+  }
+
+  .for-response {
+    display: flex;
+  }
+
+
+
+  @media only screen and (max-width: 636px) {
+
+    .for-response {
+      flex-wrap: wrap;
+    }
+  }
 
 
 
 
-
-
-  
 }
