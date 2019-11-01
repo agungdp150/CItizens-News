@@ -25,11 +25,8 @@ class GridNews extends Component {
   }
 
   componentDidMount = async () => {
-    // await
-    setTimeout(() => {
-      this.setState({ loading: true });
-      this.props.getNews();
-    }, 2000);
+    await this.props.getNews();
+    this.setState({ loading: true });
   };
 
   render() {

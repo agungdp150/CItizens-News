@@ -19,16 +19,12 @@ class Categories extends Component {
     }
   }
 
-  componentDidMount() {
-    // console.log (this.props.getCategory())
-    setTimeout(() => {
-      this.setState({
-        loading : true
-      })
-      const category = this.props.match.params.category;
-      this.props.getCategory(category);
-    }, 2000);
-
+  componentDidMount = async () => {
+    const category = this.props.match.params.category;
+    await this.props.getCategory(category);
+    this.setState({
+      loading : true
+    })
   }
 
   render() {
