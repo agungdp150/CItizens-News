@@ -41,7 +41,7 @@ class NewsStatusUser extends Component {
         },
       );
       console.log(response.data);
-      alert ("Are you sure about that (Jhon Cena Voice)")
+      alert("are you sure about that? Jhon cena ")
       this.props.getUserNews(this.props.userNews)
     } catch (error) {
       console.log(error.response.data)
@@ -52,16 +52,12 @@ class NewsStatusUser extends Component {
 
   render() {
     const status = this.props.userNews;
-    // console.log(status)
-    // console.log(status && status.news)
 
     const myNewsStatus =
       status &&
       status.news.map(showStatus => {
-        // console.log(showStatus._id)
         const dataNewsVideo = showStatus.media.secure_url.split(".");
         if (dataNewsVideo[3] === "mp4") {
-          // console.log(showStatus)
           return (
             <div
               className='card md:rounded shadow bg-white p-4 mb-4 mx-4'

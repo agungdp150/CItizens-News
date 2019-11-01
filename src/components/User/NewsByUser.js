@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactPlayer from "react-player";
 import {Link, withRouter} from 'react-router-dom';
 import { connect } from "react-redux";
 import { getDetailUser } from "../../store/actions/getdetailuserAction";
@@ -27,27 +28,38 @@ class NewsByUser extends Component {
       if ( dataNewsVideo[3] === 'mp4') 
       {
         return (
-          <div className="card md:rounded shadow bg-white p-4 mb-4 mx-4" key={showNews._id}>
-          <h1 className="text-xl font-semibold"><Link to={`/videoDetail/${showNews._id}`}>{showNews.title}</Link></h1>
-          <p className="my-2 leading-normal text-sm">
-           {showNews.description.substring(0, 150)}... <span className="font-semibold text-blue-800"><Link to={`/videoDetail/${showNews._id}`}> Read More </Link></span>
-          </p>
-          <p className="my-2 leading-normal text-xs font-base text-gray-600">
-            Published on {showNews.date.substring(0, 10)}
-          </p>
-           </div>
+          <div className="flex flex-wrap overflow-hidden p-2 shadow my-4 rounded" key={showNews._id}>
+          <div className="w-full overflow-hidden md:w-1/3 lg:w-1/3 xl:w-1/3 p-3">
+            <ReactPlayer 
+            url={showNews.media.secure_url}        
+            width="100%"
+            height="130px" />
+          </div>
+            <div className="w-full overflow-hidden md:w-2/3 lg:w-2/3 xl:w-2/3 p-3">
+               <Link to={`/videoDetail/${showNews._id}`}>
+                <h2 className="font-semibold">{showNews.title}</h2>
+                </Link>
+                <p className="text-xs">published on<span> {showNews.date.substring(0, 10)}</span></p>
+                <p className="text-sm py-4 text-justify">{showNews.description.substring(0, 150)}... <span className="font-semibold text-blue-800"><Link to={`/detail/${showNews._id}`}> Read More </Link></span></p>
+            </div>
+          </div>
         )
       } else {
         return (
-          <div className="card md:rounded shadow bg-white p-4 mb-4 mx-4" key={showNews._id}>
-          <h1 className="text-xl font-semibold"><Link to={`/detail/${showNews._id}`}>{showNews.title}</Link></h1>
-          <p className="my-2 leading-normal text-sm">
-           {showNews.description.substring(0, 150)}... <span className="font-semibold text-blue-800"><Link to={`/detail/${showNews._id}`}> Read More </Link></span>
-          </p>
-          <p className="my-2 leading-normal text-xs font-base text-gray-600">
-            Published on {showNews.date.substring(0, 10)}
-          </p>
-           </div>
+          <div className="flex flex-wrap overflow-hidden p-2 shadow my-4 rounded" key={showNews._id}>
+
+          <div className="w-full overflow-hidden md:w-1/3 lg:w-1/3 xl:w-1/3 p-3">
+              <img src={showNews.media.secure_url} alt="name"/>
+          </div>
+
+            <div className="w-full overflow-hidden md:w-2/3 lg:w-2/3 xl:w-2/3 p-3">
+                <Link to={`/detail/${showNews._id}`}>
+                <h2 className="font-semibold">{showNews.title}</h2>
+                </Link>
+                <p className="text-xs">published on {showNews.date.substring(0, 10)}</p>
+                <p className="text-sm py-4 text-justify"> {showNews.description.substring(0, 150)}... <span className="font-semibold text-blue-800"><Link to={`/detail/${showNews._id}`}> Read More </Link></span></p>
+            </div>
+          </div>
         )
       }
 
@@ -57,7 +69,7 @@ class NewsByUser extends Component {
     return (
       <div className="bg-color-hot">
           <div className="mx-auto user-width ">
-          <div className="pt-6 min-h-screen pb-5 flex-1 bg-color-hot">
+          <div className="p-3 min-h-screen pb-5 flex-1 bg-color-hot">
             {getNewsUser}
           </div>
           </div>

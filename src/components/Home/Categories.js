@@ -2,15 +2,33 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getCategory } from "../../store/actions/getdetailcategoriesAction";
+import Lottie from "react-lottie";
 // import ReactPlayer from "react-player";
+
+// Loading stuff
+import Myloading from "../../assets/loading/201-simple-loader.json";
 
 import "../../assets/scss/Categories.scss";
 
 class Categories extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loading : false
+    }
+  }
+
   componentDidMount() {
     // console.log (this.props.getCategory())
-    const category = this.props.match.params.category;
-    this.props.getCategory(category);
+    setTimeout(() => {
+      this.setState({
+        loading : true
+      })
+      const category = this.props.match.params.category;
+      this.props.getCategory(category);
+    }, 2000);
+
   }
 
   render() {
@@ -23,18 +41,18 @@ class Categories extends Component {
     let filterCaterories = sliceMydata.filter(divide => divide.status === "Approved");
 
     const dataCategory = filterCaterories.map(categoryObj => {
-      // console.log (categoryObj)
+      console.log (categoryObj)
       // console.log((categoryObj.category !== "Video") ? true  :  false)
       return (
         <div key={categoryObj._id}>
         <div className="flex justify-beetwen pt-4">
           <div className="w-3/4 pr-4">
             <h1 className="text-lg font-semibold font-serif pt-2 capitalize">
-              <Link to={`/detail/`}>{categoryObj.title}</Link>
+              <Link to={`/detail/${categoryObj._id}`}>{categoryObj.title}</Link>
             </h1>
             <p className="text-sm font-serif pt-2 text-gray-700">
                {categoryObj.description.substring(0,120)}...  
-              <Link to={`/detail/`}>
+              <Link to={`/detail/${categoryObj._id}`}>
                 <span className="text-blue-800 font-bold font-sans ml-1">
                   Read More
                 </span>
@@ -56,6 +74,15 @@ class Categories extends Component {
       </div>
       )
     })
+
+    const setLoattie = {
+      loop: true,
+      autoplay: true,
+      animationData: Myloading,
+      renderSettings: {
+        preserveAspectRatio: "xMidYMid slice"
+      }
+    };
 
     return (
       <div className="styling-category bg-color-hot py-4">
@@ -81,12 +108,16 @@ class Categories extends Component {
 
           <h4 className="ml-16 w-2/3 py-3 font-semibold categories-responsive">List of {firstNews && firstNews.category[0]}</h4>
 
+       
           <div className="w-2/3 overflow-hidden sm:w-2/3 md:w-2/3 lg:w-2/3 xl:w-2/3 px-4 ml-12 for-cate-1 categories-responsive">
+          {this.state.loading ? (
             <div>
               {dataCategory}
             </div>
+          ) : (
+            <Lottie options={setLoattie} width={150} />
+          )}
           </div>
-
 
         </div>
       </div>

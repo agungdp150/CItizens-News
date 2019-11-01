@@ -6,6 +6,7 @@ import PrivateRoute from './PrivateRoutes';
 // Main Page
 import HomePage from "../pages/HomePage";
 import AboutPage from "../pages/AboutPage";
+import SearchPage from "../pages/SearchPage";
 
 // User Page
 import SignInPage from "../pages/SignInPage";
@@ -59,6 +60,7 @@ const Routes = () => {
 
         <Route exact path="/detail/:id" component={DetailPage} />
         <Route exact path="/videoDetail/:id" component={DetailVideoPage}/>
+        <Route exact path="/search/:tit" component={SearchPage}/>
 
         <Route exact path="/user/:id" component={UserNewsPage} />
         <Route exact path="/user/status/:id" component={UserStatusPage}/>

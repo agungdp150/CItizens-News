@@ -13,49 +13,44 @@ class UserProfile extends Component {
 
     this.state = {
       token: "",
-      subs : false,
-      scanSubs : []
+      subs: false,
+      scanSubs: []
     };
   }
 
-
-  handleCheckSub = async (id) => {
-    if (localStorage.token){
-      setToken(localStorage.token)
+  handleCheckSub = async id => {
+    if (localStorage.token) {
+      setToken(localStorage.token);
     }
 
-    let tokenCheck = localStorage.token
+    let tokenCheck = localStorage.token;
 
-    await axios.get(
-      `https://app-citizenjournalism.herokuapp.com/api/v1/subs/${id}`,
-      {
-        headers : {
-          Authorization : `Bearer ${tokenCheck}`
+    await axios
+      .get(`https://app-citizenjournalism.herokuapp.com/api/v1/subs/${id}`, {
+        headers: {
+          Authorization: `Bearer ${tokenCheck}`
         }
-      }
-    )
-    .then (response => {
-      console.log(response.data)
-      this.setState({subs : response.data.result})
-    })
-    .catch(err => {
-      console.log(err)
-    })
-  }
+      })
+      .then(response => {
+        console.log(response.data);
+        this.setState({ subs: response.data.result });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
-  componentDidMount = async() => {
+  componentDidMount = async () => {
     if (localStorage.token) {
       setToken(localStorage.token);
     }
     const id = this.props.match.params.id;
     this.props.getDetailUser(id);
     await this.handleCheckSub(id);
-  }
-
+  };
 
   handleSubs = async id => {
-
-    const {token} = this.state
+    const { token } = this.state;
 
     try {
       const response = await axios.post(
@@ -67,51 +62,45 @@ class UserProfile extends Component {
         }
       );
       console.log(response.data);
-      alert("Makasih ya bang")
-      this.handleCheckSub(id)
+      alert("Makasih ya bang");
+      this.handleCheckSub(id);
     } catch (error) {
       console.log(error.response.data);
     }
   };
 
-
-
-  handleDeletSubs = async (id) => {
-    
-    if(localStorage.token){
-      setToken(localStorage.token)
+  handleDeletSubs = async id => {
+    if (localStorage.token) {
+      setToken(localStorage.token);
     }
 
-    let tokenCheck = localStorage.token
+    let tokenCheck = localStorage.token;
 
     try {
       const response = await axios.delete(
         `https://app-citizenjournalism.herokuapp.com/api/v1/subs/${id}`,
         {
-          headers:{
-            Authorization : `Bearer ${tokenCheck}`
+          headers: {
+            Authorization: `Bearer ${tokenCheck}`
           }
         }
       );
       console.log(response.data);
-      alert ('Abang jahat banget')
-      this.handleCheckSub(id)
+      alert("Abang jahat banget");
+      this.handleCheckSub(id);
     } catch (error) {
       console.log(error.response.data);
     }
-  }
-
-
-
+  };
 
   render() {
-    console.log(this.state.subs)
+    console.log(this.state.subs);
     const userData = this.props.details.user;
     // console.log(userData && userData);
     // console.log(this.state.scanSubs)
 
     return (
-      <div className='bg-color-hot'>
+      <div className='bg-color-hot limit-navbar'>
         <div className='user-width mx-auto bg-white'>
           <div className='flex flex-col px-4 bg-color-hot'>
             <div className='bg-user'>
@@ -158,16 +147,23 @@ class UserProfile extends Component {
                       </div>
                     </div>
                     <div className='btn-center'>
-                      {this.state.subs === true ? 
-                      ( <button
-                        className='bg-gray-800 text-white font-semibold rounded btn-subs text-xs'
-                        onClick={() => this.handleDeletSubs(userData && userData._id)}>
-                        Unsubscribe
-                      </button>) : ( <button
-                        className='bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded btn-subs text-xs'
-                        onClick={() => this.handleSubs(userData && userData._id)}>
-                        Subscribe
-                      </button>)}
+                      {this.state.subs === true ? (
+                        <button
+                          className='bg-gray-800 text-white font-semibold rounded btn-subs text-xs'
+                          onClick={() =>
+                            this.handleDeletSubs(userData && userData._id)
+                          }>
+                          Unsubscribe
+                        </button>
+                      ) : (
+                        <button
+                          className='bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded btn-subs text-xs'
+                          onClick={() =>
+                            this.handleSubs(userData && userData._id)
+                          }>
+                          Subscribe
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>

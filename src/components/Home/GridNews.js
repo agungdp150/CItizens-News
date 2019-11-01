@@ -34,6 +34,7 @@ class GridNews extends Component {
 
   render() {
     let dataAllnews = this.props.news;
+    // console.log(dataAllnews && dataAllnews)
 
     let cateNews = dataAllnews.filter(newsFil => newsFil.status === "Approved");
 
@@ -41,7 +42,7 @@ class GridNews extends Component {
       checkNews => checkNews.category[0] === "News"
     );
 
-    console.log(newsFilter);
+    // console.log(newsFilter);
 
     let sliceNews = newsFilter.slice(3, 6);
 
@@ -230,6 +231,7 @@ class GridNews extends Component {
                     <div className='w-full overflow-hidden'>
                       <div className='flex flex-wrap overflow-hidden'>
                         <div className='w-full overflow-hidden md:w-1/2 lg:w-1/2 xl:w-1/2 p-3'>
+                          <Link to={`/detail/${ newsFilter[0] && newsFilter[0]._id}`}>
                           <img
                             src={
                               newsFilter[0] && newsFilter[0].media.secure_url
@@ -240,6 +242,7 @@ class GridNews extends Component {
                           <h2 className='py-3 font-serif font-semibold'>
                             {newsFilter[0] && newsFilter[0].title}
                           </h2>
+                          </Link>
                         </div>
 
                         <div className='w-full overflow-hidden md:w-1/2 lg:w-1/2 xl:w-1/2 p-3'>
@@ -251,6 +254,7 @@ class GridNews extends Component {
                     <div className='w-full overflow-hidden'>
                       <div className='flex flex-wrap overflow-hidden'>
                         <div className='w-full overflow-hidden md:w-1/2 lg:w-1/2 xl:w-1/2 p-3'>
+                        <Link to={`/detail/${ newsFilter[1] && newsFilter[1]._id}`}>
                           <img
                             src={
                               newsFilter[1] && newsFilter[1].media.secure_url
@@ -261,9 +265,11 @@ class GridNews extends Component {
                           <h2 className='py-3 font-serif font-semibold'>
                             {newsFilter[1] && newsFilter[1].title}
                           </h2>
+                          </Link>
                         </div>
 
                         <div className='w-full overflow-hidden md:w-1/2 lg:w-1/2 xl:w-1/2 p-3'>
+                        <Link to={`/detail/${ newsFilter[2] && newsFilter[2]._id}`}>
                           <img
                             src={
                               newsFilter[2] && newsFilter[2].media.secure_url
@@ -274,6 +280,7 @@ class GridNews extends Component {
                           <h2 className='py-3 font-serif font-semibold'>
                             {newsFilter[2] && newsFilter[2].title}
                           </h2>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -309,6 +316,7 @@ class GridNews extends Component {
                         </div>
 
                         <div className='w-full overflow-hidden md:w-1/2 lg:w-1/2 xl:w-1/2 p-3'>
+                          <Link to= {`/detail/${eduFilter[0] && eduFilter[0]._id}`}>
                           <img
                             src={eduFilter[0] && eduFilter[0].media.secure_url}
                             alt='Name'
@@ -317,6 +325,7 @@ class GridNews extends Component {
                           <h2 className='py-3 font-serif font-semibold'>
                             {eduFilter[0] && eduFilter[0].title}
                           </h2>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -324,6 +333,7 @@ class GridNews extends Component {
                     <div className='w-full overflow-hidden'>
                       <div className='flex flex-wrap overflow-hidden'>
                         <div className='w-full overflow-hidden md:w-1/2 lg:w-1/2 xl:w-1/2 p-3'>
+                        <Link to= {`/detail/${eduFilter[1] && eduFilter[1]._id}`}>
                           <img
                             src={eduFilter[1] && eduFilter[1].media.secure_url}
                             alt='name'
@@ -332,9 +342,11 @@ class GridNews extends Component {
                           <h2 className='py-3 font-serif font-semibold'>
                             {eduFilter[1] && eduFilter[1].title}
                           </h2>
+                          </Link>
                         </div>
 
                         <div className='w-full overflow-hidden md:w-1/2 lg:w-1/2 xl:w-1/2 p-3'>
+                        <Link to= {`/detail/${eduFilter[2] && eduFilter[2]._id}`}>
                           <img
                             src={eduFilter[2] && eduFilter[2].media.secure_url}
                             alt='name'
@@ -343,6 +355,7 @@ class GridNews extends Component {
                           <h2 className='py-3 font-serif font-semibold'>
                             {eduFilter[2] && eduFilter[2].title}
                           </h2>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -376,6 +389,10 @@ class GridNews extends Component {
                         <div className='w-full overflow-hidden'>
                           <div className='flex flex-wrap overflow-hidden'>
                             <div className='w-full overflow-hidden md:w-1/2 lg:w-1/2 xl:w-1/2 p-3'>
+                              <Link to={`/detail/${
+                                  techFilter[1] &&
+                                  techFilter[1]._id
+                                }`}>
                               <img
                                 src={
                                   techFilter[1] &&
@@ -387,9 +404,14 @@ class GridNews extends Component {
                               <h2 className='py-3 font-serif font-semibold'>
                                 {techFilter[1] && techFilter[1].title}
                               </h2>
+                              </Link>
                             </div>
 
                             <div className='w-full overflow-hidden md:w-1/2 lg:w-1/2 xl:w-1/2 p-3'>
+                            <Link to={`/detail/${
+                                  techFilter[2] &&
+                                  techFilter[2]._id
+                                }`}>
                               <img
                                 src={
                                   techFilter[2] &&
@@ -401,6 +423,7 @@ class GridNews extends Component {
                               <h2 className='py-3 font-serif font-semibold'>
                                 {techFilter[2] && techFilter[2].title}
                               </h2>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -410,6 +433,10 @@ class GridNews extends Component {
                         </div>
 
                         <div className='w-full overflow-hidden md:w-1/2 lg:w-1/2 xl:w-1/2 p-3'>
+                        <Link to={`/detail/${
+                                  techFilter[0] &&
+                                  techFilter[0]._id
+                                }`}>
                           <img
                             src={
                               techFilter[0] && techFilter[0].media.secure_url
@@ -420,6 +447,7 @@ class GridNews extends Component {
                           <h2 className='py-3 font-serif font-semibold'>
                             {techFilter[0] && techFilter[0].title}
                           </h2>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -452,6 +480,7 @@ class GridNews extends Component {
                     <div className='w-full overflow-hidden'>
                       <div className='flex flex-wrap overflow-hidden'>
                         <div className='w-full overflow-hidden md:w-1/2 lg:w-1/2 xl:w-1/2 p-3'>
+                          <Link to={`/detail/${foodFilter[0] && foodFilter[0]._id}`}>
                           <img
                             src={
                               foodFilter[0] && foodFilter[0].media.secure_url
@@ -462,6 +491,7 @@ class GridNews extends Component {
                           <h2 className='py-3 font-serif font-semibold'>
                             {foodFilter[0] && foodFilter[0].title}
                           </h2>
+                          </Link>
                         </div>
 
                         <div className='w-full overflow-hidden md:w-1/2 lg:w-1/2 xl:w-1/2 p-3'>
@@ -473,6 +503,7 @@ class GridNews extends Component {
                     <div className='w-full overflow-hidden'>
                       <div className='flex flex-wrap overflow-hidden'>
                         <div className='w-full overflow-hidden md:w-1/2 lg:w-1/2 xl:w-1/2 p-3'>
+                        <Link to={`/detail/${foodFilter[1] && foodFilter[1]._id}`}>
                           <img
                             src={
                               foodFilter[1] && foodFilter[1].media.secure_url
@@ -483,9 +514,11 @@ class GridNews extends Component {
                           <h2 className='py-3 font-serif font-semibold'>
                             {foodFilter[1] && foodFilter[1].title}
                           </h2>
+                          </Link>
                         </div>
 
                         <div className='w-full overflow-hidden md:w-1/2 lg:w-1/2 xl:w-1/2 p-3'>
+                        <Link to={`/detail/${foodFilter[2] && foodFilter[2]._id}`}>
                           <img
                             src={
                               foodFilter[2] && foodFilter[2].media.secure_url
@@ -496,6 +529,7 @@ class GridNews extends Component {
                           <h2 className='py-3 font-serif font-semibold'>
                             {foodFilter[2] && foodFilter[2].title}
                           </h2>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -560,6 +594,34 @@ class GridNews extends Component {
                   <Lottie options={setLoattie} width={150} />
                 )}
               </div>
+              
+
+              <div className='title-grid flex flex-wrap w-full'>
+                <div>
+                  <hr className='separator' />
+                </div>
+                <div className='title-design w-1/2'>
+                  <Link to='#'>
+                    <span>Video</span>
+                  </Link>
+                </div>
+                <div className='btn-seemore w-1/2 text-right'>
+                  <Link to='#'>
+                    <button className='px-12 py-3 text-sm text-white font-semibold'>
+                      See More
+                    </button>
+                  </Link>
+                </div>
+
+                {this.state.loading ? (
+                  <div className='flex flex-wrap overflow-hidden'>
+                    <GridVideo/>
+                  </div>
+                ) : (
+                  <Lottie options={setLoattie} width={150} />
+                )}
+              </div>
+              
 
             </div>
 

@@ -29,4 +29,6 @@ export const GET_SINGLE_USER = "GET_SINGLE_USER";
 
 export const GET_STATUS_NEWS_USER = "GET_STATUS_NEWS_USER";
 
+export const GET_NEWS_SEARCH = "GET_NEWS_SEARCH";
+
 

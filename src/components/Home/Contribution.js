@@ -87,16 +87,15 @@ class Contribution extends Component {
 
     return (
       <div>
-        <div className="pos-sticky w-64">
+        <div className="pos-sticky w-1/4">
         <h3 className='text-center font-semibold py-4'>TOP CONTRIBUTOR</h3>
-
         {this.state.loading ? (
           <Carousel
             withoutControls={true}
             autoplay={true}
             transitionMode={"fade"}
             wrapAround = {true}
-            className=""
+            className="p-4"
             >
             {topUser}
           </Carousel>

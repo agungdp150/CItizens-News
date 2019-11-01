@@ -90,8 +90,8 @@ class Footer extends Component {
               </div>
 
               <div className="flex-1 fo-social">
-                <h4 className="uppercase md:mb-6 font-medium text-sm font-bold">Social</h4>
-                <p>
+                <h4 className="uppercase md:mb-3 font-medium text-sm font-bold">Social</h4>
+         
                   <Link to="#">
                  <div> <i className="fab fa-facebook-square fa-1x"/>Facebook</div>
                   </Link>
@@ -104,7 +104,7 @@ class Footer extends Component {
                   <Link to="#">
                   <div><i className="fab fa-youtube fa-1x"/>Youtube</div>
                   </Link>
-                </p>
+  
             
               </div>
 

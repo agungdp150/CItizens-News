@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import axios from "axios";
+import axios from "axios"
 import { withRouter, Link } from "react-router-dom";
 import Logo2 from "../../assets/img/Logo2.png";
 import { connect } from "react-redux";
@@ -12,7 +12,8 @@ class HeadCategory extends Component {
 
     this.state = {
       query: "",
-      status: "Approved"
+      status: "Approved",
+      newsSearch : []
     };
   }
 
@@ -28,17 +29,34 @@ class HeadCategory extends Component {
     });
   };
 
-  handleSearch = async () => {
-    // const {query, status} = this.state
-    // try {
-    //   const response = await axios.get(
-    //     `https://app-citizenjournalism.herokuapp.com/api/v1/news/search?title=${query}`,
-    //   )
-    // }
+  handleSearch = async (e) => {
+    e.preventDefault();
+
+    console.log("oke")
+
+    const {query, status} = this.state
+    try {
+      const response = await axios.get(
+        `https://app-citizenjournalism.herokuapp.com/api/v1/news/find-news?status=${status}&title=${query}`
+      )
+      .then(response => {
+        console.log(response.data)
+        // this.props.history.push(`/search/${query}`)
+        this.setState({
+          query : ""
+        })
+      })
+    } catch(error) {
+      console.log(error.response.data)
+    }
   };
+
+
 
   render() {
     // console.log(this.props.token)
+    const {newsSearch} = this.state
+
     return (
       <div>
         <header className='lg:px-16 px-8 py-4 md:py-0 top-0 nav-color'>
@@ -47,16 +65,20 @@ class HeadCategory extends Component {
               <ul className='flex mr-8'>
                 <li className='mx-2 text-xs'>
                   <div>
+                  <Link to="/signin">
                     <button className='py-1 px-2 font-semibold text-blue-500'>
                       Login
                     </button>
+                    </Link>
                   </div>
                 </li>
                 <li className='mx-2 text-xs'>
                   <div>
+                    <Link to="/signup">
                     <button className='bg-transparent hover:bg-blue-500 text-blue-600 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded'>
                       Sign Up
                     </button>
+                    </Link>
                   </div>
                 </li>
               </ul>
@@ -92,7 +114,7 @@ class HeadCategory extends Component {
                   <div className='for-response font-medium'>
                     <li className='action'>
                       <Link
-                        to='#1'
+                        to={`/category/News`}
                         className='md:px-4 md:py-4 px-0 block text-base get-login'>
                         News
                       </Link>
@@ -100,7 +122,7 @@ class HeadCategory extends Component {
 
                     <li className='action'>
                       <Link
-                        to='#2'
+                        to={`/category/Education`}
                         className='md:px-4 md:py-4 px-0 block text-sm text-base get-login'>
                         Education
                       </Link>
@@ -108,7 +130,7 @@ class HeadCategory extends Component {
 
                     <li className='action'>
                       <Link
-                        to='#3'
+                        to={`/category/Tech`}
                         className='md:px-4 md:py-4 px-0 block text-sm text-base get-login'>
                         Tech
                       </Link>
@@ -116,7 +138,7 @@ class HeadCategory extends Component {
 
                     <li className='action'>
                       <Link
-                        to='#6'
+                        to={`/category/Food`}
                         className='md:px-4 md:py-4 px-0 block text-sm text-base get-login'>
                         Food
                       </Link>
@@ -124,7 +146,7 @@ class HeadCategory extends Component {
 
                     <li className='action'>
                       <Link
-                        to='#5'
+                        to={`/category/Lifestyle`}
                         className='md:px-4 md:py-4 px-0 block text-sm text-base get-login'>
                         Lifestyle
                       </Link>
@@ -132,7 +154,7 @@ class HeadCategory extends Component {
 
                     <li className='action'>
                       <Link
-                        to='#7'
+                        to={`/category/Entertainment`}
                         className='md:px-4 md:py-4 px-0 block text-sm text-base get-login'>
                         Entertainment
                       </Link>
@@ -140,7 +162,8 @@ class HeadCategory extends Component {
 
                     <li className='action'>
                       <Link
-                        to='#9'
+                        to={`/category/Video`}
+                        refresh="true"
                         className='md:px-4 md:py-4 px-0 block text-sm text-base get-login'>
                         Video
                       </Link>
@@ -148,7 +171,7 @@ class HeadCategory extends Component {
                   </div>
 
                   <li className='md:px-2 py-4 px-0 block search-bar-style'>
-                    <form id='demo-2'>
+                    <form id='demo-2' onSubmit={this.handleSearch}>
                       <input
                         type='search'
                         placeholder='Search'
@@ -182,4 +205,6 @@ const mapSTateToProps = state => {
   };
 };
 
-export default connect(mapSTateToProps)(withRouter(HeadCategory));
+export default connect(
+  mapSTateToProps,
+  )(withRouter(HeadCategory));

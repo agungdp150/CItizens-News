@@ -20,8 +20,8 @@ class SignIn extends Component {
       password: "",
       message: "",
       loading: false,
-      alertSuccess : false,
-      alertError : true
+      alertSuccess: false,
+      alertError: true
     };
   }
 
@@ -36,8 +36,8 @@ class SignIn extends Component {
 
     this.setState({
       loading: true,
-      alertSuccess : true,
-      alertError : false
+      alertSuccess: true,
+      alertError: false
     });
     const dataLogin = {
       username: this.state.username,
@@ -48,20 +48,24 @@ class SignIn extends Component {
     await this.props.loginUser(dataLogin);
     const token = await localStorage.getItem("token");
     if (token) {
-      alert(this.setState({
-        alertSuccess: true
-      }));
+      alert(
+        this.setState({
+          alertSuccess: true
+        })
+      );
       this.props.history.push("/");
     } else {
-      alert( this.setState({
-        alertError : false
-      }));
+      alert(
+        this.setState({
+          alertError: false
+        })
+      );
     }
 
     this.setState({
       loading: false,
-      alertSuccess : true,
-      alertError : false
+      alertSuccess: true,
+      alertError: false
     });
   };
 
@@ -136,7 +140,7 @@ class SignIn extends Component {
                 </p>
               </div>
               <div className='flex justify-center'>
-                  {/* {this.state.alertError ? (
+                {/* {this.state.alertError ? (
                     <div
                     class='flex items-center bg-green-500 text-white text-xs font-bold px-2 py-2 mx-16 mt-4 rounded'
                     role='alert'>
