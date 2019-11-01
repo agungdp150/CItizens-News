@@ -1,97 +1,208 @@
-import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
-import ReactPlayer from 'react-player';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import ReactPlayer from "react-player";
 
-import about from '../../assets/about/about.mp4'
+import about from "../../assets/about/about.mp4";
+import AbImg from "../../assets/img/2781120.png";
+import Team1 from "../../assets/Our Team/1.jpg";
+import Team2 from "../../assets/Our Team/2.jpg";
+import Team3 from "../../assets/Our Team/3.jpg";
+import Team4 from "../../assets/Our Team/4.jpg";
+import Team5 from "../../assets/Our Team/5.jpg";
+import Team6 from "../../assets/Our Team/6.jpg";
 
-import '../../assets/scss/About.scss';
+import "../../assets/scss/About.scss";
 
 class About extends Component {
   render() {
     return (
-      <div className="py-8 bg-color-hot">
-        <div className="container mx-auto px-4 text-ab">
-          <h1 className="text-4xl font-normal mb-4">
-            CITIZENS
+      <div className='bg-color-hot'>
+        <div className='ab-width'>
+          <div className='flex flex-wrap overflow-hidden px-8 py-3'>
+            <div className='w-full overflow-hidden lg:w-1/2 xl:w-1/2 p-2'>
+              <img src={AbImg} alt='citizens' className='img-ab' />
+            </div>
+
+            <div className='w-full overflow-hidden lg:w-1/2 xl:w-1/2 p-2 my-auto'>
+              <h1 className='text-4xl font-bold text-blue-500'>
+                We are, <br /> the voice of the voicelees
+              </h1>
+              <p className='py-2 text-lg font-semibold text-gray-700'>
+                Everyone have easiness to share their voice in Citizen
+                Journalism.
+              </p>
+            </div>
+          </div>
+
+          <div className='flex flex-wrap overflow-hidden px-8'>
+            <div className='w-full overflow-hidden lg:w-1/2 xl:w-1/2 py-4 px-6 text-gray-800'>
+              <h1 className='font-semibold text-4xl mb-3'>Citizens</h1>
+              <h2>
+                Citizen News is the platform for you to share your story, to
+                speak up your voice, and to spread the news. Proudly developed
+                by Aldo Lim, Angel Ria Purnamasari, Kaleb Lim, Agung Dwi Putra,
+                Khairunissa Afifa, and Joe Phang.
+              </h2>
+            </div>
+
+            <div className='w-full overflow-hidden lg:w-1/2 xl:w-1/2 px-8 py-4'>
+              <ReactPlayer
+                url={about}
+                width='100%'
+                height='200px'
+                controls={true}
+              />
+            </div>
+          </div>
+
+          <h1 className='text-center py-12 text-4xl font-bold text-gray-700'>
+            Our Team
           </h1>
-          <ReactPlayer 
-          url={about} 
-          playing className="shadow mx-auto my-4"
-          />
-          <p className="font-light">
-          Citizen News  is the platform for you to share your story, to speak up your voice, and to spread the news. Proudly developed by Aldo Lim, Angel Ria Purnamasari, Kaleb Lim, Agung Dwi Putra, Khairunissa Afifa, and Joe Phang.
-          </p>
-        </div >
-        <div className="container mx-auto px-4 text-ab">
-        <h1 className="my-4">Our Team</h1>
-        <div className="flex flex-wrap overflow-hidden">
-        <div class="relative mb-4 w-full overflow-hidden md:w-1/2 lg:w-1/6 xl:w-1/6">
-          <div class="w-24 h-full rounded-full overflow-hidden shadow-inner text-center bg-purple table cursor-pointer">
-            <span class="group hidden group-hover:table-cell text-white font-bold align-middle">KR</span>
-            <img src="https://images.pexels.com/photos/936229/pexels-photo-936229.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="lovely avatar" class="object-cover object-center w-full h-full visible group-hover:hidden" />
-          </div>
-        </div>
-        <div class="relative mb-4 w-full overflow-hidden md:w-1/2 lg:w-1/6 xl:w-1/6">
-          <div class="group w-24 h-24 rounded-full overflow-hidden shadow-inner text-center bg-purple table cursor-pointer">
-            <span class="hidden group-hover:table-cell text-white font-bold align-middle">KR</span>
-            <img src="https://images.pexels.com/photos/1065084/pexels-photo-1065084.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="lovely avatar" class="object-cover object-center w-full h-full visible group-hover:hidden" />
-          </div>
-        </div>
-        <div class="relative mb-4 w-full overflow-hidden md:w-1/2 lg:w-1/6 xl:w-1/6">
-          <div class="group w-24 h-24 rounded-full overflow-hidden shadow-inner text-center bg-purple table cursor-pointer">
-            <span class="hidden group-hover:table-cell text-white font-bold align-middle">KR</span>
-            <img src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="lovely avatar" class="object-cover object-center w-full h-full visible group-hover:hidden" />
-          </div>
-        </div>
-        <div class="relative mb-4 w-full overflow-hidden md:w-1/2 lg:w-1/6 xl:w-1/6">
-          <div class="group w-24 h-24 rounded-full overflow-hidden shadow-inner text-center bg-purple table cursor-pointer">
-            <span class="hidden group-hover:table-cell text-white font-bold align-middle">KR</span>
-            <img src="https://images.pexels.com/photos/712521/pexels-photo-712521.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="lovely avatar" class="object-cover object-center w-full h-full visible group-hover:hidden" />
-          </div>
-        </div>
-        <div class="relative mb-4 w-full overflow-hidden md:w-1/2 lg:w-1/6 xl:w-1/6">
-          <div class="group w-24 h-24 rounded-full overflow-hidden shadow-inner text-center bg-purple table cursor-pointer">
-            <span class="hidden group-hover:table-cell text-white font-bold align-middle">KR</span>
-            <img src="https://images.pexels.com/photos/937481/pexels-photo-937481.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="lovely avatar" class="object-cover object-center w-full h-full visible group-hover:hidden" />
-          </div>
-        </div>
-        <div class="relative mb-4 w-full overflow-hidden md:w-1/2 lg:w-1/6 xl:w-1/6">
-          <div class="group w-24 h-24 rounded-full overflow-hidden shadow-inner text-center bg-purple table cursor-pointer">
-            <span class="hidden group-hover:table-cell text-white font-bold align-middle">KR</span>
-            <img src="https://images.pexels.com/photos/736716/pexels-photo-736716.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="lovely avatar" class="object-cover object-center w-full h-full visible group-hover:hidden" />
-          </div>
-        </div>
-        </div>
-        </div>
+          <div className='flex flex-wrap overflow-hidden'>
+            <div className='w-full overflow-hidden md:w-1/2 lg:w-1/6 xl:w-1/6'>
+              <div className='flex flex-wrap overflow-hidden'>
+                <div className='w-full overflow-hidden'>
+                  <div className='flex justify-center'>
+                    <img
+                      src={Team1}
+                      alt='Some'
+                      className='w-20 h-20 flex self-center rounded-full shadow-lg mb-6 object-cover'
+                    />
+                  </div>
+                </div>
 
-        <div className="container mx-auto px-4 text-ab">
-          <h1>Contact & Social Media</h1>
-          <p>
-          <Link to="#">
-          <i className="fab fa-facebook fa-1x"/>
-          </Link> Citizens Facebook
-          </p>
-          <p>
-          <Link to="#">
-            <i className="fab fa-twitter fa-1x"/>
-          </Link>Citizens Twitter
-          </p>
-          <p>
-          <Link to="#">
-            <i className="fab fa-instagram  fa-1x"/>
-          </Link> Citizens Instagram
-          </p>
-          <p>
-          <Link to="#">
-            <i className="fab fa-youtube  fa-1x"/>
-          </Link>Citizens Youtube
-          </p>
+                <div className='w-full overflow-hidden'>
+                  <h1 className='text-center text-xl text-gray-800'>Aldo Lim</h1>
+                </div>
+              </div>
+            </div>
+
+            <div className='w-full overflow-hidden md:w-1/2 lg:w-1/6 xl:w-1/6'>
+              <div className='flex flex-wrap overflow-hidden'>
+                <div className='w-full overflow-hidden'>
+                  <div className='flex justify-center'>
+                    <img
+                      src={Team2}
+                      alt='Some'
+                      className='w-20 h-20 flex self-center rounded-full shadow-lg mb-6 object-cover'
+                    />
+                  </div>
+                </div>
+
+                <div className='w-full overflow-hidden'>
+                  <h1 className='text-center text-xl text-gray-800'>Lim Khaleb</h1>
+                </div>
+              </div>
+            </div>
+
+            <div className='w-full overflow-hidden md:w-1/2 lg:w-1/6 xl:w-1/6'>
+              <div className='flex flex-wrap overflow-hidden'>
+                <div className='w-full overflow-hidden'>
+                  <div className='flex justify-center'>
+                    <img
+                      src={Team3}
+                      alt='Some'
+                      className='w-20 h-20 flex self-center rounded-full shadow-lg mb-6 object-cover'
+                    />
+                  </div>
+                </div>
+
+                <div className='w-full overflow-hidden'>
+                  <h1 className='text-center text-xl text-gray-800'>Jhoe Phang</h1>
+                </div>
+              </div>
+            </div>
+
+            <div className='w-full overflow-hidden md:w-1/2 lg:w-1/6 xl:w-1/6'>
+              <div className='flex flex-wrap overflow-hidden'>
+                <div className='w-full overflow-hidden'>
+                  <div className='flex justify-center'>
+                    <img
+                      src={Team4}
+                      alt='Some'
+                      className='w-20 h-20 flex self-center rounded-full shadow-lg mb-6 object-cover'
+                    />
+                  </div>
+                </div>
+
+                <div className='w-full overflow-hidden'>
+                  <h1 className='text-center text-xl text-gray-800'>Khairunissa Afifa</h1>
+                </div>
+              </div>
+            </div>
+
+            <div className='w-full overflow-hidden md:w-1/2 lg:w-1/6 xl:w-1/6'>
+              <div className='flex flex-wrap overflow-hidden'>
+                <div className='w-full overflow-hidden'>
+                  <div className='flex justify-center'>
+                    <img
+                      src={Team6}
+                      alt='Some'
+                      className='w-20 h-20 flex self-center rounded-full shadow-lg mb-6 object-cover'
+                    />
+                  </div>
+                </div>
+
+                <div className='w-full overflow-hidden'>
+                  <h1 className='text-center text-xl text-gray-800'>Angel Ria Purnamasari</h1>
+                </div>
+              </div>
+            </div>
+
+            <div className='w-full overflow-hidden md:w-1/2 lg:w-1/6 xl:w-1/6'>
+              <div className='flex flex-wrap overflow-hidden'>
+                <div className='w-full overflow-hidden'>
+                  <div className='flex justify-center'>
+                    <img
+                      src={Team5}
+                      alt='Some'
+                      className='w-20 h-20 flex self-center rounded-full shadow-lg mb-6 object-cover'
+                    />
+                  </div>
+                </div>
+
+                <div className='w-full overflow-hidden'>
+                  <h1 className='text-center text-xl text-gray-800'>Agung Dwi P.</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className='flex-1 fo-social pb-8 text-gray-800'>
+            <h1 className='md:mb-3 text-4xl font-bold'>
+              Social Media
+            </h1>
+            <div className="flex flex-wrap">
+            <Link to='#'>
+              <div className="mr-2">
+                <i className='fab fa-facebook-square fa-1x' />
+                Facebook
+              </div>
+            </Link>
+            <Link to='#'>
+              <div className="mx-2">
+                <i className='fab fa-twitter fa-1x' />
+                Twitter
+              </div>
+            </Link>
+            <Link to='#'>
+              <div className="mx-2">
+                <i className='fab fa-instagram fa-1x' />
+                Instagram
+              </div>
+            </Link>
+            <Link to='#'>
+              <div className="mx-2">
+                <i className='fab fa-youtube fa-1x' />
+                Youtube
+              </div>
+            </Link>
+            </div>
+          </div>
         </div>
-
-
       </div>
-    )
+    );
   }
 }
 
-export default About
+export default About;

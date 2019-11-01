@@ -55,7 +55,7 @@ class HeadCategory extends Component {
 
   render() {
     // console.log(this.props.token)
-    const {newsSearch} = this.state
+    // const {newsSearch} = this.state
 
     return (
       <div>
@@ -163,7 +163,6 @@ class HeadCategory extends Component {
                     <li className='action'>
                       <Link
                         to={`/category/Video`}
-                        refresh="true"
                         className='md:px-4 md:py-4 px-0 block text-sm text-base get-login'>
                         Video
                       </Link>

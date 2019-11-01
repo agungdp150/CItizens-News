@@ -2,41 +2,20 @@
 
 div {
 
-  .styling-category {
-
-    h4 {
-      border-bottom : solid 2px black;
-    }
+  .width-category {
+    max-width: 1125px;
+    margin: auto;
   }
 
-  @media only screen and (max-width: 784px) {
+  .image-style {
+    width: 100%;
+    height: 29rem;
+  }
 
-    .styling-category {
-        img{
-          margin: 0px;
-        }
-        h1{
-          margin:0px;
-        }
-        h3{
-          margin:0px;
-        }
-        h4{
-          margin:10px;
-          padding: 0px;
-
-        }
-    }
-
-    .for-cate-1 {
-      margin : 0px
-    }
-
-    .categories-responsive {
+  @media only screen and (max-width :623px) {
+    .image-style {
       width: 100%;
-      padding: 10px;
-    }
-
-    
+      height: 19rem;
+    } 
   }
 }
