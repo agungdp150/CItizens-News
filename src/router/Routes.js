@@ -13,6 +13,7 @@ import SignInPage from "../pages/SignInPage";
 import SignUpPage from "../pages/SignUpPage";
 import ForgotPage from "../pages/ForgotPage";
 import EditProfilePage from "../pages/EditProfilePage";
+import DeleteAccountPage from "../pages/DeleteAccountPage";
 import FileUploadPage from "../pages/FileUploadPage";
 import VerifyPage from "../pages/VerifyPage";
 import VerifyForgotPage from "../pages/VerifyForgotPage";
@@ -39,6 +40,7 @@ import DetailPage from "../pages/DetailPage";
 
 // Other
 import NotfoundPage from "../pages/NotfoundPage";
+import DeleteAccount from "../components/User/DeleteAccount";
 
 const Routes = () => {
   return (
@@ -65,6 +67,7 @@ const Routes = () => {
         <Route exact path="/user/:id" component={UserNewsPage} />
         <Route exact path="/user/status/:id" component={UserStatusPage}/>
         <Route exact path="/editprofile/:id" component={EditProfilePage} />
+        <Route exact path="/editprofile/:id/delete-account" component={DeleteAccountPage}/>
         <Route exact path="/user/:id/upload" component={FileUploadPage} />
         
         <Route exact path="/verify" component={VerifyPage} />
