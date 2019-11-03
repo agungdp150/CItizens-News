@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {GET_NEWS} from '../../types';
 
+
 export const getNews = () => async dispatch => {
   try {
     const response = await axios.get (`https://app-citizenjournalism.herokuapp.com/api/v1/news/all`);
@@ -13,3 +14,7 @@ export const getNews = () => async dispatch => {
     console.log (error.response.data);
   }
 }
+
+
+
+

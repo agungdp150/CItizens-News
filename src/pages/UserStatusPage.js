@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import HeadCategory from '../components/HeadCategory';
-import UserProfile from '../components/UserProfile';
-import NavbarUser from '../components/NavbarUser';
-import NewsStatusUser from '../components/NewsStatusUser';
-import Footer from '../components/Footer';
+import HeadCategory from '../components/layout/HeadCategory';
+import UserProfile from '../components/User/UserProfile';
+import NavbarUser from '../components/User/NavbarUser';
+import NewsStatusUser from '../components/User/NewsStatusUser';
+import Footer from '../components/layout/Footer';
 
 export class UserStatusPage extends Component {
   render() {

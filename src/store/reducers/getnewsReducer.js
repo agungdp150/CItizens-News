@@ -2,7 +2,6 @@ import {GET_NEWS} from '../../types';
 
 const initialState ={
   news : [],
-  newsFill : []
 }
 
 export default function (state = initialState, action) {

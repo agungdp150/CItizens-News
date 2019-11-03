@@ -14,6 +14,30 @@ div {
     }
   }
 
+  @media only screen and (min-width: 1825px) {
+    .style-up {
+      background-color: rgb(223, 223, 223);
+      padding-top: 12rem;
+      h1 {
+        margin-left: 30px;
+        margin-top : 30px;
+      }
+   
+      p {
+       margin-left: 30px;
+       margin-top : 5px;
+      }
+    }
+
+    .img-big-size {
+      padding-top: 6rem;
+    }
+
+    .big-size {
+      margin: 2.5rem auto;
+    }
+  }
+
   @media (max-width: 1022px){
     .style-up {
       display: none;
@@ -22,58 +46,10 @@ div {
 
 
   .up-style {
-    background-color: rgb(58, 58, 58);
+    background-color: #1E2022;
     color: #F0F5f9;
 
-    .col-3{
-      width: 60.33%; 
-      margin: 20px 18%; 
-      position: relative;
-     } /* necessary to give position: relative to parent. */
-     
-     input[type="text"], [type="email"],[type="password"] {
-       font: 15px/24px "Lato", Arial, sans-serif; 
-       color: rgb(223, 223, 223);
-       background-color: transparent;
-       border-radius: 3px;
-       width: 100%; 
-       box-sizing: border-box; 
-       letter-spacing: 1px;
-     }
 
-    textarea[type="text"]{
-      font: 15px/24px "Lato", Arial, sans-serif; 
-      color: rgb(223, 223, 223);
-      background-color: transparent;
-      border-radius: 3px;
-      padding: 7px 10px;
-      width: 100%; 
-      box-sizing: border-box; 
-      letter-spacing: 1px;
-      overflow: auto;
-      resize: none;
-      border: rgb(223, 223, 223) solid 1px;
-    }
- 
- .effect-1{
-   border: 0; 
-   padding: 7px 10px; 
-   border-bottom: 1px solid #ccc;
- }
- 
- .effect-1 ~ .focus-border{
-   position: absolute; 
-   bottom: 0; 
-   left: 98px; 
-   width: 0; 
-   height: 3px; 
-   background-color: #4caf50; 
-   transition: 0.4s;
- }
- .effect-1:focus ~ .focus-border{
-   width: 81%; 
-   transition: 0.4s;
-   }
 
 
    .label-date {
@@ -87,7 +63,7 @@ div {
       padding: 7px 10px;
       border-radius: 3px;
       &::placeholder {
-        color: #ccc;
+        color: rgb(233, 233, 233);
       }
     }
 
@@ -119,7 +95,7 @@ div {
         outline: none;
         border-bottom: solid 2px #ffffff;
         &::placeholder{
-          color: #999999;
+          color: #ffffff;
         }
       }
 
@@ -200,8 +176,9 @@ div {
       display: none
     }
 
-
   }
+
+
   
 }
 

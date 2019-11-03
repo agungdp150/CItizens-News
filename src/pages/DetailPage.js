@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 // import HeaderS from '../components/HeaderS';
-import HeadCategory from '../components/HeadCategory';
-import Detail from '../components/Detail';
-import Footer from '../components/Footer';
+import HeadCategory from '../components/layout/HeadCategory';
+import Detail from '../components/Home/Detail';
+import Footer from '../components/layout/Footer';
 
 class DetailPage extends Component {
   render() {

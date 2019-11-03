@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NotFound from '../components/NotFound';
+import NotFound from '../components/NotFound/NotFound';
 
 export class NotfoundPage extends Component {
   render() {

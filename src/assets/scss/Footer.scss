@@ -1,14 +1,10 @@
 div {
   .fo-color {
-    background-color: #ffffff;
-    color: #000000;
-    // font-weight: 500;
+    background-color: #333333;
+    color: #ffffff;
+    position: relative;
+    z-index: 100;
   }
-
-  // .fo-link {
-  //   text-transform: capitalize;
-  //   font-size : 14px;
-  //   }
 
     .fo-social {
       i {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ForgotPass from '../components/ForgotPass.js';
+import ForgotPass from '../components/User/ForgotPass.js';
 
 class ForgotPage extends Component {
   render() {
