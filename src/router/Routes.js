@@ -40,7 +40,6 @@ import DetailPage from "../pages/DetailPage";
 
 // Other
 import NotfoundPage from "../pages/NotfoundPage";
-import DeleteAccount from "../components/User/DeleteAccount";
 
 const Routes = () => {
   return (

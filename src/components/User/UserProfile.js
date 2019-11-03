@@ -4,6 +4,10 @@ import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getDetailUser } from "../../store/actions/getdetailuserAction";
 import setToken from "../../helpers/setToken";
+import Lottie from "react-lottie";
+
+// Loading stuff
+import Myloading from "../../assets/loading/201-simple-loader.json";
 
 import "../../assets/scss/UserProfile.scss";
 
@@ -14,7 +18,8 @@ class UserProfile extends Component {
     this.state = {
       token: "",
       subs: false,
-      scanSubs: []
+      scanSubs: [],
+      loading : false
     };
   }
 
@@ -45,8 +50,11 @@ class UserProfile extends Component {
       setToken(localStorage.token);
     }
     const id = this.props.match.params.id;
-    this.props.getDetailUser(id);
+    await this.props.getDetailUser(id);
     await this.handleCheckSub(id);
+    this.setState({
+      loading : true
+    })
   };
 
   handleSubs = async id => {
@@ -94,10 +102,18 @@ class UserProfile extends Component {
   };
 
   render() {
-    console.log(this.state.subs);
+    // console.log(this.state.subs);
     const userData = this.props.details.user;
-    // console.log(userData && userData);
-    // console.log(this.state.scanSubs)
+
+
+    const setLoattie = {
+      loop: true,
+      autoplay: true,
+      animationData: Myloading,
+      renderSettings: {
+        preserveAspectRatio: "xMidYMid slice"
+      }
+    };
 
     return (
       <div className='bg-color-hot limit-navbar'>
@@ -105,8 +121,12 @@ class UserProfile extends Component {
           <div className='flex flex-col px-4 bg-color-hot'>
             <div className='bg-user'>
               <div className='container mx-auto'>
-                <div className='flex flex-wrap py-8 flex-col sm:flex-row'>
-                  <div className='w-32 h-32 rounded-full flex-shrink-0 m-auto sm:m-0'>
+               
+
+                  {this.state.loading ? 
+                  (
+                    <div className='flex flex-wrap py-8 flex-col sm:flex-row'>
+                                <div className='w-32 h-32 rounded-full flex-shrink-0 m-auto sm:m-0'>
                     <img
                       src={userData && userData.image.secure_url}
                       alt={userData && userData.username}
@@ -167,6 +187,12 @@ class UserProfile extends Component {
                     </div>
                   </div>
                 </div>
+                  ) : 
+                  (
+                    <Lottie options={setLoattie} width={150} />
+                  )}
+
+        
               </div>
             </div>
           </div>

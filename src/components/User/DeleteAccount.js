@@ -10,6 +10,9 @@ import { getDetailUser } from "../../store/actions/getdetailuserAction";
 import "../../assets/scss/EditProfile.scss";
 
 class DeleteAccount extends Component {
+  state = {
+    token : ""
+  }
 
   componentDidMount() {
     if (localStorage.token) {
@@ -22,18 +25,25 @@ class DeleteAccount extends Component {
 
 
   handleDeleteByUser = async () => {
-    const { token } = this.state;
+
+    if (localStorage.token) {
+      setToken(localStorage.token);
+    }
+
+    let tokenCheck = localStorage.token;
 
     try {
       const response = await axios.delete(
         `https://app-citizenjournalism.herokuapp.com/api/v1/user/delete`,
         {
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${tokenCheck}`
         }
       );
-      alert("Are you sure?");
+      // alert("Are you sure?");
       console.log(response.data.result);
-      console.log("wakata");
+      alert("Delete Account Succes")
+      localStorage.clear();
+      this.props.history.push("/")
     } catch (error) {
       console.log(error.response.data);
     }

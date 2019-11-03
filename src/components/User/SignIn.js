@@ -86,42 +86,42 @@ class SignIn extends Component {
     return (
       <div>
         <div className='flex flex-wrap overflow-hidden'>
-          <div className='w-full overflow-hidden lg:w-3/5 xl:w-3/5 sign-style h-screen pt-32'>
+          <div className='w-full overflow-hidden lg:w-3/5 xl:w-3/5 sign-style h-screen pt-24 in-width'>
             <Link to='/'>
               <img src={Logo3} alt='Logo-Citizens' className='w-40 mx-auto' />
             </Link>
             <div>
-              <form onSubmit={this.handleSubmit}>
-                <div className='col-3 flex'>
-                  <label className='w-1/4 p-4'>Username</label>
+              <form className="py-6" onSubmit={this.handleSubmit}>
+
+               <div className='mb-6 w-2/3 mx-auto for-form'>
                   <input
-                    className='effect-1'
-                    type='text'
-                    placeholder='citizens username'
-                    name='username'
+                    className='shadow appearance-none border rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                    id='username'
+                    type="text"
+                    name="username"
                     value={username}
                     onChange={this.handleChange}
+                    autoComplete="off"
+                    placeholder="username"
                   />
-                  <span className='focus-border'> </span>
                 </div>
-                <div className='col-3 flex'>
-                  <label className='w-1/4 p-4'>Password</label>
+                <div className='mb-6 w-2/3 mx-auto for-form'>
                   <input
-                    className='effect-1'
-                    type='Password'
-                    placeholder='your password'
-                    name='password'
+                    className='shadow appearance-none border rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                    id='password'
+                    type="password"
+                    name="password"
                     value={password}
                     onChange={this.handleChange}
+                    placeholder="Password"
                   />
-                  <span className='focus-border'> </span>
                 </div>
                 <div className='flex justify-center'>
                   {this.state.loading ? (
                     <Lottie options={setLoattie} width={50} />
                   ) : (
                     <button
-                      className='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-12 rounded text-sm'
+                      className='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-8 rounded text-xs'
                       type='submit'>
                       Sign In
                     </button>

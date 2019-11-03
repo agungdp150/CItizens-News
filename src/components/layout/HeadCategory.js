@@ -36,7 +36,7 @@ class HeadCategory extends Component {
 
     const {query, status} = this.state
     try {
-      const response = await axios.get(
+      await axios.get(
         `https://app-citizenjournalism.herokuapp.com/api/v1/news/find-news?status=${status}&title=${query}`
       )
       .then(response => {
@@ -115,6 +115,7 @@ class HeadCategory extends Component {
                     <li className='action'>
                       <Link
                         to={`/category/News`}
+                        target="_blank"
                         className='md:px-4 md:py-4 px-0 block text-base get-login'>
                         News
                       </Link>
@@ -123,6 +124,7 @@ class HeadCategory extends Component {
                     <li className='action'>
                       <Link
                         to={`/category/Education`}
+                        target="_blank"
                         className='md:px-4 md:py-4 px-0 block text-sm text-base get-login'>
                         Education
                       </Link>
@@ -131,6 +133,7 @@ class HeadCategory extends Component {
                     <li className='action'>
                       <Link
                         to={`/category/Tech`}
+                        target="_blank"
                         className='md:px-4 md:py-4 px-0 block text-sm text-base get-login'>
                         Tech
                       </Link>
@@ -139,6 +142,7 @@ class HeadCategory extends Component {
                     <li className='action'>
                       <Link
                         to={`/category/Food`}
+                        target="_blank"
                         className='md:px-4 md:py-4 px-0 block text-sm text-base get-login'>
                         Food
                       </Link>
@@ -147,6 +151,7 @@ class HeadCategory extends Component {
                     <li className='action'>
                       <Link
                         to={`/category/Lifestyle`}
+                        target="_blank"
                         className='md:px-4 md:py-4 px-0 block text-sm text-base get-login'>
                         Lifestyle
                       </Link>
@@ -155,6 +160,7 @@ class HeadCategory extends Component {
                     <li className='action'>
                       <Link
                         to={`/category/Entertainment`}
+                        target="_blank"
                         className='md:px-4 md:py-4 px-0 block text-sm text-base get-login'>
                         Entertainment
                       </Link>
@@ -163,6 +169,7 @@ class HeadCategory extends Component {
                     <li className='action'>
                       <Link
                         to={`/category/Video`}
+                        target="_blank"
                         className='md:px-4 md:py-4 px-0 block text-sm text-base get-login'>
                         Video
                       </Link>

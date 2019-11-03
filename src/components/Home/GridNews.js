@@ -8,6 +8,7 @@ import { getNews } from "../../store/actions/getnewsAction";
 
 import Contribution from "./Contribution";
 import GridVideo from "./GridVideo";
+import CardHotNews from "./CardHotNews"
 
 // Loading stuff
 import Myloading from "../../assets/loading/201-simple-loader.json";
@@ -618,12 +619,11 @@ class GridNews extends Component {
                   <Lottie options={setLoattie} width={150} />
                 )}
               </div>
-              
-
             </div>
 
             <div className='w-full overflow-hidden md:w-1/4 lg:w-1/4 xl:w-1/4'>
               <Contribution />
+              <CardHotNews/>
             </div>
           </div>
         </div>

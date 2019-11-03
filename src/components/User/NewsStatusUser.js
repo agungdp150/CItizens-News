@@ -5,50 +5,55 @@ import {
   getDetailUser,
   getUserNews
 } from "../../store/actions/getdetailuserAction";
-import setToken from '../../helpers/setToken';
+import setToken from "../../helpers/setToken";
 import axios from "axios";
+
+import Lottie from "react-lottie";
+
+// Loading stuff
+import Myloading from "../../assets/loading/201-simple-loader.json";
 
 class NewsStatusUser extends Component {
   constructor(props) {
     super(props);
 
-    this.state ={
-      token : ""
-    }
+    this.state = {
+      token: "",
+      loading : false
+    };
   }
 
-  componentDidMount() {
-    if (localStorage.token){
+  componentDidMount = async () => {
+    if (localStorage.token) {
       setToken(localStorage.token);
     }
     const id = this.props.match.params.id;
-    this.props.getDetailUser(id);
-    this.props.getUserNews();
+    await this.props.getDetailUser(id);
+    await this.props.getUserNews();
+    this.setState({
+      loading : true
+    })
   }
 
-
-  handleDelete = async (id) => {
-
-    const checkToken = `Bearer ${localStorage.getItem("token")}`
+  handleDelete = async id => {
+    const checkToken = `Bearer ${localStorage.getItem("token")}`;
 
     try {
       const response = await axios.delete(
         `https://app-citizenjournalism.herokuapp.com/api/v1/news/delete/${id}`,
         {
-          headers : {
+          headers: {
             Authorization: checkToken
           }
-        },
+        }
       );
       console.log(response.data);
-      alert("are you sure about that? Jhon cena ")
-      this.props.getUserNews(this.props.userNews)
+      alert("are you sure about that? Jhon cena ");
+      this.props.getUserNews(this.props.userNews);
     } catch (error) {
-      console.log(error.response.data)
+      console.log(error.response.data);
     }
-
-
-  }
+  };
 
   render() {
     const status = this.props.userNews;
@@ -74,43 +79,45 @@ class NewsStatusUser extends Component {
                 </span>
               </p>
               <p className='my-2 leading-normal text-xs font-base text-gray-600'>
-                Status :      </p>
-                {showStatus.status === "Approved" ? (
-                  <div>
-                    <span className='text-green-500'>
-                      <i
-                        className='far fa-check-circle fa-lg'
-                        style={{ fontSize: "16px", width: "50%" }}
-                      />
-                    </span>
+                Status :{" "}
+              </p>
+              {showStatus.status === "Approved" ? (
+                <div>
+                  <span className='text-green-500'>
+                    <i
+                      className='far fa-check-circle fa-lg'
+                      style={{ fontSize: "16px", width: "50%" }}
+                    />
+                  </span>
 
-                    <span className='text-green-500 text-xs'>publish</span>
-                  </div>
-                ) : showStatus.status === "Pending" ? (
-                  <div>
-                    <span className='text-yellow-500'>
-                      <i
-                        className='far fa-clock fa-lg'
-                        style={{ fontSize: "16px", width: "50%" }}
-                      />
-                    </span>
-                    <span className='text-yellow-500 text-xs'>pending</span>{" "}
-                  </div>
-                ) : (
-                  <div>
-                    <span className='text-red-500'>
-                      <i
-                        className='far fa-times-circle fa-lg'
-                        style={{ fontSize: "16px", width: "50%" }}
-                      />
-                    </span>
-                    <span className='text-red-500 text-xs'>rejected</span>
-                    <span className='text-xs mx-4 text-red-500 border-solid border border-red-500 px-2 py-1'>
-                      <button onClick={() => this.handleDelete(showStatus._id)}>Delete</button>
-                    </span>
-                  </div>
-                )}
-        
+                  <span className='text-green-500 text-xs'>publish</span>
+                </div>
+              ) : showStatus.status === "Pending" ? (
+                <div>
+                  <span className='text-yellow-500'>
+                    <i
+                      className='far fa-clock fa-lg'
+                      style={{ fontSize: "16px", width: "50%" }}
+                    />
+                  </span>
+                  <span className='text-yellow-500 text-xs'>pending</span>{" "}
+                </div>
+              ) : (
+                <div>
+                  <span className='text-red-500'>
+                    <i
+                      className='far fa-times-circle fa-lg'
+                      style={{ fontSize: "16px", width: "50%" }}
+                    />
+                  </span>
+                  <span className='text-red-500 text-xs'>rejected</span>
+                  <span className='text-xs mx-4 text-red-500 border-solid border border-red-500 px-2 py-1'>
+                    <button onClick={() => this.handleDelete(showStatus._id)}>
+                      Delete
+                    </button>
+                  </span>
+                </div>
+              )}
             </div>
           );
         } else {
@@ -128,53 +135,73 @@ class NewsStatusUser extends Component {
                 </span>
               </p>
               <p className='my-2 leading-normal text-xs font-base text-gray-600'>
-                Status :    </p>
-                {showStatus.status === "Approved" ? (
-                  <div>
-                    <span className='text-green-500'>
-                      <i
-                        className='far fa-check-circle fa-lg'
-                        style={{ fontSize: "16px", width: "50%" }}
-                      />
-                    </span>
+                Status :{" "}
+              </p>
+              {showStatus.status === "Approved" ? (
+                <div>
+                  <span className='text-green-500'>
+                    <i
+                      className='far fa-check-circle fa-lg'
+                      style={{ fontSize: "16px", width: "50%" }}
+                    />
+                  </span>
 
-                    <span className='text-green-500 text-xs'>publish</span>
-                  </div>
-                ) : showStatus.status === "Pending" ? (
-                  <div>
-                    <span className='text-yellow-500'>
-                      <i
-                        className='far fa-clock fa-lg'
-                        style={{ fontSize: "16px", width: "50%" }}
-                      />
-                    </span>
-                    <span className='text-yellow-500 text-xs'>pending</span>{" "}
-                  </div>
-                ) : (
-                  <div>
-                    <span className='text-red-500'>
-                      <i
-                        className='far fa-times-circle fa-lg'
-                        style={{ fontSize: "16px", width: "50%" }}
-                      />
-                    </span>
-                    <span className='text-red-500 text-xs'>rejected</span>
-                    <span className='text-xs mx-4 text-red-500 border-solid border border-red-500 px-2 py-1'>
-                      <button onClick={() => this.handleDelete(showStatus._id)}>Delete</button>
-                    </span>
-                  </div>
-                )}
+                  <span className='text-green-500 text-xs'>publish</span>
+                </div>
+              ) : showStatus.status === "Pending" ? (
+                <div>
+                  <span className='text-yellow-500'>
+                    <i
+                      className='far fa-clock fa-lg'
+                      style={{ fontSize: "16px", width: "50%" }}
+                    />
+                  </span>
+                  <span className='text-yellow-500 text-xs'>pending</span>{" "}
+                </div>
+              ) : (
+                <div>
+                  <span className='text-red-500'>
+                    <i
+                      className='far fa-times-circle fa-lg'
+                      style={{ fontSize: "16px", width: "50%" }}
+                    />
+                  </span>
+                  <span className='text-red-500 text-xs'>rejected</span>
+                  <span className='text-xs mx-4 text-red-500 border-solid border border-red-500 px-2 py-1'>
+                    <button onClick={() => this.handleDelete(showStatus._id)}>
+                      Delete
+                    </button>
+                  </span>
+                </div>
+              )}
             </div>
           );
         }
       });
 
+      const setLoattie = {
+        loop: true,
+        autoplay: true,
+        animationData: Myloading,
+        renderSettings: {
+          preserveAspectRatio: "xMidYMid slice"
+        }
+      };
+
     return (
       <div className='bg-color-hot'>
         <div className='mx-auto user-width '>
-          <div className='pt-6 min-h-screen pb-6 flex-1 bg-color-hot'>
+
+          {this.state.loading ? 
+          (
+            <div className='pt-6 min-h-screen pb-6 flex-1 bg-color-hot'>
             {myNewsStatus}
-          </div>
+            </div>
+          ) : 
+          (
+            <Lottie options={setLoattie} width={150} />
+          )}
+        
         </div>
       </div>
     );

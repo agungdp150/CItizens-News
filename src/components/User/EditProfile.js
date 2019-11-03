@@ -102,7 +102,7 @@ class EditProfile extends Component {
     const { email, fullname, birthday, address } = this.state;
 
     return (
-      <div className='bg-color-hot'>
+      <div>
         <div className='ab-width'>
           <div className='flex flex-wrap overflow-hidden'>
             <div className='w-full overflow-hidden lg:w-1/5 xl:w-1/5 p-4'>
@@ -216,7 +216,7 @@ class EditProfile extends Component {
                       </label>
                     </div>
                     <div className='flex col-3 radio text-white'>
-                      <label htmlFor='opt1' className='radio px-3'>
+                      <label htmlFor='opt1' className='text-gray-600 radio px-3'>
                         <input
                           type='radio'
                           name='gender'
@@ -227,7 +227,7 @@ class EditProfile extends Component {
                         />
                         <span className='label'></span>Male
                       </label>
-                      <label htmlFor='opt2' className='radio px-3'>
+                      <label htmlFor='opt2' className='text-gray-600 radio px-3'>
                         <input
                           type='radio'
                           name='gender'

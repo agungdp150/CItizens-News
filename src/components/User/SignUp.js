@@ -56,118 +56,138 @@ class SignUp extends Component {
       fullname,
       address,
       birthday
-     } = this.state;
+    } = this.state;
 
     return (
       <div>
-        <div className="flex flex-wrap overflow-hidden">
-          <div className="w-full overflow-hidden lg:w-2/5 xl:w-2/5 bg-blue-300 style-up">
-              <div className="bg-gray-800 mt-24 p-10 text-gray-200">
-                <h3 className="ml-8 text-2xl font-semibold">Welcome to Citizen News</h3>
-                <div>
-                <h1 className="font-serif text-4xl">Complete Your Personal Information</h1>
+        <div className='flex flex-wrap overflow-hidden'>
+          <div className='w-full overflow-hidden  lg:w-2/5 xl:w-2/5 bg-blue-300 style-up'>
+            <div className='bg-gray-800 mt-24 p-10 text-gray-200'>
+              <h3 className='ml-8 text-2xl font-semibold'>
+                Welcome to Citizen News
+              </h3>
+              <div>
+                <h1 className='font-serif text-4xl'>
+                  Complete Your Personal Information
+                </h1>
                 <p>
                   Create a Citizens News account to unlock all the benefit :
                 </p>
-                <ul className="-ml-4">
+                <ul className='-ml-4'>
                   <li>
-                    <p><span><i className="fas fa-check-circle"></i></span>Upload your own news</p>
+                    <p>
+                      <span>
+                        <i className='fas fa-check-circle'></i>
+                      </span>
+                      Upload your own news
+                    </p>
                   </li>
                   <li>
-                    <p><span><i className="fas fa-check-circle"></i></span>Subscribe to other contributor</p>
+                    <p>
+                      <span>
+                        <i className='fas fa-check-circle'></i>
+                      </span>
+                      Subscribe to other contributor
+                    </p>
                   </li>
                 </ul>
-
-                </div>
               </div>
+            </div>
           </div>
 
-          <div className="w-full overflow-hidden lg:w-3/5 xl:w-3/5 up-style h-screen pt-8">
-            <Link to="/">
-            <img 
-            src={Logo3} 
-            alt="Citizens-Logo"
-            className="w-40 mx-auto"
-            />
+          <div className='w-full overflow-hidden lg:w-3/5 xl:w-3/5 up-style h-screen pt-8 img-big-size'>
+            <Link to='/'>
+              <img src={Logo3} alt='Citizens-Logo' className='w-40 mx-auto' />
             </Link>
-            <div className="mx-auto">
+            <div className='mx-auto pt-4'>
               <form onSubmit={this.handleSubmit}>
-                <div className="col-3 flex">
-                  <label className="w-1/4">Username</label> 
+
+                <div className='mb-4 w-2/3 mx-auto big-size'>
                   <input
-                    className="effect-1"
+                    className='shadow appearance-none border rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                    id='username'
                     type="text"
                     name="username"
                     value={username}
                     onChange={this.handleChange}
+                    autoComplete="off"
+                    placeholder="username"
                   />
-                  <span className="focus-border"></span>
                 </div>
 
-                <div className="col-3 flex">
-                <label className="w-1/4">Email</label>
+                <div className='mb-4 w-2/3 mx-auto big-size'>
                   <input
-                    className="effect-1"
+                    className='shadow appearance-none border rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                    id='email'
                     type="email"
                     name="email"
                     value={email}
                     onChange={this.handleChange}
+                    placeholder="email"
                   />
-                  <span className="focus-border"></span>
                 </div>
 
-                <div className="col-3 flex">
-                <label className="w-1/4">Full Name</label>
+                <div className='mb-4 w-2/3 mx-auto big-size'>
                   <input
-                    className="effect-1"
+                    className='shadow appearance-none border rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                    id='fullname'
+                    autoComplete="off"
                     type="text"
                     name="fullname"
                     value={fullname}
                     onChange={this.handleChange}
+                    placeholder="Full Name"
                   />
-                  <span className="focus-border"></span>
                 </div>
 
-                <div className="col-3 flex">
-                <label className="w-1/4">Password</label>
+                <div className='mb-4 w-2/3 mx-auto big-size'>
                   <input
-                    className="effect-1"
+                    className='shadow appearance-none border rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                    id='password'
                     type="password"
                     name="password"
                     value={password}
                     onChange={this.handleChange}
+                    placeholder="Password"
                   />
-                  <span className="focus-border"></span>
                 </div>
 
-              
-                <div className="col-3 flex">
-                <label className="w-1/4">Birthday</label>
-              <label className="label-date text-white">
-              <input 
-                type="date"
-                min="1945-01-01" 
-                max="2020-01-01" 
-                className="unstyled"
-                name="birthday"
-                value={birthday}
-                onChange={this.handleChange}
-              />
-              </label>
-              </div>
+                <div className='mb-2 w-2/3 mx-auto big-size'>
+                  <label
+                    className='block text-gray-200 text-sm font-bold mb-2'
+                    htmlFor='birthday'>
+                      Birthday
+                  </label>
+                  <input
+                    className='shadow appearance-none border rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                    id='birthday'
+                    type="date"
+                    min="1945-01-01" 
+                    max="2020-01-01" 
+                    name="birthday"
+                    value={birthday}
+                    onChange={this.handleChange}
+                  />
+                </div>
 
-              <div className="col-3 flex">
-                <label className="w-1/4">Address</label>
-              <textarea
-                type ="text"
-                name="address"
-                value={address}
-                onChange={this.handleChange}
-              />
-              </div>
+                <div className='mb-4 w-2/3 mx-auto big-size'>
+                  <label
+                    className='block text-gray-200 text-sm font-bold mb-2'
+                    htmlFor='address'>
+                      Address
+                  </label>
+                  <textarea
+                    className='shadow appearance-none border rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                    id="address"
+                    type ="text"
+                    name="address"
+                    value={address}
+                    onChange={this.handleChange}
+                  />
+                </div>
 
-              <div className="cntr s-gender flex justify-center">
-              <label htmlFor="opt1" className="radio">
+                <div className="cntr s-gender flex justify-center big-size">
+              <label htmlFor="opt1" className="radio px-4">
                 <input 
                 type="radio" 
                 name="gender"
@@ -178,7 +198,7 @@ class SignUp extends Component {
                 />
                 <span className="label"></span>Male
               </label>
-              <label htmlFor="opt2" className="radio">
+              <label htmlFor="opt2" className="radio px-4">
                 <input 
                 type="radio" 
                 name="gender"
@@ -191,19 +211,17 @@ class SignUp extends Component {
               </label>
               </div>
 
-                <div className="flex justify-center pt-2">
+                <div className='flex items-center justify-center'>
                   <button
-                    className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-12 rounded text-sm"
-                    type="submit">
-                    Register
+                    className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-2 text-sm rounded focus:outline-none focus:shadow-outline'
+                    type='submit'>
+                    Sign Up
                   </button>
                 </div>
               </form>
-              <div className="text-center text-xs mt-4">
+              <div className='text-center text-xs mt-4'>
                 <p>
-                  <Link to="/signin">
-                    already member sign in here...
-                    </Link>
+                  <Link to='/signin'>already member sign in here...</Link>
                 </p>
               </div>
             </div>
