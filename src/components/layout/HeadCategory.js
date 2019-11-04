@@ -59,11 +59,52 @@ class HeadCategory extends Component {
 
     return (
       <div>
-        <header className='lg:px-16 px-8 py-4 md:py-0 top-0 nav-color'>
+        <header className='lg:px-16 px-8 py-4 md:py-0 top-0 nav-color shadow'>
           <div className='container mx-auto flex flex-wrap items-center'>
             <div className='flex-1 flex items-center'>
               <ul className='flex mr-8'>
+
+                {this.props.isAuthenticated ? 
+                (
+                  <>
                 <li className='mx-2 text-xs'>
+                <div className="flex flex-col">
+                  <div>
+                  <div className='flex justify-center'>
+                    <img
+                      src="https://res.cloudinary.com/limkaleb/image/upload/v1571027553/citizen-journalism/ckw7rq5xhbfwc7bibwud.jpg"
+                      alt='Some'
+                      className='w-10 h-10 flex self-center rounded-full shadow-lg object-cover'
+                    />
+                  </div>
+                  </div>
+                </div>
+                </li>
+
+                <li className='mx-2 text-xs menu-down'>
+                <div className="dropdown">
+                  <div className="projects">
+                    <button><i class="fas fa-sort-down"></i></button>
+                    <ul className="shadow">
+                       <li className="border-b py-3 font-bold">
+                        <div>
+                          <h1 className="text-center">Agung Dwi Putra</h1>
+                        </div>
+                      </li>
+                      <li><Link to="/user/5da22dd662a5c90017390f6a">Profile</Link></li>
+                      <li className="border-b"><Link to="#">My News</Link></li>
+                      <li><Link to="#">Upload News</Link></li>
+                      <li><button className="bg-blue-500 text-blue-500 font-bold" onClick={this.removeToken}>Log Out</button></li>
+                    </ul>
+                  </div>
+                  </div>
+                </li>
+                </>
+                ) 
+                : 
+                (
+                  <>
+                  <li className='mx-2 text-xs'>
                   <div>
                   <Link to="/signin">
                     <button className='py-1 px-2 font-semibold text-blue-500'>
@@ -81,6 +122,11 @@ class HeadCategory extends Component {
                     </Link>
                   </div>
                 </li>
+                </>
+                )}
+
+                
+                
               </ul>
               <Link to='/'>
                 <img
