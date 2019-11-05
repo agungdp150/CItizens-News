@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { getDetailUser } from "../../store/actions/getdetailuserAction";
-import setToken from "../../helpers/setToken";
+import { getDetailUser } from "../../../store/actions/getdetailuserAction";
+import setToken from "../../../helpers/setToken";
 import Lottie from "react-lottie";
 
 // Loading stuff
-import Myloading from "../../assets/loading/201-simple-loader.json";
+import Myloading from "../../../assets/loading/201-simple-loader.json";
 
-import "../../assets/scss/UserProfile.scss";
+import "../../../assets/scss/UserProfile.scss";
 
 class UserProfile extends Component {
   constructor(props) {
@@ -168,12 +168,6 @@ class UserProfile extends Component {
                       <div className='flex flex-wrap md:w-auto w-full md:mb-0 mb-4'>
                         <h2 className='text-gray-800 text-3xl w-full mb-3 text-center sm:text-left font-bold font-serif mt-4 sm:mt-0'>
                           {userData && userData.fullname}
-                          <span className='ml-6 text-xs font-sans font-normal text-green-500 py-1 px-2 border border-green-500 rounded'>
-                            <Link
-                              to={`/editprofile/${userData && userData._id}`}>
-                              Edit Profile
-                            </Link>
-                          </span>
                         </h2>
                         <div className='flex sm:w-auto w-full sm:justify-start justify-center'>
                           <span className='text-gray-800 mr-4 tracking-wider text-sm'>

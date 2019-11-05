@@ -4,14 +4,14 @@ import { connect } from "react-redux";
 import {
   getDetailUser,
   getUserNews
-} from "../../store/actions/getdetailuserAction";
-import setToken from "../../helpers/setToken";
+} from "../../../store/actions/getdetailuserAction";
+import setToken from "../../../helpers/setToken";
 import axios from "axios";
 
 import Lottie from "react-lottie";
 
 // Loading stuff
-import Myloading from "../../assets/loading/201-simple-loader.json";
+import Myloading from "../../../assets/loading/201-simple-loader.json";
 
 class NewsStatusUser extends Component {
   constructor(props) {
@@ -211,11 +211,11 @@ class NewsStatusUser extends Component {
 const mapStateToProps = state => {
   return {
     details: state.user1.detailUser,
-    userNews: state.user1.userNews
+      userNews: state.user1.userNews
+    };
   };
-};
 
-export default connect(
-  mapStateToProps,
-  { getUserNews, getDetailUser }
-)(withRouter(NewsStatusUser));
+  export default connect(
+    mapStateToProps,
+    { getUserNews, getDetailUser }
+  )(withRouter(NewsStatusUser));

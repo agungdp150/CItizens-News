@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
 import axios from "axios";
-import setToken from "../../helpers/setToken";
+import setToken from "../../../helpers/setToken";
 import { connect } from "react-redux";
-import { getDetailUser } from "../../store/actions/getdetailuserAction";
+import { getDetailUser } from "../../../store/actions/getdetailuserAction";
 
 // import User from '../assets/img/user.svg'
 
-import "../../assets/scss/EditProfile.scss";
+import "../../../assets/scss/EditProfile.scss";
 
 class EditProfile extends Component {
   constructor(props) {

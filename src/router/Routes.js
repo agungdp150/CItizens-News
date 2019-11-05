@@ -19,6 +19,8 @@ import VerifyPage from "../pages/VerifyPage";
 import VerifyForgotPage from "../pages/VerifyForgotPage";
 import SuccesChangePasswordPage from "../pages/SuccesChangePasswordPage";
 import NewCitizensPage from "../pages/NewCitizensPage";
+import ProfileDashboardPage from "../pages/ProfileDashboardPage";
+import ProfileNewsPage from "../pages/ProfileNewsPage";
 
 // Profile
 import UserNewsPage from "../pages/UserNewsPage";
@@ -64,10 +66,12 @@ const Routes = () => {
         <Route exact path="/search/:tit" component={SearchPage}/>
 
         <Route exact path="/user/:id" component={UserNewsPage} />
-        <Route exact path="/user/status/:id" component={UserStatusPage}/>
+        <Route exact path="/prfile/:id" component={ProfileNewsPage}/>
+        <Route exact path="/profile/:id/status" component={UserStatusPage}/>
         <Route exact path="/editprofile/:id" component={EditProfilePage} />
         <Route exact path="/editprofile/:id/delete-account" component={DeleteAccountPage}/>
-        <Route exact path="/user/:id/upload" component={FileUploadPage} />
+        <Route exact path="/profile/:id" component={ProfileDashboardPage}/>
+        <Route exact path="/profile/:id/upload" component={FileUploadPage} />
         
         <Route exact path="/verify" component={VerifyPage} />
         <Route exact path="/verifyforgot" component={VerifyForgotPage}/>

@@ -243,11 +243,6 @@ class HeadCategory extends Component {
             </div>
           </div>
         </header>
-        <div className='upload-btn text-blue-500'>
-          <button>
-            <i className='fas fa-plus-circle'></i>
-          </button>
-        </div>
       </div>
     );
   }

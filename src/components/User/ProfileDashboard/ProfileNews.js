@@ -1,41 +1,71 @@
 import React, { Component } from "react";
-import ReactPlayer from "react-player";
+import axios from "axios";
+import ReactPlayer from  "react-player";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { getDetailUser } from "../../store/actions/getdetailuserAction";
-
+import {
+  getDetailUser,
+  getUserNews
+} from "../../../store/actions/getdetailuserAction";
+import setToken from "../../../helpers/setToken";
 import Lottie from "react-lottie";
 
 // Loading stuff
-import Myloading from "../../assets/loading/201-simple-loader.json";
+import Myloading from "../../../assets/loading/201-simple-loader.json";
 
+import "../../../assets/scss/UserProfile.scss";
 
-class NewsByUser extends Component {
+class ProfileNews extends Component {
   constructor(props) {
-    super (props);
+    super(props);
 
-    this.state ={
-      loading : false
-    }
+    this.state = {
+      token: "",
+      loading: false
+    };
   }
-
 
   componentDidMount = async () => {
+    if (localStorage.token) {
+      setToken(localStorage.token);
+    }
     const id = this.props.match.params.id;
     await this.props.getDetailUser(id);
-    this.setState ({
-      loading : true
-    })
-  }
+    await this.props.getUserNews();
+    this.setState({
+      loading: true
+    });
+  };
+
+  handleDelete = async id => {
+    const checkToken = `Bearer ${localStorage.getItem("token")}`;
+
+    try {
+      const response = await axios.delete(
+        `https://app-citizenjournalism.herokuapp.com/api/v1/news/delete/${id}`,
+        {
+          headers: {
+            Authorization: checkToken
+          }
+        }
+      );
+      console.log(response.data);
+      alert("are you sure about that? Jhon cena ");
+      this.props.getUserNews(this.props.userNews);
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  };
 
   render() {
-    const userNews = this.props.details.user;
+
+    const userNews =  this.props.userNews;
 
     const filterNews =
       userNews &&
       userNews.news.filter(checkNews => checkNews.status === "Approved");
 
-    const getNewsUser =
+      const getNewsUser =
       filterNews &&
       filterNews.map(showNews => {
         const dataNewsVideo = showNews.media.secure_url.split(".");
@@ -98,20 +128,20 @@ class NewsByUser extends Component {
           );
         }
       });
-      
-      const setLoattie = {
-        loop: true,
-        autoplay: true,
-        animationData: Myloading,
-        renderSettings: {
-          preserveAspectRatio: "xMidYMid slice"
-        }
-      };
+
+    const setLoattie = {
+      loop: true,
+      autoplay: true,
+      animationData: Myloading,
+      renderSettings: {
+        preserveAspectRatio: "xMidYMid slice"
+      }
+    };
 
     return (
-      <div className='bg-color-hot'>
+      <div>
+        <div>
         <div className='mx-auto user-width '>
-          
           {this.state.loading ? 
           (
           <div className='p-3 min-h-screen pb-5 flex-1 bg-color-hot'>
@@ -121,7 +151,7 @@ class NewsByUser extends Component {
           (
             <Lottie options={setLoattie} width={150} />
           )}
-
+        </div>
         </div>
       </div>
     );
@@ -130,11 +160,12 @@ class NewsByUser extends Component {
 
 const mapStateToProps = state => {
   return {
-    details: state.user1.detailUser
+    details: state.user1.detailUser,
+    userNews: state.user1.userNews
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getDetailUser }
-)(withRouter(NewsByUser));
+  { getUserNews, getDetailUser }
+)(withRouter(ProfileNews));
