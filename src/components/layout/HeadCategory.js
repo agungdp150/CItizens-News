@@ -30,7 +30,7 @@ class HeadCategory extends Component {
   };
 
   handleSearch = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
 
     console.log("oke")
 
@@ -51,6 +51,9 @@ class HeadCategory extends Component {
     }
   };
 
+  // componentDidMount() {
+  //   this.handleSearch()
+  // }
 
 
   render() {
@@ -63,7 +66,7 @@ class HeadCategory extends Component {
           <div className='container mx-auto flex flex-wrap items-center'>
             <div className='flex-1 flex items-center'>
               <ul className='flex mr-8'>
-
+          
                 {this.props.isAuthenticated ? 
                 (
                   <>

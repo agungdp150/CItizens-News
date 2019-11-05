@@ -7,7 +7,6 @@ div {
 
   .play-button {
     padding: 5rem 6rem 0rem 0rem;
-    cursor: pointer;
   }
 
 
@@ -16,27 +15,23 @@ div {
   @media only screen and (max-width: 1125px) {
     .play-button {
     padding: 5rem 0rem 0rem 0rem;
-    cursor: pointer;
     }
   }
 
   @media only screen and (max-width: 1058px) {
     .play-button {
     padding: 9rem 0rem 0rem 0rem;
-    cursor: pointer;
     }
   }
 
   @media only screen and (max-width: 767px) {
     .play-button {
     padding: 6rem 0rem 0rem 0rem;
-    cursor: pointer;
     }
   }
   @media only screen and (min-width: 1825px) {
     .play-button {
-    padding: 6rem 24rem 0rem 0rem;
-    cursor: pointer;
+    padding: 6rem 24rem 0rem 0rem;;
     }
   }
 
@@ -47,7 +42,7 @@ div {
       width: 48%;
       border: 1px solid #404040;
       position: absolute;
-      margin-top: 20px;
+      margin-top: 18px;
       margin-left: 5.5rem;
       z-index: 1;
     }
@@ -80,7 +75,7 @@ div {
 
       .education {
         margin-left: 9rem;
-        width: 35%;
+        width: 55%;
       }
 
       .lifestyle{
@@ -149,6 +144,11 @@ div {
 
     .for-wrap {
       flex-wrap: wrap;
+    }
+
+    .display-side {
+      display: none;
+      opacity: 10;
     }
   }
 }

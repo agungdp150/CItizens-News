@@ -12,23 +12,6 @@ div {
     z-index: 100;
   }
 
-  // for upload btn
-  .upload-btn {
-    position: fixed;
-    margin-top: 89vh;
-    margin-left: 1.5vh;
-    z-index: 80;
-    overflow: auto;
-
-    button {
-      float: right;
-    }
-
-    i {
-      font-size: 2.5rem;
-    }
-  }
-
 
   @media only screen and (max-width: 767px) {
     .search-bar-style {
@@ -64,7 +47,7 @@ div {
 
   input[type=search] {
     -webkit-appearance: textfield;
-    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
     font-family: inherit;
     font-size: 100%;
   }
@@ -184,7 +167,7 @@ div {
       width: 250px;
       height: 200px;
       background: #fff;
-      left: 0px;
+      left: -50px;
       list-style: none;
       border-radius: 5px;
       opacity: 0;
@@ -196,7 +179,6 @@ div {
       width: 100%;
       height: 100%;
       display: flex;
-      // justify-content: space-around;
       padding-left: 20px;
       align-items: center;
     }

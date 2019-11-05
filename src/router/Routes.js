@@ -54,10 +54,10 @@ const Routes = () => {
         <Route exact path="/forgot" component={ForgotPage} />
 
         <Route exact path="/adminlogin" component={AdminLoginPage} />
-        <PrivateRoute exact path="/admindashboardnews" component={AdminNewsPage}/>
-        <PrivateRoute exact path="/adminapproved" component={AdminApprovedPage}/>
-        <PrivateRoute exact path="/adminrejected" component={AdminRejectedPage}/>
-        <PrivateRoute exact path="/admindashboardusers" component={AdminUserPage} />
+        <Route exact path="/admindashboardnews" component={AdminNewsPage}/>
+        <Route exact path="/adminapproved" component={AdminApprovedPage}/>
+        <Route exact path="/adminrejected" component={AdminRejectedPage}/>
+        <Route exact path="/admindashboardusers" component={AdminUserPage} />
 
         <Route exact path="/detail/:id" component={DetailPage} />
         <Route exact path="/videoDetail/:id" component={DetailVideoPage}/>

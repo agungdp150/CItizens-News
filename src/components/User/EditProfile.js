@@ -21,7 +21,16 @@ class EditProfile extends Component {
       address: "",
       token: "",
       myProfile: null,
-      showProfile : null
+      showProfile : null,
+      successChangePict : false,
+      alertPict : false,
+
+      alertFullname : false,
+      alertBirthday : false,
+      alertGender : false,
+      alertAddress : false,
+      successChangeData : false
+
     };
   }
 
@@ -43,57 +52,104 @@ class EditProfile extends Component {
     e.preventDefault();
 
     const { email, gender, birthday, fullname, address } = this.state;
+    if (this.state.fullname === "") {
+      this.setState({
+        alertFullname : true
+      })
+    } else if (this.state.birthday === "") {
+      this.setState({
+        alertBirthday : true
+      })
+    } else if (this.state.gender === "") {
+      this.setState({
+        alertBirthday : true
+      })
+    } else if (this.state.address === "") {
+      this.setState({
+        alertAddress : true
+      })
+    } else {
+      try {
+        const response = await axios.put(
+          `https://app-citizenjournalism.herokuapp.com/api/v1/user/update`,
+          {
+            emai: email,
+            gender: gender,
+            birthday: birthday,
+            fullname: fullname,
+            address: address
+          }
+        );
+        console.log(response.data);
+      } catch (error) {
+        console.log(error.response.data);
+      }
 
-    try {
-      const response = await axios.put(
-        `https://app-citizenjournalism.herokuapp.com/api/v1/user/update`,
-        {
-          emai: email,
-          gender: gender,
-          birthday: birthday,
-          fullname: fullname,
-          address: address
-        }
-      );
-      console.log(response.data);
-      this.props.history.push(
-        `/user/${this.props.getDetailUser(this.props.details.user._id)}`
-      );
-    } catch (error) {
-      console.log(error.response.data);
+      this.setState ({
+        successChangeData : true
+      })
+      setTimeout(() => {
+        this.props.history.push(
+          `/user/${this.props.getDetailUser(this.props.details.user._id)}`
+        );
+      }, 1500)
     }
+    setTimeout(() => {
+      this.setState({
+        alertFullname : false,
+        alertBirthday : false,
+        alertGender : false,
+        alertAddress : false,
+        successChangeData : false
+      })
+    }, 2000)
   };
 
   handlerChangePict = e => {
     this.setState({
-      showProfile : URL.createObjectURL(e.target.files[0]),      myProfile: e.target.files[0]
+      showProfile : URL.createObjectURL(e.target.files[0]),      
+      myProfile: e.target.files[0]
     });
   };
 
   handlePictProfile = async e => {
     e.preventDefault();
 
-    const fd = new FormData();
-    fd.append(
-      "image",
-      this.state.myProfile,
-      this.state.myProfile.name,
-      this.state.myProfile.type
-    );
-    await axios.put(
-      `https://app-citizenjournalism.herokuapp.com/api/v1/user/photo`,
-      fd,
-      {
-        onUploadProgress: progressEvent => {
-          console.log(
-            "upload progress = :" +
-              Math.round((progressEvent.loaded / progressEvent.total) * 100) +
-              "%"
-          );
+    if(this.state.myProfile === null) {
+      this.setState({
+        alertPict : true
+      })
+    } else {
+      const fd = new FormData();
+      fd.append(
+        "image",
+        this.state.myProfile,
+        this.state.myProfile.name,
+        this.state.myProfile.type
+      );
+      await axios.put(
+        `https://app-citizenjournalism.herokuapp.com/api/v1/user/photo`,
+        fd,
+        {
+          onUploadProgress: progressEvent => {
+            console.log(
+              "upload progress = :" +
+                Math.round((progressEvent.loaded / progressEvent.total) * 100) +
+                "%"
+            );
+          }
         }
-      }
-    );
-    alert("success change pict");
+      );
+      this.setState({
+        successChangePict : true
+      })
+    }
+    setTimeout(() => {
+      this.setState({
+        alertPict : false,
+        successChangePict : false
+      })
+    }, 2000)
   };
 
   render() {
@@ -105,15 +161,21 @@ class EditProfile extends Component {
       <div>
         <div className='ab-width'>
           <div className='flex flex-wrap overflow-hidden'>
-            <div className='w-full overflow-hidden lg:w-1/5 xl:w-1/5 p-4'>
+            <div className='w-full overflow-hidden lg:w-1/5 xl:w-1/5 p-4 shadow'>
               <ul>
-                <li className='my-2 font-semibold'><Link to={`/editprofile/${accountEdit && accountEdit._id}`}>Edit Profile</Link></li>
-                <li className='my-2 font-semibold'><Link to={`/editprofile/${accountEdit && accountEdit._id}/delete-account`}>Delete Account</Link></li>
+                <li className='my-2 font-semibold text-sm relative'><Link to={`/editprofile/${accountEdit && accountEdit._id}`}>Edit Profile</Link></li>
+                <li className='my-2 font-semibold text-sm realtive'><Link to={`/editprofile/${accountEdit && accountEdit._id}/delete-account`}>Delete Account</Link></li>
               </ul>
             </div>
             
             <div className='w-full overflow-hidden lg:w-4/5 xl:w-4/5 py-4 px-12'>
               <div className='mb-12 mt-4'>
+              {this.state.successChangeData ? 
+              (
+                <div className="flex items-center bg-blue-500 text-white text-xs font-bold px-2 py-2 rounded my-2 w-1/4 mx-auto" role="alert">
+                <p>Change success</p>
+                </div>
+              ) : (null)}
                 <form>
                   <div className='flex flex-wrap image-upload'>
                     <label htmlFor='img-input'>
@@ -136,6 +198,22 @@ class EditProfile extends Component {
                       onClick={this.handlePictProfile}>
                       Save Image
                       </button>
+                      {this.state.alertPict ? 
+                      (
+                      <div className="flex items-center bg-red-500 text-white text-xs font-bold px-2 py-2 rounded my-2" role="alert">
+                      <p>Please choose your image!</p>
+                      </div>
+                      ) 
+                      : 
+                      (null)}
+                      {this.state.successChangePict ? 
+                      (
+                        <div className="flex items-center bg-blue-500 text-white text-xs font-bold px-2 py-2 rounded my-2" role="alert">
+                        <p>Change picture success</p>
+                      </div>
+                      ) 
+                      : 
+                      (null)}
                     </div>
                   </div>
                 </form>
@@ -183,6 +261,7 @@ class EditProfile extends Component {
                         placeholder='Full Name'
                         autoComplete='off'
                       />
+                      {this.state.alertFullname ? <p className="text-red-500 text-xs italic">Name should be fill</p>: null}
                     </div>
                   </div>
 
@@ -204,6 +283,7 @@ class EditProfile extends Component {
                         onChange={this.handleChange}
                         className='bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-1 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500'
                       />
+                        {this.state.alertBirthday ? <p className="text-red-500 text-xs italic">Birthday should be fill</p>: null}
                     </div>
                   </div>
 
@@ -239,6 +319,7 @@ class EditProfile extends Component {
                         <span className='label'></span>Female
                       </label>
                     </div>
+                    {this.state.alertGender ? <p className="text-red-500 text-xs italic">Gender should be fill</p>: null}
                   </div>
 
                   <div className='md:flex md:items-center mb-6'>
@@ -258,9 +339,9 @@ class EditProfile extends Component {
                         value={address}
                         placeholder='Addres'
                       />
+                      {this.state.alertAddress ? (<p className="text-red-500 text-xs italic">Form should be fill</p>):( null)}
                     </div>
                   </div>
-
                   <div className="flex justify-center">
                     <button
                       className='bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded text-xs'

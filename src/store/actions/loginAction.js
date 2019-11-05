@@ -29,7 +29,7 @@ export const loginUser = SignIn => async dispatch => {
       `https://app-citizenjournalism.herokuapp.com/api/v1/user/login`,
       SignIn,
     );
-    console.log(response.data.result)
+    // console.log(response.data.result)
     switch (response.data.result.isAdmin) {
       case true:
         dispatch({

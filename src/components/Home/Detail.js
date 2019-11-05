@@ -156,6 +156,7 @@ class Detail extends Component {
                       className='effect-1'
                       type='text'
                       placeholder='insert your comment here...'
+                      autoComplete ="off"
                       name='comment'
                       value={this.state.comment}
                       onChange={this.handleChange}

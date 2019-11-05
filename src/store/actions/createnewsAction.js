@@ -16,12 +16,10 @@ export const newsPostAction = (data) => async dispatch => {
       `https://app-citizenjournalism.herokuapp.com/api/v1/news/create`, data.newsDesc
     );
     const id = response.data.result._id
-    const res = await axios.post(
+      await axios.post(
       `https://app-citizenjournalism.herokuapp.com/api/v1/news/upload/${id}`, data.image
      
     )
-    // console.log(response);
-    console.log(res);
     dispatch({
       type: UPLOAD_NEWS_SUCCESS,
       payload: response.data

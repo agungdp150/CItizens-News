@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 
 import "../../assets/scss/NavbarAdmin.scss";
 
@@ -7,7 +7,7 @@ class NavbarAdmin extends Component {
 
   removeToken = async () => {
     await localStorage.clear();
-    window.location.reload(true);
+    // window.location.reload(true);
     this.props.history.push('/adminlogin');
   }  
 
@@ -58,4 +58,4 @@ class NavbarAdmin extends Component {
   }
 }
 
-export default NavbarAdmin;
+export default (withRouter(NavbarAdmin));

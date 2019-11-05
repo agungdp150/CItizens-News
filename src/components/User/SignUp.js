@@ -54,7 +54,7 @@ class SignUp extends Component {
       this.setState({
         isNotFill : true
       })
-    } else if (regisInput.fullname === "") {
+    } else if (regisInput.fullname === "" ) {
       this.setState({
         isNotFill : true
       })
@@ -69,8 +69,8 @@ class SignUp extends Component {
     }  
     else {
     console.log(regisInput)
-    // this.props.register(regisInput);
-    // this.props.history.push("/verify")
+    this.props.register(regisInput);
+    this.props.history.push("/verify")
     }
 
     setTimeout(() => {

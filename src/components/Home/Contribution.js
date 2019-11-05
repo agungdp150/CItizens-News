@@ -56,9 +56,11 @@ class Contribution extends Component {
             <p className='text-sm text-black py-1'>
               Subscribers <span>{check._id.subscribers.length}</span>
             </p>
+            <Link to={`/user/${check._id._id}`} target="_blank">
             <button className='text-xs font-semibold bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-3 border border-blue-500 hover:border-transparent rounded-full'>
               Subscribe
             </button>
+            </Link>
           </div>
           <div className='bg-gray-400 py-2 font-semibold'>
             <h3 className='text-center'>

@@ -19,7 +19,10 @@ class UserProfile extends Component {
       token: "",
       subs: false,
       scanSubs: [],
-      loading : false
+      loading : false,
+      validateSubs : false,
+      succesSubs : false,
+      deleteSubs : false
     };
   }
 
@@ -37,7 +40,7 @@ class UserProfile extends Component {
         }
       })
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         this.setState({ subs: response.data.result });
       })
       .catch(err => {
@@ -60,21 +63,38 @@ class UserProfile extends Component {
   handleSubs = async id => {
     const { token } = this.state;
 
-    try {
-      const response = await axios.post(
-        `https://app-citizenjournalism.herokuapp.com/api/v1/subs/${id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`
+    let checkTokenFirst = localStorage.token
+    // console.log(localStorage.token)
+
+    if (checkTokenFirst === null ) {
+      this.setState ({
+        validateSubs : true
+      })
+    } else {
+      try {
+        const response = await axios.post(
+          `https://app-citizenjournalism.herokuapp.com/api/v1/subs/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
           }
-        }
-      );
-      console.log(response.data);
-      alert("Makasih ya bang");
-      this.handleCheckSub(id);
-    } catch (error) {
-      console.log(error.response.data);
+        );
+        console.log(response.data);
+          this.setState({
+            succesSubs : true
+          })
+        this.handleCheckSub(id);
+      } catch (error) {
+        console.log(error.response.data);
+      }
     }
+    setTimeout(() => {
+      this.setState({
+        validateSubs : false,
+        succesSubs : false
+      })
+    }, 2000)
   };
 
   handleDeletSubs = async id => {
@@ -94,17 +114,26 @@ class UserProfile extends Component {
         }
       );
       console.log(response.data);
-      alert("Abang jahat banget");
+      this.setState({
+        deleteSubs : true
+      })
       this.handleCheckSub(id);
     } catch (error) {
       console.log(error.response.data);
     }
+    setTimeout(() => {
+      this.setState({
+        deleteSubs : false
+      })
+    }, 2000)
   };
 
   render() {
     // console.log(this.state.subs);
     const userData = this.props.details.user;
+    // console.log(this.state.token)
 
+    console.log(this.props.getDetailUser(this.props.details))
 
     const setLoattie = {
       loop: true,
@@ -126,7 +155,7 @@ class UserProfile extends Component {
                   {this.state.loading ? 
                   (
                     <div className='flex flex-wrap py-8 flex-col sm:flex-row'>
-                                <div className='w-32 h-32 rounded-full flex-shrink-0 m-auto sm:m-0'>
+                      <div className='w-32 h-32 rounded-full flex-shrink-0 m-auto sm:m-0'>
                     <img
                       src={userData && userData.image.secure_url}
                       alt={userData && userData.username}
@@ -185,6 +214,37 @@ class UserProfile extends Component {
                         </button>
                       )}
                     </div>
+                    
+                    {this.state.validateSubs ? 
+                    (
+                      <div className="flex items-center bg-red-500 text-white text-xs font-bold px-4 py-1 w-1/4 my-2" role="alert">
+                      <p>You need to login!</p>
+                    </div>
+                    ) : 
+                    (
+                      null
+                    )}
+
+                    {this.state.succesSubs ? 
+                    (
+                      <div className="flex items-center bg-blue-500 text-white text-xs font-bold px-4 py-1 w-1/2 my-2" role="alert">
+                      <p>Success Subscribe :D</p>
+                    </div>
+                    ) : 
+                    (
+                      null
+                    )}
+
+                    {this.state.deleteSubs ? 
+                    (
+                      <div className="flex items-center bg-gray-500 text-white text-xs font-bold px-4 py-1 w-1/2 my-2" role="alert">
+                      <p>Success Unsubscribe</p>
+                    </div>
+                    ) : 
+                    (
+                      null
+                    )}
+
                   </div>
                 </div>
                   ) : 

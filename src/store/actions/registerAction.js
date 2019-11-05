@@ -10,7 +10,7 @@ export const register = SignUp => async dispatch => {
     const response = await axios.post(
       `https://app-citizenjournalism.herokuapp.com/api/v1/user/`, SignUp
     );
-    console.log (response.data);
+    // console.log (response.data);
     dispatch ({
       type : REGISTER_SUCCESS,
       payload : response
