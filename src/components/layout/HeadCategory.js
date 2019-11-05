@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import axios from "axios"
+import axios from "axios";
 import { withRouter, Link } from "react-router-dom";
 import Logo2 from "../../assets/img/Logo2.png";
 import { connect } from "react-redux";
+
+import Search from "../Home/Search";
 
 import "../../assets/scss/HeadCategory.scss";
 
@@ -13,7 +15,7 @@ class HeadCategory extends Component {
     this.state = {
       query: "",
       status: "Approved",
-      newsSearch : []
+      newsSearch: []
     };
   }
 
@@ -29,36 +31,35 @@ class HeadCategory extends Component {
     });
   };
 
-  handleSearch = async (e) => {
-    // e.preventDefault();
-
-    console.log("oke")
-
-    const {query, status} = this.state
+  handleSearch = async e => {
+    e.preventDefault();
+    const { query, status } = this.state;
     try {
-      await axios.get(
-        `https://app-citizenjournalism.herokuapp.com/api/v1/news/find-news?status=${status}&title=${query}`
-      )
-      .then(response => {
-        console.log(response.data)
-        // this.props.history.push(`/search/${query}`)
-        this.setState({
-          query : ""
-        })
-      })
-    } catch(error) {
-      console.log(error.response.data)
+      await axios
+        .get(
+          `https://app-citizenjournalism.herokuapp.com/api/v1/news/find-news?status=${status}&title=${query}`
+        )
+        .then(response => {
+          this.setState({
+            newsSearch : response.data.result
+          });
+        this.props.history.push(`/search/${query}`)
+        });
+    } catch (error) {
+      console.log(error.response.data);
     }
+   
+
+  
   };
 
   // componentDidMount() {
   //   this.handleSearch()
   // }
 
-
   render() {
-    // console.log(this.props.token)
     // const {newsSearch} = this.state
+    console.log(this.state.newsSearch)
 
     return (
       <div>
@@ -66,70 +67,79 @@ class HeadCategory extends Component {
           <div className='container mx-auto flex flex-wrap items-center'>
             <div className='flex-1 flex items-center'>
               <ul className='flex mr-8'>
-          
-                {this.props.isAuthenticated ? 
-                (
+                {this.props.isAuthenticated ? (
                   <>
-                <li className='mx-2 text-xs'>
-                <div className="flex flex-col">
-                  <div>
-                  <div className='flex justify-center'>
-                    <img
-                      src="https://res.cloudinary.com/limkaleb/image/upload/v1571027553/citizen-journalism/ckw7rq5xhbfwc7bibwud.jpg"
-                      alt='Some'
-                      className='w-10 h-10 flex self-center rounded-full shadow-lg object-cover'
-                    />
-                  </div>
-                  </div>
-                </div>
-                </li>
-
-                <li className='mx-2 text-xs menu-down'>
-                <div className="dropdown">
-                  <div className="projects">
-                    <button><i class="fas fa-sort-down"></i></button>
-                    <ul className="shadow">
-                       <li className="border-b py-3 font-bold">
+                    <li className='mx-2 text-xs'>
+                      <div className='flex flex-col'>
                         <div>
-                          <h1 className="text-center">Agung Dwi Putra</h1>
+                          <div className='flex justify-center'>
+                            <img
+                              src='https://res.cloudinary.com/limkaleb/image/upload/v1571027553/citizen-journalism/ckw7rq5xhbfwc7bibwud.jpg'
+                              alt='Some'
+                              className='w-10 h-10 flex self-center rounded-full shadow-lg object-cover'
+                            />
+                          </div>
                         </div>
-                      </li>
-                      <li><Link to="/user/5da22dd662a5c90017390f6a">Profile</Link></li>
-                      <li className="border-b"><Link to="#">My News</Link></li>
-                      <li><Link to="#">Upload News</Link></li>
-                      <li><button className="bg-blue-500 text-blue-500 font-bold" onClick={this.removeToken}>Log Out</button></li>
-                    </ul>
-                  </div>
-                  </div>
-                </li>
-                </>
-                ) 
-                : 
-                (
-                  <>
-                  <li className='mx-2 text-xs'>
-                  <div>
-                  <Link to="/signin">
-                    <button className='py-1 px-2 font-semibold text-blue-500'>
-                      Login
-                    </button>
-                    </Link>
-                  </div>
-                </li>
-                <li className='mx-2 text-xs'>
-                  <div>
-                    <Link to="/signup">
-                    <button className='bg-transparent hover:bg-blue-500 text-blue-600 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded'>
-                      Sign Up
-                    </button>
-                    </Link>
-                  </div>
-                </li>
-                </>
-                )}
+                      </div>
+                    </li>
 
-                
-                
+                    <li className='mx-2 text-xs menu-down'>
+                      <div className='dropdown'>
+                        <div className='projects'>
+                          <button>
+                            <i class='fas fa-sort-down'></i>
+                          </button>
+                          <ul className='shadow'>
+                            <li className='border-b py-3 font-bold'>
+                              <div>
+                                <h1 className='text-center'>Agung Dwi Putra</h1>
+                              </div>
+                            </li>
+                            <li>
+                              <Link to='/user/5da22dd662a5c90017390f6a'>
+                                Profile
+                              </Link>
+                            </li>
+                            <li className='border-b'>
+                              <Link to='#'>My News</Link>
+                            </li>
+                            <li>
+                              <Link to='#'>Upload News</Link>
+                            </li>
+                            <li>
+                              <button
+                                className='bg-blue-500 text-blue-500 font-bold'
+                                onClick={this.removeToken}>
+                                Log Out
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li className='mx-2 text-xs'>
+                      <div>
+                        <Link to='/signin'>
+                          <button className='py-1 px-2 font-semibold text-blue-500'>
+                            Login
+                          </button>
+                        </Link>
+                      </div>
+                    </li>
+                    <li className='mx-2 text-xs'>
+                      <div>
+                        <Link to='/signup'>
+                          <button className='bg-transparent hover:bg-blue-500 text-blue-600 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded'>
+                            Sign Up
+                          </button>
+                        </Link>
+                      </div>
+                    </li>
+                  </>
+                )}
               </ul>
               <Link to='/'>
                 <img
@@ -164,7 +174,7 @@ class HeadCategory extends Component {
                     <li className='action'>
                       <Link
                         to={`/category/News`}
-                        target="_blank"
+                        target='_blank'
                         className='md:px-4 md:py-4 px-0 block text-base get-login'>
                         News
                       </Link>
@@ -173,7 +183,7 @@ class HeadCategory extends Component {
                     <li className='action'>
                       <Link
                         to={`/category/Education`}
-                        target="_blank"
+                        target='_blank'
                         className='md:px-4 md:py-4 px-0 block text-sm text-base get-login'>
                         Education
                       </Link>
@@ -182,7 +192,7 @@ class HeadCategory extends Component {
                     <li className='action'>
                       <Link
                         to={`/category/Tech`}
-                        target="_blank"
+                        target='_blank'
                         className='md:px-4 md:py-4 px-0 block text-sm text-base get-login'>
                         Tech
                       </Link>
@@ -191,7 +201,7 @@ class HeadCategory extends Component {
                     <li className='action'>
                       <Link
                         to={`/category/Food`}
-                        target="_blank"
+                        target='_blank'
                         className='md:px-4 md:py-4 px-0 block text-sm text-base get-login'>
                         Food
                       </Link>
@@ -200,7 +210,7 @@ class HeadCategory extends Component {
                     <li className='action'>
                       <Link
                         to={`/category/Lifestyle`}
-                        target="_blank"
+                        target='_blank'
                         className='md:px-4 md:py-4 px-0 block text-sm text-base get-login'>
                         Lifestyle
                       </Link>
@@ -209,7 +219,7 @@ class HeadCategory extends Component {
                     <li className='action'>
                       <Link
                         to={`/category/Entertainment`}
-                        target="_blank"
+                        target='_blank'
                         className='md:px-4 md:py-4 px-0 block text-sm text-base get-login'>
                         Entertainment
                       </Link>
@@ -218,7 +228,7 @@ class HeadCategory extends Component {
                     <li className='action'>
                       <Link
                         to={`/category/Video`}
-                        target="_blank"
+                        target='_blank'
                         className='md:px-4 md:py-4 px-0 block text-sm text-base get-login'>
                         Video
                       </Link>
@@ -243,6 +253,9 @@ class HeadCategory extends Component {
             </div>
           </div>
         </header>
+        <div>
+          {<Search dataSearch={this.state.newsSearch}/>}
+        </div>
       </div>
     );
   }
@@ -255,6 +268,4 @@ const mapSTateToProps = state => {
   };
 };
 
-export default connect(
-  mapSTateToProps,
-  )(withRouter(HeadCategory));
+export default connect(mapSTateToProps)(withRouter(HeadCategory));
