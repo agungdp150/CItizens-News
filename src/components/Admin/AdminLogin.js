@@ -13,7 +13,8 @@ class AdminLogin extends Component {
 
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      alerError : false,
     };
   }
 
@@ -38,8 +39,17 @@ class AdminLogin extends Component {
       alert("Hello Admin :)");
       this.props.history.push("/admindashboardnews");
     } else {
-      alert("Something went wrong");
+      this.setState({
+        alerError : true
+      })
     }
+
+    setTimeout(() => {
+      this.setState({
+        alerError : false,
+      })
+    }, 1500)
+
   };
 
   render() {
@@ -87,9 +97,16 @@ class AdminLogin extends Component {
                       value={password}
                       onChange={this.handleChange}
                     />
+                    {this.state.alerError ?  
+                    (
                     <p className="text-red-500 text-xs italic">
-                      Please choose a password.
+                      Please choose a correct password.
                     </p>
+                    ) 
+                    : 
+                    (
+                      null
+                    )}
                   </div>
                   <div className="flex items-center justify-center">
                     <button

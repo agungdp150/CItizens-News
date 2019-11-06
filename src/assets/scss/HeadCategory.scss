@@ -173,6 +173,7 @@ div {
       opacity: 0;
       transform: translateY(-10px);
       transition: all 0.4s ease;
+      
     }
     .projects li,
     .products li {
@@ -181,6 +182,7 @@ div {
       display: flex;
       padding-left: 20px;
       align-items: center;
+      visibility: visible;
     }
     
     .projects li:hover,
@@ -216,5 +218,112 @@ div {
   }
 
 
+  // For result search
+
+  .for-Searchnews{
+    
+
+    .width-modal-head {
+      background: #fbfafa;
+      max-width: 1025px;
+      width: 70%;
+      left: 12rem;
+      // margin: auto;
+      position: fixed;
+      top: 7rem;
+      padding: 5px;
+      z-index: 106;
+      height: 450px;
+      overflow: auto;
+      button {
+        z-index: 110;
+      }
+      i {
+        padding: 12px 0px 0px 0px;
+      }
+    }
+
+    .back-modal1 {
+      background: rgba(0, 0, 0, 0.5);
+      width: 100%;
+      height: 100%;
+      position : fixed;
+      bottom: 0px;
+      top : 0px;
+      z-index:1008
+    }
+  }
+
+  @media only screen and (max-width : 767px) {
+    
+    .for-Searchnews{
+    
+      .width-modal-head {
+        background: #fbfafa;
+        max-width: 1025px;
+        width: 70%;
+        left: 6rem;
+        // margin: auto;
+        position: fixed;
+        top: 7rem;
+        padding: 5px;
+        z-index: 106;
+        height: 450px;
+        overflow: auto;
+        button {
+          z-index: 110;
+        }
+        i {
+          padding: 12px 0px 0px 0px;
+        }
+      }
+  
+      .back-modal1 {
+        background: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        position : fixed;
+        bottom: 0px;
+        top : 0px;
+        z-index:1008
+      }
+    }
+  }
+
+  @media only screen and (min-width : 1825px) {
+    
+    .for-Searchnews{
+    
+      .width-modal-head {
+        background: #fbfafa;
+        max-width: 1025px;
+        width: 70%;
+        left: 33rem;
+        // margin: auto;
+        position: fixed;
+        top: 11rem;
+        padding: 5px;
+        z-index: 106;
+        height: 650px;
+        overflow: auto;
+        button {
+          z-index: 110;
+        }
+        i {
+          padding: 12px 0px 0px 0px;
+        }
+      }
+  
+      .back-modal1 {
+        background: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        position : fixed;
+        bottom: 0px;
+        top : 0px;
+        z-index:1008
+      }
+    }
+  }
 
 }

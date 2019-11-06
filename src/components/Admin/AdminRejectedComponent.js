@@ -83,7 +83,7 @@ class AdminNewsComponent extends Component {
 
 
     return (
-      <div className="bg-gray-800 h-full w-full">
+      <div className="bg-gray-800 h-screen w-full">
         <div className="w-4/5 mx-auto">
           <div className="text-5xl font-medium">
             <h1 className="font-bold py-8 pl-2 text-5xl text-white">Citizens Rejected</h1>
@@ -114,7 +114,7 @@ class AdminNewsComponent extends Component {
               </ul>
             </div>
           </div>
-          <div className="bg-white mt-6 pb-6 shadow-md rounded  bg-gray-100">
+          <div className="bg-white mt-6 pb-6 shadow-md rounded  bg-gray-100 scroll-admin">
             <table className="text-left w-full border-collapse">
               <thead>
                 <tr>

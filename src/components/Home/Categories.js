@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ScrollUpButton from "react-scroll-up-button";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getCategory } from "../../store/actions/getdetailcategoriesAction";
@@ -62,7 +63,7 @@ class Categories extends Component {
         return (
           <div className="flex flex-wrap overflow-hidden" key={categoryObj._id}>
           <div className="w-full overflow-hidden md:w-1/3 lg:w-1/3 xl:w-1/3 p-3">
-              <img src={categoryObj.media.secure_url} alt="name"  className="h-40 w-full"/>
+              <img src={categoryObj.media.secure_url} alt="name"  className="h-40 w-full object-cover object-center"/>
           </div>
             <div className="w-full overflow-hidden md:w-2/3 lg:w-2/3 xl:w-2/3 p-3">
                 <h2 className="font-semibold"><Link to={`/detail/${categoryObj._id}`}>{categoryObj.title}</Link></h2>
@@ -85,6 +86,14 @@ class Categories extends Component {
 
     return (
       <div className="bg-color-hot py-4">
+      <ScrollUpButton 
+        StopPosition={0}
+        ShowAtPosition={150}
+        EasingType='easeOutCubic'
+        AnimationDuration={500}
+        ContainerClassName='ScrollUpButton__Container'
+        TransitionClassName='ScrollUpButton__Toggled'
+        />
         <div className="width-category pt-12">
         <div className="flex flex-wrap overflow-hidden">
 
@@ -108,7 +117,7 @@ class Categories extends Component {
                   <img 
                   src={firstNews && firstNews.media.secure_url} 
                   alt="image1" 
-                  className="image-style"/>
+                  className="image-style object-cover object-center"/>
                 </div>
                 )}
               <div className="w-full overflow-hidden py-4">

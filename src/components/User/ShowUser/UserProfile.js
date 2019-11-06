@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import ScrollUpButton from "react-scroll-up-button";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getDetailUser } from "../../../store/actions/getdetailuserAction";
@@ -94,7 +95,7 @@ class UserProfile extends Component {
         validateSubs : false,
         succesSubs : false
       })
-    }, 2000)
+    }, 1000)
   };
 
   handleDeletSubs = async id => {
@@ -125,7 +126,7 @@ class UserProfile extends Component {
       this.setState({
         deleteSubs : false
       })
-    }, 2000)
+    }, 1000)
   };
 
   render() {
@@ -144,8 +145,18 @@ class UserProfile extends Component {
       }
     };
 
+    console.log(this.props.details && this.props.details.user && this.props.details.user.subscribers.length)
+
     return (
       <div className='bg-color-hot limit-navbar'>
+      <ScrollUpButton 
+        StopPosition={0}
+        ShowAtPosition={150}
+        EasingType='easeOutCubic'
+        AnimationDuration={500}
+        ContainerClassName='ScrollUpButton__Container'
+        TransitionClassName='ScrollUpButton__Toggled'
+        />
         <div className='user-width mx-auto bg-white'>
           <div className='flex flex-col px-4 bg-color-hot'>
             <div className='bg-user'>

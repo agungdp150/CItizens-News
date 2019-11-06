@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import Moment from 'react-moment';
 import "moment-timezone";
 import Lottie from "react-lottie";
+import ScrollUpButton from "react-scroll-up-button";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getNews } from "../../store/actions/getnewsAction";
@@ -201,15 +202,22 @@ class GridNews extends Component {
 
     return (
       <div className='bg-color-hot'>
+        <ScrollUpButton 
+           StopPosition={0}
+           ShowAtPosition={150}
+           EasingType='easeOutCubic'
+           AnimationDuration={500}
+           ContainerClassName='ScrollUpButton__Container'
+           TransitionClassName='ScrollUpButton__Toggled'
+        />
         <div className='flex justify-end play-button'>
-          <Link 
-            onClick={this.onLinkClick}>
+          <button  onClick={this.onLinkClick}>
           <img
             src='https://neversinkmediagroup.com/wabt/wp-content/uploads/sites/7/2018/10/Google-Play-Store-Logo.png'
             alt='play-store'
             className='w-48'
           />
-          </Link>
+          </button>
         </div>
         <div className='widht-home mx-auto'>
           <div className='flex flex-wrap overflow-hidden'>
@@ -629,7 +637,7 @@ class GridNews extends Component {
             </div>
 
             <div className='w-full overflow-hidden md:w-1/4 lg:w-1/4 xl:w-1/4 display-side'>
-              <Contribution />
+              <Contribution/>
               <CardHotNews/>
             </div>
           </div>
