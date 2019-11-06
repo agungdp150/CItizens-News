@@ -211,7 +211,7 @@ class NewsStatusUser extends Component {
 const mapStateToProps = state => {
   return {
     details: state.user1.detailUser,
-      userNews: state.user1.userNews
+    userNews: state.user1.userNews
     };
   };
 

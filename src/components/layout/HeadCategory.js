@@ -1,12 +1,20 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { withRouter, Link } from "react-router-dom";
-import Logo2 from "../../assets/img/Logo2.png";
-import { connect } from "react-redux";
-
+import {
+  getUserNews
+} from "../../store/actions/getdetailuserAction";
+import setToken from "../../helpers/setToken";
 import Search from "../Home/Search";
 
+import Logo2 from "../../assets/img/Logo2.png";
+import User1 from"../../assets/img/user1.png"
+
+import { connect } from "react-redux";
+
 import "../../assets/scss/HeadCategory.scss";
+
+
 
 class HeadCategory extends Component {
   constructor(props) {
@@ -14,9 +22,21 @@ class HeadCategory extends Component {
 
     this.state = {
       query: "",
+      tokenCheck :"", 
       status: "Approved",
       newsSearch: []
     };
+  }
+
+
+  componentDidMount = async () => {
+    if (localStorage.token) {
+      setToken(localStorage.token);
+    }
+    await this.props.getUserNews();
+    this.setState({
+      loading : true
+    })
   }
 
   removeToken = async () => {
@@ -24,6 +44,7 @@ class HeadCategory extends Component {
     window.location.reload(true);
     this.props.history.push("/");
   };
+
 
   handleChange = e => {
     this.setState({
@@ -53,7 +74,14 @@ class HeadCategory extends Component {
 
   render() {
     // const {newsSearch} = this.state
-    console.log(this.state.newsSearch)
+    console.log(localStorage.getItem("token"))
+
+
+
+    console.log(this.props.userNews)
+    const profileNews = this.props.userNews
+    const userPict = this.props.userNews.image && this.props.userNews.image.secure_url
+    // console.log(this.state.newsSearch)
 
     return (
       <div>
@@ -61,17 +89,19 @@ class HeadCategory extends Component {
           <div className='container mx-auto flex flex-wrap items-center'>
             <div className='flex-1 flex items-center'>
               <ul className='flex mr-8'>
-                {this.props.isAuthenticated ? (
+                {localStorage.getItem("token") !== null ? (
                   <>
                     <li className='mx-2 text-xs'>
                       <div className='flex flex-col'>
                         <div>
                           <div className='flex justify-center'>
+                          <Link to={`/profile/${profileNews && profileNews._id}`}>
                             <img
-                              src='https://res.cloudinary.com/limkaleb/image/upload/v1571027553/citizen-journalism/ckw7rq5xhbfwc7bibwud.jpg'
+                              src={this.props.userPict === null ? User1 : userPict}
                               alt='Some'
                               className='w-10 h-10 flex self-center rounded-full shadow-lg object-cover'
                             />
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -86,19 +116,19 @@ class HeadCategory extends Component {
                           <ul className='shadow'>
                             <li className='border-b py-3 font-bold'>
                               <div>
-                                <h1 className='text-center'>Agung Dwi Putra</h1>
+                                <h1 className='text-center'>{profileNews && profileNews.fullname}</h1>
                               </div>
                             </li>
                             <li>
-                              <Link to='/user/5da22dd662a5c90017390f6a'>
+                              <Link to={`/profile/${profileNews && profileNews._id}`}>
                                 Profile
                               </Link>
                             </li>
                             <li className='border-b'>
-                              <Link to='#'>My News</Link>
+                              <Link to={`/profile/${profileNews && profileNews._id}/status`}>My News</Link>
                             </li>
                             <li>
-                              <Link to='#'>Upload News</Link>
+                              <Link to={`/profile/${profileNews && profileNews._id}/upload`}>Upload News</Link>
                             </li>
                             <li>
                               <button
@@ -259,8 +289,13 @@ class HeadCategory extends Component {
 const mapSTateToProps = state => {
   return {
     token: state.login1.token,
-    isAuthenticated: state.login1.isAuthenticated
+    isAuthenticated: state.login1.isAuthenticated,
+    userNews: state.user1.userNews
   };
 };
 
-export default connect(mapSTateToProps)(withRouter(HeadCategory));
+export default connect(
+  mapSTateToProps, 
+  { getUserNews }
+  )(withRouter(HeadCategory));
+

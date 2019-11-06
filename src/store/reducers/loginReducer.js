@@ -15,6 +15,7 @@ export default function (state = initialState, action) {
   switch (type) {
     case LOGIN_ADMIN_SUCCESS:
       localStorage.setItem('token', action.payload.result.token);
+      localStorage.setItem('adminToken', action.payload.result.token);
       return {
         ...state,
         ...payload,

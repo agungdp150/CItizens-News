@@ -30,6 +30,11 @@ class GridNews extends Component {
     this.setState({ loading: true });
   };
 
+  onLinkClick = () => {
+    window.open(`https://play.google.com/store/apps/details?id=com.glints.citizens`, "_blank");
+}
+
+
   render() {
     let dataAllnews = this.props.news;
     // console.log(dataAllnews && dataAllnews)
@@ -65,7 +70,6 @@ class GridNews extends Component {
 
     const lifestyleData = sliceLifestyle.map(newspro => {
       return (
-
         <div className='flex justify-beetwen pt-4 for-wrap' key={newspro._id}>
           <div className='w-3/4 md:w-3/4 lg:w-3/4 xl:w-3/4 overflow-hidden pr-4'>
             <h1 className='text-lg font-semibold font-serif pt-2 capitalize'>
@@ -89,7 +93,7 @@ class GridNews extends Component {
             </p>
           </div>
           <div className='w-1/4 md:w-1/4 lg:w-1/4 xl:w-1/4 overflow-hidden p-3 width-img'>
-            <img src={newspro.media.secure_url} alt='nature'/>
+            <img src={newspro.media.secure_url} alt='nature' className="object-cover object-center"/>
           </div>
         </div>
       );
@@ -180,7 +184,7 @@ class GridNews extends Component {
               </p>
             </div>
             <div className='w-1/4 md:w-1/4 lg:w-1/4 xl:w-1/4 overflow-hidden p-3 width-img'>
-              <img src={newspro.media.secure_url} alt='nature'/>
+              <img src={newspro.media.secure_url} alt='nature' className="object-cover object-center"/>
             </div>
           </div>
       );
@@ -199,8 +203,7 @@ class GridNews extends Component {
       <div className='bg-color-hot'>
         <div className='flex justify-end play-button'>
           <Link 
-          to="https://play.google.com/store/apps/details?id=com.glints.citizens"
-          target="_blank">
+            onClick={this.onLinkClick}>
           <img
             src='https://neversinkmediagroup.com/wabt/wp-content/uploads/sites/7/2018/10/Google-Play-Store-Logo.png'
             alt='play-store'
@@ -239,7 +242,7 @@ class GridNews extends Component {
                               newsFilter[0] && newsFilter[0].media.secure_url
                             }
                             alt='Name'
-                            className='h-64 w-full'
+                            className='h-64 w-full object-cover object-center'
                           />
                           <h2 className='py-3 font-serif font-semibold'>
                             {newsFilter[0] && newsFilter[0].title}
@@ -262,7 +265,7 @@ class GridNews extends Component {
                               newsFilter[1] && newsFilter[1].media.secure_url
                             }
                             alt='name'
-                            className='h-64 w-full'
+                            className='h-64 w-full object-cover object-center'
                           />
                           <h2 className='py-3 font-serif font-semibold'>
                             {newsFilter[1] && newsFilter[1].title}
@@ -277,7 +280,7 @@ class GridNews extends Component {
                               newsFilter[2] && newsFilter[2].media.secure_url
                             }
                             alt='name'
-                            className='h-64 w-full'
+                            className='h-64 w-full object-cover object-center'
                           />
                           <h2 className='py-3 font-serif font-semibold'>
                             {newsFilter[2] && newsFilter[2].title}
@@ -322,7 +325,7 @@ class GridNews extends Component {
                           <img
                             src={eduFilter[0] && eduFilter[0].media.secure_url}
                             alt='Name'
-                            className='h-64 w-full'
+                            className='h-64 w-full object-cover object-center'
                           />
                           <h2 className='py-3 font-serif font-semibold'>
                             {eduFilter[0] && eduFilter[0].title}
@@ -339,7 +342,7 @@ class GridNews extends Component {
                           <img
                             src={eduFilter[1] && eduFilter[1].media.secure_url}
                             alt='name'
-                            className='h-64 w-full'
+                            className='h-64 w-full object-cover object-center'
                           />
                           <h2 className='py-3 font-serif font-semibold'>
                             {eduFilter[1] && eduFilter[1].title}
@@ -352,7 +355,7 @@ class GridNews extends Component {
                           <img
                             src={eduFilter[2] && eduFilter[2].media.secure_url}
                             alt='name'
-                            className='h-64 w-full'
+                            className='h-64 w-full object-cover object-center'
                           />
                           <h2 className='py-3 font-serif font-semibold'>
                             {eduFilter[2] && eduFilter[2].title}
@@ -401,7 +404,7 @@ class GridNews extends Component {
                                   techFilter[1].media.secure_url
                                 }
                                 alt='name'
-                                className='h-64 w-full'
+                                className='h-64 w-full object-cover object-center'
                               />
                               <h2 className='py-3 font-serif font-semibold'>
                                 {techFilter[1] && techFilter[1].title}
@@ -420,7 +423,7 @@ class GridNews extends Component {
                                   techFilter[2].media.secure_url
                                 }
                                 alt='name'
-                                className='h-64 w-full'
+                                className='h-64 w-full object-cover object-center'
                               />
                               <h2 className='py-3 font-serif font-semibold'>
                                 {techFilter[2] && techFilter[2].title}
@@ -444,7 +447,7 @@ class GridNews extends Component {
                               techFilter[0] && techFilter[0].media.secure_url
                             }
                             alt='Name'
-                            className='h-64 w-full'
+                            className='h-64 w-full object-cover object-center'
                           />
                           <h2 className='py-3 font-serif font-semibold'>
                             {techFilter[0] && techFilter[0].title}
@@ -488,7 +491,7 @@ class GridNews extends Component {
                               foodFilter[0] && foodFilter[0].media.secure_url
                             }
                             alt='Name'
-                            className='h-64 w-full'
+                            className='h-64 w-full object-cover object-center'
                           />
                           <h2 className='py-3 font-serif font-semibold'>
                             {foodFilter[0] && foodFilter[0].title}
@@ -511,7 +514,7 @@ class GridNews extends Component {
                               foodFilter[1] && foodFilter[1].media.secure_url
                             }
                             alt='name'
-                            className='h-64 w-full'
+                            className='h-64 w-full object-cover object-center'
                           />
                           <h2 className='py-3 font-serif font-semibold'>
                             {foodFilter[1] && foodFilter[1].title}
@@ -526,7 +529,7 @@ class GridNews extends Component {
                               foodFilter[2] && foodFilter[2].media.secure_url
                             }
                             alt='name'
-                            className='h-64 w-full'
+                            className='h-64 w-full object-cover object-center'
                           />
                           <h2 className='py-3 font-serif font-semibold'>
                             {foodFilter[2] && foodFilter[2].title}

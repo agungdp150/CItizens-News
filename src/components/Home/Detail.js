@@ -79,7 +79,7 @@ class Detail extends Component {
       return (
         <div className='sm:flex sm:items-top px-6 py-4' key={commentCheck._id}>
           <img
-            className='block h-8 w-12 sm:h-12 rounded-full mb-4 sm:mb-0 sm:mr-4 sm:ml-0 mt-2 object-cover '
+            className='block h-8 w-12 sm:h-12 rounded-full mb-4 sm:mb-0 sm:mr-4 sm:ml-0 mt-2 object-cover object-center'
             src={commentCheck.user_id.image.secure_url}
             alt='profile-pict'
           />
@@ -126,7 +126,7 @@ class Detail extends Component {
                 <img
                   src={media.secure_url}
                   alt={title}
-                  className='w-full h-full my-4'
+                  className='w-full h-full my-4 object-cover object-center'
                 />
               </div>
 
