@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ScrollUpButton from "react-scroll-up-button";
 import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
@@ -11,6 +12,7 @@ import Lottie from "react-lottie";
 
 // Loading stuff
 import Myloading from "../../../assets/loading/201-simple-loader.json";
+import User1 from"../../../assets/img/user1.png"
 
 import "../../../assets/scss/UserProfile.scss";
 
@@ -71,6 +73,14 @@ class ProfileDashboard extends Component {
 
     return (
       <div>
+              <ScrollUpButton 
+        StopPosition={0}
+        ShowAtPosition={150}
+        EasingType='easeOutCubic'
+        AnimationDuration={500}
+        ContainerClassName='ScrollUpButton__Container'
+        TransitionClassName='ScrollUpButton__Toggled'
+        />
         <div>
           <div className='bg-color-hot limit-navbar'>
             <div className='user-width mx-auto bg-white'>
@@ -81,7 +91,7 @@ class ProfileDashboard extends Component {
                       <div className='flex flex-wrap py-8 flex-col sm:flex-row'>
                         <div className='w-32 h-32 rounded-full flex-shrink-0 m-auto sm:m-0'>
                           <img
-                            src={userData && userData.image.secure_url}
+                            src={userData && userData.image.secure_url === undefined ? User1 : userData && userData.image.secure_url}
                             alt={userData && userData.username}
                             className='object-cover self-center rounded-full shadow-lg mb-6 h-32 w-32 md:h-32 md:w-32'
                           />

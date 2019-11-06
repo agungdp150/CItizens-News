@@ -4,8 +4,9 @@ import { withRouter, Link } from "react-router-dom";
 import {
   getUserNews
 } from "../../store/actions/getdetailuserAction";
+import ReactPlayer from "react-player";
 import setToken from "../../helpers/setToken";
-import Search from "../Home/Search";
+
 
 import Logo2 from "../../assets/img/Logo2.png";
 import User1 from"../../assets/img/user1.png"
@@ -24,7 +25,8 @@ class HeadCategory extends Component {
       query: "",
       tokenCheck :"", 
       status: "Approved",
-      newsSearch: []
+      newsSearch: [],
+      openModal : false,
     };
   }
 
@@ -64,24 +66,91 @@ class HeadCategory extends Component {
           this.setState({
             newsSearch : response.data.result
           });
-        this.props.history.push(`/search/${query}`)
         });
+        this.setState({
+          query : "",
+          openModal : true
+        })
     } catch (error) {
       console.log(error.response.data);
     }  
   };
 
+  handleCloseModal = (e) => {
+    e.preventDefault();
+    this.setState({
+      openModal : false
+    })
+  }
+
 
   render() {
     // const {newsSearch} = this.state
-    console.log(localStorage.getItem("token"))
 
+    // console.log(this.state.newsSearch)
 
+    const mySearch = this.state.newsSearch.map(findNews => {
 
-    console.log(this.props.userNews)
+      if (findNews.category[0] === "Video") {
+        return (
+          <div
+          className='flex flex-wrap overflow-hidden p-2 my-4 rounded'
+          key={findNews._id}>
+          <div className='w-full overflow-hidden md:w-1/3 lg:w-1/3 xl:w-1/3 p-3'>
+            <ReactPlayer
+              url={findNews.media.secure_url}
+              width='100%'
+              height='115px'
+            />
+          </div>
+          <div className='w-full md:w-2/3 lg:w-2/3 xl:w-2/3 p-3'>
+            <Link to={`/videoDetail/${findNews._id}`}>
+              <h3 className='font-semibold'>{findNews.title}</h3>
+            </Link>
+            <p className='text-xs'>
+              published on<span>{findNews.date.substring(0, 10)}</span>
+            </p>
+            <p className='text-sm py-4 text-justify'>
+              {findNews.description.substring(0, 110)}...
+              <span className='font-semibold text-blue-800'> <Link to={`/videoDetail/${findNews._id}`}> Read More </Link>
+              </span>
+            </p>
+          </div>
+        </div>
+        )
+      } else {
+        return (
+          <div
+          className='flex flex-wrap overflow-hidden p-2 my-4 rounded'
+          key={findNews._id}>
+          <div className='w-full flex justify-center overflow-hidden md:w-1/3 lg:w-1/3 xl:w-1/3 p-3'>
+          <img
+              src={findNews.media.secure_url}
+              alt='name'
+              className='h-32 w-48 object-cover object-center'
+            />
+          </div>
+          <div className='w-full overflow-hidden md:w-2/3 lg:w-2/3 xl:w-2/3 p-3'>
+             <Link to={`/detail/${findNews._id}`}>
+              <h3 className='font-semibold'>{findNews.title}</h3>
+              </Link>
+            <p className='text-xs'>
+              published on<span> {findNews.date.substring(0, 10)}</span>
+            </p>
+            <p className='text-sm py-4 text-justify'>
+              {findNews.description.substring(0, 110)}...
+              <span className='font-semibold text-blue-800'> <Link to={`/detail/${findNews._id}`}> Read More </Link>
+              </span>
+            </p>
+          </div>
+        </div>
+        );
+      }
+    }
+    )
+
     const profileNews = this.props.userNews
     const userPict = this.props.userNews.image && this.props.userNews.image.secure_url
-    // console.log(this.state.newsSearch)
 
     return (
       <div>
@@ -125,7 +194,7 @@ class HeadCategory extends Component {
                               </Link>
                             </li>
                             <li className='border-b'>
-                              <Link to={`/profile/${profileNews && profileNews._id}/status`}>My News</Link>
+                              <Link to={`/profile/${profileNews && profileNews._id}/status`}>My News Status</Link>
                             </li>
                             <li>
                               <Link to={`/profile/${profileNews && profileNews._id}/upload`}>Upload News</Link>
@@ -258,7 +327,7 @@ class HeadCategory extends Component {
                       </Link>
                     </li>
                   </div>
-
+                  
                   <li className='md:px-2 py-4 px-0 block search-bar-style'>
                     <form id='demo-2' onSubmit={this.handleSearch}>
                       <input
@@ -277,9 +346,23 @@ class HeadCategory extends Component {
             </div>
           </div>
         </header>
-        <div>
-          {<Search dataSearch={this.state.newsSearch}/>}
-        </div>
+
+        {this.state.openModal ? 
+        (
+          <div className="for-Searchnews">
+          <div className="back-modal1">
+          <div className="width-modal-head rounded">
+            <button onClick={this.handleCloseModal} ><i class="fas fa-times-circle"></i></button>
+            <div className="pop-up">
+              {mySearch}
+            </div>
+            </div>
+          </div>
+          </div>
+        ) : 
+        (
+          null
+        )}
 
       </div>
     );

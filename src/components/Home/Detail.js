@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import ScrollUpButton from "react-scroll-up-button";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getDetail } from "../../store/actions/getdetailAction";
@@ -110,6 +111,14 @@ class Detail extends Component {
 
     return (
       <div className='bg-color-hot top-detail'>
+      <ScrollUpButton 
+        StopPosition={0}
+        ShowAtPosition={150}
+        EasingType='easeOutCubic'
+        AnimationDuration={500}
+        ContainerClassName='ScrollUpButton__Container'
+        TransitionClassName='ScrollUpButton__Toggled'
+        />
         {this.state.loading ? (
           <div className='flex flex-wrap overflow-hidden text-container container mx-auto'>
             <div className='flex flex-wrap overflow-hidden'>

@@ -85,8 +85,8 @@ class CardHotNews extends Component {
 
     return (
       <div className="bg-color-hot mt-4">
-          <div className="p-2 border rounded">
-            <h1 className="py-1 font-semibold">Trending News</h1>
+          <div className="p-2 border rounded sticky-pos">
+            <h1 className="py-1 px-1 text-2xl font-semibold">Trending News</h1>
             <div className="flex flex-wrap overflow-hidden">
 
               <ol className="w-full mx-auto">

@@ -35,7 +35,6 @@ class AdminUsersComponent extends Component {
         }
       );
       console.log(response.data.result);
-      console.log("wakata");
       this.props.getNews(this.props.getAllUser(this.props.allUser))
     } catch (error) {
       console.log(error.response.data);
@@ -61,7 +60,7 @@ class AdminUsersComponent extends Component {
           </td>
           <td className="py-4 text-center border-b border-grey-light text-sm">
             <Link
-              to={`/user/${users._id}`}
+              to={`/user/${users._id}`} target="_blank"
               className="text-grey-lighter font-bold py-1 px-2 rounded text-xs bg-blue-600 hover:bg-blue-700 text-white mx-2 ">
               View
             </Link>
@@ -94,7 +93,7 @@ class AdminUsersComponent extends Component {
     
 
     return (
-      <div className="bg-gray-800 h-full w-full">
+      <div className="bg-gray-800 h-screen w-full">
         <div className="w-4/5 mx-auto">
           <div className="text-5xl font-medium">
             <h1 className="font-bold py-8 pl-2 text-5xl text-white">Citizens</h1>
@@ -123,7 +122,7 @@ class AdminUsersComponent extends Component {
               </ul>
             </div>
           </div>
-          <div className="bg-white shadow-md rounded mt-6 pb-6 bg-gray-100">
+          <div className="bg-white shadow-md rounded mt-6 pb-6 bg-gray-100 scroll-admin">
             <table className="text-left w-full border-collapse">
               <thead>
                 <tr>

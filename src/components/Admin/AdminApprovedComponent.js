@@ -47,7 +47,7 @@ class AdminNewsComponent extends Component {
           {allnews.date.substring(0, 10)}
         </td>
         <td className="flex py-6 px-6 border-b border-grey-light">
-          <Link to={`/detail/${allnews._id}`}>
+          <Link to={`/detail/${allnews._id}`} target="_blank">
         <button className="text-grey-lighter font-bold py-1 px-2 rounded text-xs bg-blue-600 hover:bg-blue-700 text-white">
             View
           </button>
@@ -90,7 +90,7 @@ class AdminNewsComponent extends Component {
 
 
     return (
-      <div className="bg-gray-800 h-full w-full">
+      <div className="bg-gray-800 h-screen w-full">
         <div className="w-4/5 mx-auto">
           <div className="text-5xl font-medium">
             <h1 className="font-bold py-8 pl-2 text-5xl text-white">Citizens Approved</h1>
@@ -121,7 +121,7 @@ class AdminNewsComponent extends Component {
               </ul>
             </div>
           </div>
-          <div className="bg-white shadow-md rounded mt-6 pb-6 bg-gray-100">
+          <div className="bg-white shadow-md rounded mt-6 pb-6 bg-gray-100 scroll-admin">
             <table className="text-left w-full border-collapse">
               <thead>
                 <tr>
