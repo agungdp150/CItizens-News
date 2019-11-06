@@ -11,7 +11,10 @@ const PrivateRoutes = ({
   <Route
     {...rest}
     render={props =>
-      !isAuthenticated ? <Redirect to="/" /> : <Component {...props} />
+      !isAuthenticated ? 
+      <Redirect to="/" /> 
+      : 
+      <Component {...props} />
     }
   />
 );

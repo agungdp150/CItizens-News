@@ -81,9 +81,6 @@ class Search extends Component {
 
             {resultSearch}
 
-
-
-
             </div>
          </div>
       </div>

@@ -47,15 +47,9 @@ class HeadCategory extends Component {
         });
     } catch (error) {
       console.log(error.response.data);
-    }
-   
-
-  
+    }  
   };
 
-  // componentDidMount() {
-  //   this.handleSearch()
-  // }
 
   render() {
     // const {newsSearch} = this.state
@@ -256,6 +250,7 @@ class HeadCategory extends Component {
         <div>
           {<Search dataSearch={this.state.newsSearch}/>}
         </div>
+
       </div>
     );
   }
