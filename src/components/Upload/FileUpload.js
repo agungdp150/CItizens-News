@@ -4,6 +4,12 @@ import { connect } from "react-redux";
 import { newsPostAction } from "../../store/actions/createnewsAction";
 import ReactPlayer from "react-player";
 
+import Lottie from "react-lottie";
+
+// Loading stuff
+import Myloading from "../../assets/loading/1127-success.json";
+
+
 import UploadIllustration from "../../assets/img/6323.png";
 
 import "../../assets/scss/FileUpload.scss";
@@ -18,7 +24,13 @@ class FileUpload extends Component {
       category: "",
       date: "",
       media: null,
-      mediaShow: null
+      mediaShow: null,
+      mediaValidate : false,
+      validTitle : false,
+      validDescription : false,
+      validCategory : false,
+      validDate : false,
+      notif : false
     };
     this.mediaHandle = this.mediaHandle.bind(this);
   }
@@ -40,7 +52,9 @@ class FileUpload extends Component {
     e.preventDefault();
     console.log(this.state.media);
     if (this.state.media === null) {
-      alert("Opps you need input title, description, image, or video");
+      this.setState({
+        mediaValidate : true
+      })
     } else {
       const fd = new FormData();
       fd.append(
@@ -58,14 +72,56 @@ class FileUpload extends Component {
         },
         image: fd
       };
-      await this.props.newsPostAction(newsInput);
-      alert("Wow, you have add contribution :)");
-      this.props.history.push("/");
+
+      if (newsInput.newsDesc.title === "") {
+        this.setState({
+          validTitle : true
+        })
+      } else if (newsInput.newsDesc.category === "") {
+        this.setState({
+          validCategory : true
+        }) 
+      } else if (newsInput.newsDesc.date === "") {
+        this.setState({
+          validDate : true
+        })  
+      } else if (newsInput.newsDesc.description === "") {
+        this.setState({
+          validDescription : true
+        }) 
+      } else {
+        await this.props.newsPostAction(newsInput);
+        this.setState({
+         notif : true
+        })
+        setTimeout(() => {
+         this.props.history.push("/");
+        }, 3000)
+      }
     }
+
+    setTimeout(() => {
+      this.setState({
+      mediaValidate : false,
+      validTitle : false,
+      validDescription : false,
+      validCategory : false,
+      validDate : false,
+      })
+    }, 2000)
   };
 
   render() {
     const { title, description, category, date } = this.state;
+
+    const setLoattie = {
+      loop: true,
+      autoplay: true,
+      animationData: Myloading,
+      renderSettings: {
+        preserveAspectRatio: "xMidYMid slice"
+      }
+    };
 
     let showVideo = this.state.media;
 
@@ -112,6 +168,20 @@ class FileUpload extends Component {
                     />
                   </div>
                 )}
+
+                {this.state.mediaValidate ?  
+                (
+                  <div role="alert">
+                  <div className="bg-red-500 text-white font-bold rounded-t px-4 py-1 text-xs">
+                    Warning
+                  </div>
+                  <div className="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-2 text-red-700 text-xs">
+                    <p>You need upload the image (png, jpg, jpeg) or video (mp4)</p>
+                  </div>
+                </div>
+                ) 
+                : 
+                (null)}
               </div>
               <div className='w-full overflow-hidden md:w-full lg:w-3/5 xl:w-3/5 p-4'>
                 <div className='flex flex-wrap justify-between w-full overflow-hidden'>
@@ -120,12 +190,12 @@ class FileUpload extends Component {
                   </h2>
                   <div>
                     <Link to='/'>
-                      <button className='bg-gray-600 hover:bg-gray-700 text-white font-bold py-1 px-3 mx-2 rounded focus:outline-none focus:shadow-outline text-xs'>
+                      <button className='bg-gray-600 hover:bg-gray-700 text-white font-bold py-1 px-3 mx-2 rounded focus:outline-none text-xs'>
                         Cancel
                       </button>
                     </Link>
                     <button
-                      className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 mx-2 rounded focus:outline-none focus:shadow-outline text-xs'
+                      className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 mx-2 rounded focus:outline-none text-xs'
                       type='submit'>
                       Publish
                     </button>
@@ -139,13 +209,18 @@ class FileUpload extends Component {
                     </label>
                     <br />
                     <input
-                      className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-2'
+                      className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none mt-2'
                       type='text'
                       autoComplete='off'
                       name='title'
                       value={title}
                       onChange={this.handleChange}
                     />
+                    <div>
+                      {this.state.validTitle ? 
+                      ( <p className="text-red-500 text-xs italic">Please fill the title</p> ) : 
+                      (null)}
+                    </div>
                   </div>
 
                   <div className='py-2'>
@@ -159,7 +234,8 @@ class FileUpload extends Component {
                       onChange={this.handleChange}
                       name='category'
                       value={category}
-                      className='block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline'>
+                      className='block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none '>
+                      <option value="" disabled={this.props.defaultDisabled ? true : null} >Choose Category</option>
                       <option defaultValue>News</option>
                       <option defaultValue>Lifestyle</option>
                       <option defaultValue>Food</option>
@@ -168,6 +244,11 @@ class FileUpload extends Component {
                       <option defaultValue>Entertainment</option>
                       <option defaultValue>Video</option>
                     </select>
+                    <div>
+                    {this.state.validCategory ? 
+                      (<p className="text-red-500 text-xs italic">Please select the category</p>  ) : 
+                      (null)}
+                    </div>
                   </div>
 
                   <div className='py-2'>
@@ -182,8 +263,13 @@ class FileUpload extends Component {
                       name='date'
                       value={date}
                       onChange={this.handleChange}
-                      className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-2'
+                      className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none  mt-2'
                     />
+                     <div> 
+                     {this.state.validDate? 
+                      (<p className="text-red-500 text-xs italic">Please choose date</p>) : 
+                      (null)}
+                    </div>
                   </div>
 
                   <div className='py-2'>
@@ -196,14 +282,31 @@ class FileUpload extends Component {
                       name='description'
                       value={description}
                       onChange={this.handleChange}
-                      className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-2 h-64'
+                      className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none mt-2 h-64'
                     />
+                    <div>
+                    {this.state.validDescription? 
+                      ( <p className="text-red-500 text-xs italic">Please fill description </p> ) : 
+                      (null)}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </form>
         </div>
+        {this.state.notif ? 
+        (
+          <div className="for-modal shadow rounded">
+          <div className="pop-up">
+            <Lottie options={setLoattie} width="250px" height="150px" />
+            <h2 className="text-center text-gray-700 text-lg">Thank you for creating the news.<br/> Please wait, we'll take care of it.</h2>
+          </div>
+        </div>
+        ) : 
+        (
+          null
+        )}
       </div>
     );
   }

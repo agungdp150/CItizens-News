@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import HeadCategory from '../components/layout/HeadCategory';
-import EditProfile from '../components/User/ProfileDashboard/EditProfile';
+import ProfileNews from '../components/User/ProfileDashboard/ProfileNews';
 
-class EditProfilePage extends Component {
+class ProfileNewsPage extends Component {
   render() {
     return (
       <div>
         <HeadCategory/>
-        <EditProfile/>
+        <ProfileNews/>
       </div>
     )
   }
 }
 
-export default EditProfilePage
+export default ProfileNewsPage

@@ -198,11 +198,15 @@ class GridNews extends Component {
     return (
       <div className='bg-color-hot'>
         <div className='flex justify-end play-button'>
+          <Link 
+          to="https://play.google.com/store/apps/details?id=com.glints.citizens"
+          target="_blank">
           <img
             src='https://neversinkmediagroup.com/wabt/wp-content/uploads/sites/7/2018/10/Google-Play-Store-Logo.png'
             alt='play-store'
             className='w-48'
           />
+          </Link>
         </div>
         <div className='widht-home mx-auto'>
           <div className='flex flex-wrap overflow-hidden'>
@@ -212,13 +216,13 @@ class GridNews extends Component {
                   <hr className='separator' />
                 </div>
                 <div className='title-design w-1/2'>
-                  <Link to='#'>
+                  <Link to={`/category/News`}>
                     <span>News</span>
                   </Link>
                 </div>
                 <div className='btn-seemore w-1/2 text-right'>
-                  <Link to='#'>
-                    <button className='px-12 py-3 text-sm text-white font-semibold'>
+                  <Link to={`/category/News`}>
+                    <button className='px-8 py-2 text-xs text-white font-semibold'>
                       See More
                     </button>
                   </Link>
@@ -293,13 +297,13 @@ class GridNews extends Component {
                   <hr className='separator education' />
                 </div>
                 <div className='title-design w-1/2'>
-                  <Link to='#'>
+                  <Link  to={`/category/Education`}>
                     <span>Education</span>
                   </Link>
                 </div>
                 <div className='btn-seemore w-1/2 text-right'>
-                  <Link to='#'>
-                    <button className='px-12 py-3 text-sm text-white font-semibold'>
+                  <Link  to={`/category/Education`}>
+                    <button className='px-8 py-2 text-xs text-white font-semibold'>
                       See More
                     </button>
                   </Link>
@@ -368,13 +372,13 @@ class GridNews extends Component {
                   <hr className='separator' />
                 </div>
                 <div className='title-design w-1/2'>
-                  <Link to='#'>
+                  <Link to={`/category/Tech`}>
                     <span>Tech</span>
                   </Link>
                 </div>
                 <div className='btn-seemore w-1/2 text-right'>
-                  <Link to='#'>
-                    <button className='px-12 py-3 text-sm text-white font-semibold'>
+                  <Link to={`/category/Tech`}>
+                    <button className='px-8 py-2 text-xs text-white font-semibold'>
                       See More
                     </button>
                   </Link>
@@ -461,13 +465,13 @@ class GridNews extends Component {
                   <hr className='separator' />
                 </div>
                 <div className='title-design w-1/2'>
-                  <Link to='#'>
+                  <Link to={`/category/Food`}>
                     <span>Food</span>
                   </Link>
                 </div>
                 <div className='btn-seemore w-1/2 text-right'>
-                  <Link to='#'>
-                    <button className='px-12 py-3 text-sm text-white font-semibold'>
+                  <Link to={`/category/Food`}>
+                    <button className='px-8 py-2 text-xs text-white font-semibold'>
                       See More
                     </button>
                   </Link>
@@ -542,13 +546,13 @@ class GridNews extends Component {
                   <hr className='separator lifestyle' />
                 </div>
                 <div className='title-design w-1/2'>
-                  <Link to='#'>
+                  <Link to={`/category/Lifestyle`}>
                     <span>Lifestyle</span>
                   </Link>
                 </div>
                 <div className='btn-seemore w-1/2 text-right'>
-                  <Link to='#'>
-                    <button className='px-12 py-3 text-sm text-white font-semibold'>
+                  <Link to={`/category/Lifestyle`}>
+                    <button className='px-8 py-2 text-xs text-white font-semibold'>
                       See More
                     </button>
                   </Link>
@@ -570,13 +574,13 @@ class GridNews extends Component {
                   <hr className='separator entertain' />
                 </div>
                 <div className='title-design w-1/2'>
-                  <Link to='#'>
+                  <Link to={`/category/Entertainment`}>
                     <span>Entertain</span>
                   </Link>
                 </div>
                 <div className='btn-seemore w-1/2 text-right'>
-                  <Link to='#'>
-                    <button className='px-12 py-3 text-sm text-white font-semibold'>
+                  <Link to={`/category/Entertainment`}>
+                    <button className='px-8 py-2 text-xs text-white font-semibold'>
                       See More
                     </button>
                   </Link>
@@ -599,13 +603,13 @@ class GridNews extends Component {
                   <hr className='separator' />
                 </div>
                 <div className='title-design w-1/2'>
-                  <Link to='#'>
+                  <Link to={`/category/Video`}>
                     <span>Video</span>
                   </Link>
                 </div>
                 <div className='btn-seemore w-1/2 text-right'>
-                  <Link to='#'>
-                    <button className='px-12 py-3 text-sm text-white font-semibold'>
+                  <Link to={`/category/Video`}>
+                    <button className='px-8 py-2 text-xs text-white font-semibold'>
                       See More
                     </button>
                   </Link>
@@ -621,7 +625,7 @@ class GridNews extends Component {
               </div>
             </div>
 
-            <div className='w-full overflow-hidden md:w-1/4 lg:w-1/4 xl:w-1/4'>
+            <div className='w-full overflow-hidden md:w-1/4 lg:w-1/4 xl:w-1/4 display-side'>
               <Contribution />
               <CardHotNews/>
             </div>

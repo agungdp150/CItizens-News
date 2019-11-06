@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NewGreetCitizen from '../components/User/NewGreetCitizen';
+import NewGreetCitizen from '../components/Form/NewGreetCitizen';
 
 class NewCitizensPage extends Component {
   render() {

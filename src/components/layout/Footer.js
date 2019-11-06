@@ -52,37 +52,37 @@ class Footer extends Component {
                 <h4 className="uppercase md:mb-3 text-sm font-bold">Categories</h4>
                 <ul className="list-reset mb-4 ">
                   <li className="mt-2 mr-2 md:block md:mr-0">
-                    <Link to="/about" className="no-underline font-normal text-sm">
+                    <Link to={`/category/News`} className="no-underline font-normal text-sm">
                       News
                     </Link>
                   </li>
                   <li className="mt-2 mr-2 md:block md:mr-0">
-                    <Link to="about" className="no-underline font-normal text-sm">
+                    <Link to={`/category/Education`} className="no-underline font-normal text-sm">
                       Education
                     </Link>
                   </li>
                   <li className="mt-2 mr-2 md:block md:mr-0">
-                    <Link to="about" className="no-underline font-normal text-sm">
+                    <Link to={`/category/Tech`} className="no-underline font-normal text-sm">
                       Tech
                     </Link>
                   </li>
                   <li className="mt-2 mr-2 md:block md:mr-0">
-                    <Link to="about" className="no-underline font-normal text-sm">
+                    <Link to={`/category/Food`} className="no-underline font-normal text-sm">
                       Food
                     </Link>
                   </li>
                   <li className="mt-2 mr-2 md:block md:mr-0">
-                    <Link to="about" className="no-underline font-normal text-sm">
+                    <Link to={`/category/Lifestyle`} className="no-underline font-normal text-sm">
                       Lifestyle
                     </Link>
                   </li>
                   <li className="mt-2 mr-2 md:block md:mr-0">
-                    <Link to="about" className="no-underline font-normal text-sm">
+                    <Link to={`/category/Entertainment`} className="no-underline font-normal text-sm">
                       Entertainment
                     </Link>
                   </li>
                   <li className="mt-2 mr-2 md:block md:mr-0">
-                    <Link to="about" className="no-underline font-normal text-sm">
+                    <Link to={`/category/Video`} className="no-underline font-normal text-sm">
                       Video
                     </Link>
                   </li>
@@ -112,7 +112,10 @@ class Footer extends Component {
                 <h4 className="uppercase md:mb-3 text-sm font-bold">Download</h4>
                 <ul className="list-reset mb-4 fo-link">
                   <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                    <Link to="/about">
+                    <Link 
+                    to="https://play.google.com/store/apps/details?id=com.glints.citizens"
+                    target="_blank"
+                    >
                       <img 
                       src='https://lelogama.go-jek.com/component/nav/picture/google-play-badge3x-p.png'
                       alt='play-store'

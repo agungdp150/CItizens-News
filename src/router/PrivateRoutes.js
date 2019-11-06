@@ -5,13 +5,16 @@ import { connect } from "react-redux";
 
 const PrivateRoutes = ({
   component: Component,
-  isAuthenticated: { token },
+  isAuthenticated: { isAuthenticated },
   ...rest
 }) => (
   <Route
     {...rest}
     render={props =>
-      !token ? <Redirect to="/" /> : <Component {...props} />
+      !isAuthenticated ? 
+      <Redirect to="/" /> 
+      : 
+      <Component {...props} />
     }
   />
 );
@@ -22,7 +25,7 @@ PrivateRoutes.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    token: state.login1.token
+    isAuthenticated: state.login1
   };
 };
 

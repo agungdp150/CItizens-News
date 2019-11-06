@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import VerifyForgot from '../components/User/VerifyForgot';
+import VerifyForgot from '../components/Form/VerifyForgot';
 
 class VerifyForgotPage extends Component {
   render() {

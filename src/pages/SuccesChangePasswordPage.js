@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PassSucces from '../components/User/PassSucces';
+import PassSucces from '../components/Form/PassSucces';
 
 class SuccesChangePasswordPage extends Component {
   render() {
