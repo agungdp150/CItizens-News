@@ -6,6 +6,11 @@ import Logo3 from "../../assets/img/Logo3.png";
 import "../../assets/scss/Footer.scss";
 
 class Footer extends Component {
+
+  onLinkClick = () => {
+      window.open(`https://play.google.com/store/apps/details?id=com.glints.citizens`, "_blank");
+  }
+
   render() {
     return (
       <div>
@@ -113,8 +118,7 @@ class Footer extends Component {
                 <ul className="list-reset mb-4 fo-link">
                   <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                     <Link 
-                    to="https://play.google.com/store/apps/details?id=com.glints.citizens"
-                    target="_blank"
+                    onClick={this.onLinkClick}
                     >
                       <img 
                       src='https://lelogama.go-jek.com/component/nav/picture/google-play-badge3x-p.png'

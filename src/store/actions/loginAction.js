@@ -24,12 +24,11 @@ export const getUser = () => async dispatch => {
 
 export const loginUser = SignIn => async dispatch => {
   try {
-    console.log(SignIn)
     const response = await axios.post(
       `https://app-citizenjournalism.herokuapp.com/api/v1/user/login`,
       SignIn,
     );
-    // console.log(response.data.result)
+    console.log(response.data.result)
     switch (response.data.result.isAdmin) {
       case true:
         dispatch({

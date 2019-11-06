@@ -159,7 +159,7 @@ class UserProfile extends Component {
                     <img
                       src={userData && userData.image.secure_url}
                       alt={userData && userData.username}
-                      className='object-cover self-center rounded-full shadow-lg mb-6 h-32 w-32 md:h-32 md:w-32'
+                      className='object-cover object-center self-center rounded-full shadow-lg mb-6 h-32 w-32 md:h-32 md:w-32'
                     />
                   </div>
 

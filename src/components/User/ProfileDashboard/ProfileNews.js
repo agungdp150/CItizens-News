@@ -106,7 +106,7 @@ class ProfileNews extends Component {
                 <img
                   src={showNews.media.secure_url}
                   alt='name'
-                  className='h-40 w-full'
+                  className='h-40 w-full object-cover object-center'
                 />
               </div>
 

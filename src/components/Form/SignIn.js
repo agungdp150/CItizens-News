@@ -51,7 +51,7 @@ class SignIn extends Component {
         })
         setTimeout(() => {
           this.props.history.push("/");
-        }, 2000)
+        }, 1500)
       } else {
         this.setState({
           alerError : true
