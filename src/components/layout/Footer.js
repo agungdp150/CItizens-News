@@ -31,22 +31,22 @@ class Footer extends Component {
                 <h4 className="uppercase md:mb-3 text-sm font-bold">About C-News</h4>
                 <ul className="list-reset mb-4">
                   <li className="mr-2 md:block md:mr-0">
-                    <Link to="/about" className="no-underline font-normal text-sm">
+                    <Link to="#" className="no-underline font-normal text-sm">
                       About
                     </Link>
                   </li>
                   <li className="mt-2 mr-2 md:block md:mr-0">
-                    <Link to="about" className="no-underline font-normal text-sm">
+                    <Link to="#" className="no-underline font-normal text-sm">
                       Contact
                     </Link>
                   </li>
                   <li className="mt-2 mr-2 md:block md:mr-0">
-                    <Link to="about" className="no-underline font-normal text-sm">
+                    <Link to="#" className="no-underline font-normal text-sm">
                       Privacy Policy
                     </Link>
                   </li>
                   <li className="mt-2 mr-2 md:block md:mr-0">
-                    <Link to="about" className="no-underline font-normal text-sm">
+                    <Link to="#" className="no-underline font-normal text-sm">
                       Blog
                     </Link>
                   </li>
@@ -125,7 +125,7 @@ class Footer extends Component {
                       </button>
                   </li>
                   <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                  <Link to="/about">
+                  <Link to="#">
                       <img 
                       src='https://lelogama.go-jek.com/component/nav/picture/app-store-badge3x-p.png'
                       alt='play-store'

@@ -24,7 +24,7 @@ class NotFound extends Component {
 
         <div>
         <h1 className="font-bold text-gray-700">404</h1>
-        <h1 className="font-bold text-gray-700">Oops... Something Went Wrong</h1>
+        <h1 className="font-bold text-gray-700">Oops... Your page is not found</h1>
         <Link to="/">
         <button className="my-4 text-xs bg-transparent hover:bg-blue-500 text-blue-500 font-semibold hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded">Go Home</button>
         </Link>

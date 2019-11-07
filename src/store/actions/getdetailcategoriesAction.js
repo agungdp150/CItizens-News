@@ -9,9 +9,7 @@ export const getCategory = category => async dispatch => {
       type : GET_DATA_CATEGORY,
       payload : response.data.result
     });
-  } catch (error){
-    console.log(error.response.data);
-  }
+  } catch (error){}
 }
 
 

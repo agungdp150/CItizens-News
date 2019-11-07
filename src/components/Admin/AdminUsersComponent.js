@@ -35,10 +35,8 @@ class AdminUsersComponent extends Component {
         }
       );
       console.log(response.data.result);
-      this.props.getNews(this.props.getAllUser(this.props.allUser))
-    } catch (error) {
-      console.log(error.response.data);
-    }
+      this.props.getAllUser(this.props.allUser)
+    } catch (error) {}
   };
 
   render() {

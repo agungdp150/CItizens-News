@@ -50,7 +50,6 @@ class FileUpload extends Component {
 
   handleSubmit = async e => {
     e.preventDefault();
-    console.log(this.state.media);
     if (this.state.media === null) {
       this.setState({
         mediaValidate : true

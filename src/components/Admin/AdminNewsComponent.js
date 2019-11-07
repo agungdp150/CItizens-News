@@ -58,9 +58,7 @@ class AdminNewsComponent extends Component {
       );
       console.log(response.data.result);
       this.props.getNews(this.props.news)
-    } catch(error){
-      console.log(error.response)
-    }
+    } catch(error){}
   }
 
   render() {

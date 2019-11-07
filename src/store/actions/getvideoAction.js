@@ -10,8 +10,6 @@ export const getVideo = () => async dispatch => {
       type : GET_VIDEO,
       payload : response.data.result
     })
-  } catch(error){
-    console.log(error.response)
-  }
+  } catch(error){}
 }
 

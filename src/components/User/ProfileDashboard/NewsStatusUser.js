@@ -48,11 +48,9 @@ class NewsStatusUser extends Component {
         }
       );
       console.log(response.data);
-      alert("are you sure about that? Jhon cena ");
+      alert("Success delete news");
       this.props.getUserNews(this.props.userNews);
-    } catch (error) {
-      console.log(error.response.data);
-    }
+    } catch (error) {}
   };
 
   render() {

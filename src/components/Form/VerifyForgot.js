@@ -43,9 +43,7 @@ class VerifyForgot extends Component {
       console.log(response.data);
       console.log("berhasil");
       this.props.history.push("/");
-    } catch (error) {
-      console.log(error.response.data);
-    }
+    } catch (error) {}
   };
 
   render() {

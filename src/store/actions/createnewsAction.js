@@ -25,7 +25,6 @@ export const newsPostAction = (data) => async dispatch => {
       payload: response.data
     });
   } catch (error) {
-    console.log("error", error.response);
     dispatch({
       type: UPLOAD_NEWS_FAIL
     })

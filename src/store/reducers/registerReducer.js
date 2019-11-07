@@ -2,7 +2,7 @@ import {REGISTER_SUCCESS, REGISTER_FAIL} from '../../types';
 
 
 const initialState ={
-  token : localStorage.getItem('token'),
+  // token : localStorage.getItem('token'),
   isAuthenticated : null,
   error : [],
   loading : true
@@ -14,7 +14,6 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case REGISTER_SUCCESS :
-      localStorage.setItem('token', payload.token)
       return {
         ...state,
         ...payload,

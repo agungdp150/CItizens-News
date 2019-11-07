@@ -6,7 +6,10 @@ import {
 } from "../../store/actions/getdetailuserAction";
 import ReactPlayer from "react-player";
 import setToken from "../../helpers/setToken";
+import Lottie from "react-lottie";
 
+// Loading stuff
+import Myloading from "../../assets/loading/291-searchask-loop.json";
 
 import Logo2 from "../../assets/img/Logo2.png";
 import User1 from"../../assets/img/user1.png"
@@ -14,7 +17,6 @@ import User1 from"../../assets/img/user1.png"
 import { connect } from "react-redux";
 
 import "../../assets/scss/HeadCategory.scss";
-
 
 
 class HeadCategory extends Component {
@@ -26,7 +28,7 @@ class HeadCategory extends Component {
       tokenCheck :"", 
       status: "Approved",
       newsSearch: [],
-      openModal : false,
+      openModal : false
     };
   }
 
@@ -69,25 +71,29 @@ class HeadCategory extends Component {
         });
         this.setState({
           query : "",
-          openModal : true
+          openModal : true,
         })
-    } catch (error) {
-      console.log(error.response.data);
-    }  
+    } catch (error) {}  
   };
 
   handleCloseModal = (e) => {
     e.preventDefault();
     this.setState({
-      openModal : false
+      openModal : false,
     })
   }
 
 
   render() {
-    // const {newsSearch} = this.state
 
-    // console.log(this.state.newsSearch)
+    const setLoattie = {
+      loop: true,
+      autoplay: true,
+      animationData: Myloading,
+      renderSettings: {
+        preserveAspectRatio: "xMidYMid slice"
+      }
+    };
 
     const mySearch = this.state.newsSearch.map(findNews => {
 
@@ -180,7 +186,7 @@ class HeadCategory extends Component {
                       <div className='dropdown'>
                         <div className='projects'>
                           <button>
-                            <i class='fas fa-sort-down'></i>
+                            <i className='fas fa-sort-down'></i>
                           </button>
                           <ul className='shadow'>
                             <li className='border-b py-3 font-bold'>
@@ -348,14 +354,21 @@ class HeadCategory extends Component {
         </header>
 
         {this.state.openModal ? 
-        (
+        ( 
           <div className="for-Searchnews">
           <div className="back-modal1">
           <div className="width-modal-head rounded">
-            <button onClick={this.handleCloseModal} ><i class="fas fa-times-circle"></i></button>
-            <div className="pop-up">
-              {mySearch}
-            </div>
+            <button onClick={this.handleCloseModal} className="fixed" ><i className="fas fa-times-circle"></i></button>
+              {this.state.newsSearch !== undefined ? 
+              (
+                <div className="pop-up">
+                {mySearch}
+                </div>
+              ) 
+              : 
+              (
+                <Lottie options={setLoattie} width={50} />
+              )}
             </div>
           </div>
           </div>

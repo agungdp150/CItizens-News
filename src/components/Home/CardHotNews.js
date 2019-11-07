@@ -35,13 +35,11 @@ class CardHotNews extends Component {
   }
 
   render() {
-    // console.log(this.state.trends)
     let trendSlice = this.state.trends
     
     let sliceNow = trendSlice.slice(0,10)
 
     const showTrends = sliceNow && sliceNow.map((helloTrends, index) => {
-      // console.log(helloTrends)
       let getVideoTrends = helloTrends._id.media.secure_url.split(".")
 
       if (getVideoTrends[3] === "mp4"){

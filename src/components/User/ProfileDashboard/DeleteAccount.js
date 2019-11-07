@@ -56,9 +56,7 @@ class DeleteAccount extends Component {
       alert("Delete Account Succes")
       localStorage.clear();
       this.props.history.push("/")
-    } catch (error) {
-      console.log(error.response.data);
-    }
+    } catch (error) { }
   };
 
   render() {

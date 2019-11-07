@@ -10,7 +10,5 @@ export const catePage = page => async dispatch => {
       type : GET_CATEGORIES_PAGINATION,
       payload : response.data.result
     })
-  } catch(error) {
-    console.log(error.response);
-  }
+  } catch(error) {}
 }

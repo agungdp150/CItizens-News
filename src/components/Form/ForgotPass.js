@@ -36,9 +36,7 @@ class ForogotPass extends Component {
       );
       console.log(response);
       this.props.history.push("/verifyforgot");
-    } catch (error) {
-      console.log(error.response.data);
-    }
+    } catch (error) { }
   };
 
   render() {

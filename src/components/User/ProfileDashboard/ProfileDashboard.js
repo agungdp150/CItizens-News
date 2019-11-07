@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ScrollUpButton from "react-scroll-up-button";
-import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import {
@@ -36,26 +35,6 @@ class ProfileDashboard extends Component {
     this.setState({
       loading: true
     });
-  };
-
-  handleDelete = async id => {
-    const checkToken = `Bearer ${localStorage.getItem("token")}`;
-
-    try {
-      const response = await axios.delete(
-        `https://app-citizenjournalism.herokuapp.com/api/v1/news/delete/${id}`,
-        {
-          headers: {
-            Authorization: checkToken
-          }
-        }
-      );
-      console.log(response.data);
-      alert("are you sure about that? Jhon cena ");
-      this.props.getUserNews(this.props.userNews);
-    } catch (error) {
-      console.log(error.response.data);
-    }
   };
 
   render() {

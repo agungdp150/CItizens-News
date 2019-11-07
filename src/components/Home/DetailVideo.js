@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import ScrollUpButton from "react-scroll-up-button";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getDetail } from "../../store/actions/getdetailAction";
@@ -51,14 +52,11 @@ class DetailVideo extends Component {
         }
       );
       console.log(response.data);
-      console.log("wakata");
       this.setState({
         comment: ""
       });
       this.props.getDetail(this.props.match.params.id);
-    } catch (error) {
-      console.log(error.response);
-    }
+    } catch (error) { }
   };
 
   render() {
@@ -74,7 +72,6 @@ class DetailVideo extends Component {
     } = this.props.details;
 
     const commentList = listComment.map(commentCheck => {
-      // console.log(commentCheck.user_id.fullname);
       return (
         <div className='sm:flex sm:items-top px-6 py-4' key={commentCheck._id}>
           <img
@@ -84,9 +81,11 @@ class DetailVideo extends Component {
           />
           <div className='sm:text-left sm:flex-grow'>
             <div>
+            <Link to={`/user/${commentCheck.user_id._id}`}>
               <p className='text-md font-semibold leading-tight py-2'>
                 {commentCheck.user_id.fullname}
               </p>
+              </Link>
               <div>
                 <p className='text-sm leading-tight text-grey-dark text-justify'>
                   {commentCheck.comment}
@@ -112,6 +111,14 @@ class DetailVideo extends Component {
 
     return (
       <div>
+      <ScrollUpButton 
+        StopPosition={0}
+        ShowAtPosition={150}
+        EasingType='easeOutCubic'
+        AnimationDuration={500}
+        ContainerClassName='ScrollUpButton__Container'
+        TransitionClassName='ScrollUpButton__Toggled'
+        />
         <div className='bg-color-hot top-detail'>
           {this.state.loading ? (
             <div className='flex flex-wrap overflow-hidden text-container container mx-auto'>

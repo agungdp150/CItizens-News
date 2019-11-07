@@ -53,14 +53,11 @@ class Detail extends Component {
         }
       );
       console.log(response.data);
-      console.log("wakata");
       this.setState({
         comment: ""
       });
       this.props.getDetail(this.props.match.params.id);
-    } catch (error) {
-      console.log(error.response);
-    }
+    } catch (error) { }
   };
 
   render() {

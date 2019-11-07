@@ -10,7 +10,5 @@ export const getDetail = id => async dispatch => {
       type : GET_DETAIL_NEWS,
       payload : response.data.result
     });
-  } catch (error) {
-    console.log (error.response.data);
-  } 
+  } catch (error) {} 
 }

@@ -38,7 +38,6 @@ class GridNews extends Component {
 
   render() {
     let dataAllnews = this.props.news;
-    // console.log(dataAllnews && dataAllnews)
 
     let cateNews = dataAllnews.filter(newsFil => newsFil.status === "Approved");
 
@@ -46,12 +45,9 @@ class GridNews extends Component {
       checkNews => checkNews.category[0] === "News"
     );
 
-    // console.log(newsFilter);
-
     let sliceNews = newsFilter.slice(3, 6);
 
     const newsData = sliceNews.map(newspro => {
-      // console.log(newspro)
       return (
         <div
           className='w-full overflow-hidden border-b-2 border-gray-400'

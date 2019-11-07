@@ -35,11 +35,9 @@ class Contribution extends Component {
   };
 
   render() {
-    // console.log(this.state.listTopContributor)
     const topContributor = this.state.listTopContributor;
 
     const topUser = topContributor.map(check => {
-      // console.log(check._id._id)
       return (
         <div key={check._id._id}>
           <Link to={`/user/${check._id._id}`}>

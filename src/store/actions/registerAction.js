@@ -16,7 +16,6 @@ export const register = SignUp => async dispatch => {
       payload : response
     });
   } catch (error) {
-    console.log (error.response.data);
     dispatch({
       type : REGISTER_FAIL
     })

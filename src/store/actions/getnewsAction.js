@@ -10,9 +10,7 @@ export const getNews = () => async dispatch => {
       type : GET_NEWS,
       payload : response.data.result
     });
-  } catch (error) {
-    console.log (error.response.data);
-  }
+  } catch (error) {}
 }
 
 

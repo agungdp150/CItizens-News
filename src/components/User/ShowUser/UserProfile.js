@@ -86,16 +86,15 @@ class UserProfile extends Component {
             succesSubs : true
           })
         this.handleCheckSub(id);
-      } catch (error) {
-        console.log(error.response.data);
-      }
+      } catch (error) {}
     }
     setTimeout(() => {
       this.setState({
         validateSubs : false,
-        succesSubs : false
+        succesSubs : false,
       })
     }, 1000)
+    window.location.reload(true);
   };
 
   handleDeletSubs = async id => {
@@ -119,9 +118,8 @@ class UserProfile extends Component {
         deleteSubs : true
       })
       this.handleCheckSub(id);
-    } catch (error) {
-      console.log(error.response.data);
-    }
+      window.location.reload(true);
+    } catch (error) { }
     setTimeout(() => {
       this.setState({
         deleteSubs : false

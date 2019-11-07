@@ -14,7 +14,6 @@ export const getUser = () => async dispatch => {
       payload: response.data
     })
   } catch (error) {
-    console.log(error.response);
     dispatch({
       type: GET_USER_FAIL
     })
@@ -48,7 +47,6 @@ export const loginUser = SignIn => async dispatch => {
         })
     }
   } catch (error) {
-    console.log(error.response.data);
     dispatch({
       type: LOGIN_FAIL
     });

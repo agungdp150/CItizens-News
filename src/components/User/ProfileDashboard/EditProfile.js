@@ -81,9 +81,7 @@ class EditProfile extends Component {
           }
         );
         console.log(response.data);
-      } catch (error) {
-        console.log(error.response.data);
-      }
+      } catch (error) {}
 
       this.setState ({
         successChangeData : true

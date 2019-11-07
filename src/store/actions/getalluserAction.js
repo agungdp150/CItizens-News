@@ -9,7 +9,5 @@ export const getAllUser = () => async dispatch => {
       type : ALL_USERS,
       payload : response.data.result
     })
-  } catch (error){
-    console.log(error.response);
-  }
+  } catch (error){}
 }

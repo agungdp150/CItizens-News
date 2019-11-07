@@ -33,9 +33,7 @@ export const getUserNews = () => async dispatch =>{
       type : GET_STATUS_NEWS_USER,
       payload : response.data.result.user
     });
-  } catch(error) {
-    console.log(error.response.data);
-  }
+  } catch(error) {}
 }  
 
 

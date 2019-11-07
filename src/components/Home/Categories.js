@@ -31,15 +31,13 @@ class Categories extends Component {
   render() {
 
     const firstNews = this.props.categories[0];
-    console.log (firstNews && firstNews.category[0])
     
     let sliceMydata = this.props.categories.slice(1);
 
     let filterCaterories = sliceMydata.filter(divide => divide.status === "Approved");
 
     const dataCategory = filterCaterories.map(categoryObj => {
-      console.log (categoryObj)
-      // console.log((categoryObj.category !== "Video") ? true  :  false)
+      
       if(categoryObj.category[0] === "Video") {
         return (
           <div className="w-full overflow-hidden" key={categoryObj._id}>
@@ -122,7 +120,7 @@ class Categories extends Component {
                 )}
               <div className="w-full overflow-hidden py-4">
                 <h1 className="font-bold text-gray-700">
-                <Link to={`/detail/${firstNews && firstNews._id}`}>
+                <Link to={`/videoDetail/${firstNews && firstNews._id}`}>
                 {firstNews && firstNews.title}
                 </Link>
                 </h1>
