@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import HeaderS from '../components/HeaderS'
+import React, { Component } from 'react';
+import GridNews from '../components/Home/GridNews';
 
 
 
@@ -7,8 +7,7 @@ export class HomePage extends Component {
   render() {
     return (
       <div>
-        <HeaderS/>
-        <h1>Hello Home Page</h1>
+        <GridNews/>
       </div>
     )
   }

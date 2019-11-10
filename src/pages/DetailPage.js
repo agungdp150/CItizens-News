@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import Detail from '../components/Home/Detail';
 
-export class DetailPage extends Component {
+class DetailPage extends Component {
   render() {
     return (
       <div>
-        <h1>Hello Detail Page</h1>
+        <Detail/>
       </div>
     )
   }

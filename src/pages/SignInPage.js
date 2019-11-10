@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import SignIn from '../components/Form/SignIn'
 
-export class SignInPage extends Component {
+class SignInPage extends Component {
   render() {
     return (
       <div>
-        <h1>Hellog Sign In Page</h1>
+        <SignIn/>
       </div>
     )
   }
