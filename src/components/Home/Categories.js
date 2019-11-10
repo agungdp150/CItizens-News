@@ -107,6 +107,16 @@ class Categories extends Component {
                   url={firstNews && firstNews.media.secure_url} 
                   width="100%"
                   />
+                  <div className="w-full overflow-hidden py-4">
+                  <h1 className="font-bold text-gray-700">
+                  <Link to={`/videoDetail/${firstNews && firstNews._id}`}>
+                  {firstNews && firstNews.title}
+                  </Link>
+                  </h1>
+                  <p className="text-xs"><Link to={`/user/${firstNews && firstNews.user._id}`}> {firstNews && firstNews.user.username}</Link> <span className="ml-2">published on {firstNews && firstNews.date.substring(0, 10)}</span></p>
+                  <p className="text-sm py-4 text-justify">{firstNews && firstNews.description.substring(0,150)}...<span className="font-semibold text-blue-800"><Link to={`/detail/${firstNews && firstNews._id}`}> Read More </Link></span></p>
+                  <hr/>
+                </div>
                 </div>
                 ) 
                 : 
@@ -120,7 +130,7 @@ class Categories extends Component {
                 )}
               <div className="w-full overflow-hidden py-4">
                 <h1 className="font-bold text-gray-700">
-                <Link to={`/videoDetail/${firstNews && firstNews._id}`}>
+                <Link to={`/detail/${firstNews && firstNews._id}`}>
                 {firstNews && firstNews.title}
                 </Link>
                 </h1>
